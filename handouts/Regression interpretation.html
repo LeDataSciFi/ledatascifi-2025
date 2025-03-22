@@ -1,0 +1,1254 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>THIS FILE IS IN THE HANDOUTS FOLDER. COPY IT INTO YOUR CLASS NOTES &#8212; LeDataSciFi-2025</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/moviescript.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/fin377_specialformatting.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">LeDataSciFi-2025</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Syllabus
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/objectives.html">
+   Objectives
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/outcomes.html">
+   Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/about_us.html">
+   About us + office hours
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/structure_and_policies.html">
+   Course structure + policies
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/use_of_gpt.html">
+   ChatGPT and other AI
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/gradeoverview.html">
+   Grading
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/interest.html">
+   Interested but unsure?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/bootcamp.html">
+   Pre-Class Bootcamp
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/hall_of_awesomeness.html">
+   The Hall of Awesomeness
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/acknowledgments.html">
+   Gratitude
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Schedule, tips, resources
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/schedule.html">
+   Dashboard, key links, schedule
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/help.html">
+   Help
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/resources.html">
+   Resources
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/about/tips.html">
+   Tips and hacks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/community_codebook">
+   Community Codebook
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/handouts">
+   Class Handouts
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Assignments and participation
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/howto_do.html">
+   How to start and turn in assignments
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/howto_review.html">
+   How to do your peer reviews
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/mid_proj.html">
+   Midterm project AKA ASGN 5
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/website_setup.html">
+   Personal Website AKA ASGN 9
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/assignments/project.html">
+   Final projects
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Textbook
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/01/00_Getting_Started.html">
+   1. Motivation and Getting Started
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/01_Motivation.html">
+     1.1. Motivation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/02_Setup.html">
+     1.2. Set up
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/03_github.html">
+     1.3. GitHub Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/03a_githubworkflow.html">
+     1.4. The GitHub Workflow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/04_Markdown.html">
+     1.5. Markdown basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/05_jupyterlab.html">
+     1.6. Jupyter Lab Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/06_python.html">
+     1.7. Python Basics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/07_debugging.html">
+     1.8. Debugging
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/07a_errors.html">
+     1.9. Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/08_libraries.html">
+     1.10. Libraries/Packages
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/01/09_gitignore.html">
+     1.11. Gitignore Files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/02/10_Golden_1.html">
+   2. Good Analysis Practices
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_2.html">
+     2.1. A case study of bad research
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_3.html">
+     2.2. The golden rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_6.html">
+     2.3. Organizing your projects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_7.html">
+     2.4. Filepaths
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_4.html">
+     2.5. Storing data smartly
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_5a.html">
+     2.6. Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_5b.html">
+     2.7. Writing good code comments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/02/10_Golden_8.html">
+     2.8. Writing good code
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/03/00_Data_Wrangling_Intro.html">
+   3. Wrangling with Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/01_Numpy.html">
+     3.1. Numpy
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/01a_NumpyCS.html">
+       3.1.1. Numpy + Scientific Computing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/01b_NumpyBasics.html">
+       3.1.2. A (Very) Short Introduction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/01c_NumpyPractice.html">
+       3.1.3. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/01d_NumpyResources.html">
+       3.1.4. More Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/02a_pandasIntro.html">
+     3.2. Pandas
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02a_pandasTips.html">
+       3.2.1. Tips
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02b_pandasVocab.html">
+       3.2.2. Vocab and Long vs Wide Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02c_commonFcns.html">
+       3.2.3. Common Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02d_temp.html">
+       3.2.4. Temp. vs Perm. Objects
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02e_eda_golden.html">
+       3.2.5. Golden Rules + EDA
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02f_chains.html">
+       3.2.6. Pandas Chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02g_commontasks.html">
+       3.2.7. Common Tasks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02h_exercises.html">
+       3.2.8. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/02j_resourcesAndSum.html">
+       3.2.9. Summary and Resources
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/04a-dataviz.html">
+     3.3. Data Visualization
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04b-whyplot.html">
+       3.3.1. The Role of Viz in Analysis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04c-makeplot.html">
+       3.3.2. Making a Plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04d-whichplot.html">
+       3.3.3. Which Plot Type Should I Use?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04e-visualEDA.html">
+       3.3.4. Visual EDA Walkthrough
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04e2-visualEDA-tools.html">
+       3.3.5. Visual EDA Tools
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04e3-binscatter.html">
+       3.3.6. Bin Scatter Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04e4-binscatterGrids.html">
+       3.3.7. Bin Scatter + Pair Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04f1-viz_narrative.html">
+       3.3.8. Better Plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04f2-customizing_figs.html">
+       3.3.9. Customizing figures
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04f3-interactive_figs.html">
+       3.3.10. Interactive plots:
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         plotly
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04f4-exercises.html">
+       3.3.11. Exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/04h_Summary.html">
+       3.3.12. Chapter Summary
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/03/05a-otherskills.html">
+     3.4. Other (Important) Data Wrangling Skills
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/05b_merging.html">
+       3.4.1. Merging
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/05c_missingdata.html">
+       3.4.2. Dealing with Missing Data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/05d_outliers.html">
+       3.4.3. Dealing with Outliers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/03/05e_summary.html">
+       3.4.4. Chapter Summary
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/04/00_World_Wide_Data.html">
+   4. Building and Using Large (Textual) Data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/04/01_Intro_to_scraping.html">
+     4.1. Getting Data off the Web
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/04/01a_openingAndParsing.html">
+     4.2. Opening + Parsing
+     <em>
+      a
+     </em>
+     Webpage
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/04/01b_spiders.html">
+     4.3. Building a spider
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../content/04/02_strings.html">
+     4.4. Exploiting Textual Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/04/02a_Python%20Strings.html">
+       4.4.1. Working with Python Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/04/02b_regex.html">
+       4.4.2. Regex basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/04/02c_developing_a_regex.html">
+       4.4.3. Developing a regex
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../content/04/02d_RegexApplication.html">
+       4.4.4. Intro to NLP - The Anchor Phase Technique
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/00_intro.html">
+   5. Data Science Intro
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01_bigpicture.html">
+     5.1. The promise of ML
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01b_model_process.html">
+     5.2. Planning a project
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01a_MLgonewrong.html">
+     5.3. ML Gone Wrong
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01c_teams.html">
+     5.4. Coding in Teams
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/01d_sharingBigFiles.html">
+     5.5. Sharing large files
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/02_reg.html">
+   6. Regression
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02a_basics.html">
+     6.1. Basics and Notation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02b_mechanics.html">
+     6.2. Mechanics of running regressions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02c_goodnessOfFit.html">
+     6.3. Goodness of Fit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02d_interpretingCoefs.html">
+     6.4. Interpreting regression coefficients
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02e_statisticalSig.html">
+     6.5. Statistical significance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02f_warnings.html">
+     6.6.
+     <em>
+      Significant
+     </em>
+     warnings about “statistical significance”
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02h_summary_colFE.html">
+     6.7. Fixed effects, categorical variables, and prettier regression tables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/02g_summary.html">
+     6.8. Summary and Resources
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/03_ML.html">
+   7. ML - Intro &amp; Discussion
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03a_ML_obj_and_tradeoff.html">
+     7.1. The objective of machine learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03f_leakage.html">
+     7.2. Data Leakage - Illustration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03f_leakage3.html">
+     7.3. Data Leakage - Illustration 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03f_leakage2.html">
+     7.4. Data Leakage Defined
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03c_ModelEval.html">
+     7.5. Model evaluation via cross validation (CV)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03c1_OOS.html">
+     7.6. Model evaluation via Out-of-Sample (OOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03d_whatToMax.html">
+     7.7. Evaluating models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/03e_whichModel.html">
+     7.8. Model selection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/04a_SKLearn.html">
+   8. ML - Code &amp; Implementation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04b_best_practices.html">
+     8.1. Best Practice Pseudo Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04c_onemodel.html">
+     8.2. SKLearn Intro
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04d_crossval.html">
+     8.3. Cross-Validation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04e_pipelines.html">
+     8.4. Pipelines
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04e1_preprocessing.html">
+     8.5. Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04f_optimizing_a_model.html">
+     8.6. Optimizing a Model
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/04h_putting_together.html">
+     8.7. Many Models
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/05a_finapps.html">
+   9. Finance Applications
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05a_compounding.html">
+     9.1. Compounding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05a_rolling.html">
+     9.2. Rolling returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05a_expanding.html">
+     9.3. Expanding returns
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05b_capm.html">
+     9.4. Estimating CAPM
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05c_factorloadings.html">
+     9.5. Estimating better models
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05d_AssetPricingAnomalyTable1.html">
+     9.6. Is a factor a tradeable anomaly?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05e_OpenAP_anomaly_plot.html">
+     9.7. Open Asset Pricing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/05c_finpacks.html">
+     9.8. Supercharged resources/packages
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../content/05/06_thefuture.html">
+   10. The Future
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/06a_saving.html">
+     10.1. Saving Your Work
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/06b_nextsteps.html">
+     10.2. Faster, better, stronger
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../content/05/06c_dashboards.html">
+     10.3. Dashboards
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Slides and Memes
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/slides/slides.html">
+   Slides from previous classes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/slides/memes.html">
+   Memes
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/handouts/Regression interpretation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2025"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/LeDataSciFi/ledatascifi-2025/issues/new?title=Issue%20on%20page%20%2Fhandouts/Regression interpretation.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/LeDataSciFi/ledatascifi-2025/edit/main/handouts/Regression interpretation.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/LeDataSciFi/ledatascifi-2025/main?urlpath=lab/tree/handouts/Regression interpretation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/LeDataSciFi/ledatascifi-2025/blob/main/handouts/Regression interpretation.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   THIS FILE IS IN THE HANDOUTS FOLDER. COPY IT INTO YOUR CLASS NOTES
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#today">
+     Today
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#today-is-mostly-about-interpreting-coefficients-6-4-in-the-book">
+   Today is mostly about INTERPRETING COEFFICIENTS (6.4 in the book)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clean-the-data-and-create-variables-you-want">
+     Clean the data and create variables you want
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statsmodels">
+     Statsmodels
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#today-work-in-groups-refer-to-the-lectures">
+   Today. Work in groups. Refer to the lectures.
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="this-file-is-in-the-handouts-folder-copy-it-into-your-class-notes">
+<h1>THIS FILE IS IN THE HANDOUTS FOLDER. COPY IT INTO YOUR CLASS NOTES<a class="headerlink" href="#this-file-is-in-the-handouts-folder-copy-it-into-your-class-notes" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ledatascifi.github.io/ledatascifi-2025/content/05/02_reg.html"><strong>Read the chapter on the website!</strong></a> It contains a lot of extra information we won’t cover in class extensively.</p></li>
+<li><p>After reading that, I recommend <a class="reference external" href="https://aeturrell.github.io/coding-for-economists/econmt-regression.html">this webpage as a complimentary place to get additional intuition.</a></p></li>
+</ul>
+<div class="section" id="today">
+<h2>Today<a class="headerlink" href="#today" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://docs.google.com/spreadsheets/d/1SMetWKgI3JdhFdBwihDgIY3BDubvihkJCWbgLcCe4fs/edit?usp=sharing">Finish picking teams and declare initial project interests in the project sheet</a></p>
+</div>
+</div>
+<div class="section" id="today-is-mostly-about-interpreting-coefficients-6-4-in-the-book">
+<h1>Today is mostly about INTERPRETING COEFFICIENTS (6.4 in the book)<a class="headerlink" href="#today-is-mostly-about-interpreting-coefficients-6-4-in-the-book" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>25 min reading groups: Talk/read through two regression pages (6.3 and 6.4)</p>
+<ul class="simple">
+<li><p>Assemble your own notes. Perhaps in the “Module 4 notes” file, but you can do this in any file you want.</p></li>
+<li><p>After class, each group will email their notes to the TA/me for participation. (Effort grading.)</p></li>
+</ul>
+</li>
+<li><p>10 min: class builds joint “big takeaways and nuanced observations”</p></li>
+<li><p>5 min: Interpret models 1-2 as class as practice.</p></li>
+<li><p>20 min reading groups: Work through remaining problems below.</p></li>
+<li><p>10 min: wrap up</p></li>
+</ol>
+<hr class="docutils" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols</span> <span class="k">as</span> <span class="n">sm_ols</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.iolib.summary2</span><span class="w"> </span><span class="kn">import</span> <span class="n">summary_col</span> <span class="c1"># nicer tables</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/ledatascifi-2025/blob/main/data/Fannie_Mae_Plus_Data.gzip?raw=true&#39;</span>
+<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="clean-the-data-and-create-variables-you-want">
+<h2>Clean the data and create variables you want<a class="headerlink" href="#clean-the-data-and-create-variables-you-want" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fannie_mae</span> <span class="o">=</span> <span class="p">(</span><span class="n">fannie_mae</span>
+                  <span class="c1"># create variables</span>
+                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">]),</span>
+                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Original_LTV_(OLTV)&#39;</span><span class="p">]),</span>
+                          <span class="n">l_int</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Original_Interest_Rate&#39;</span><span class="p">]),</span>
+                          <span class="n">Origination_Date</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;Origination_Date&#39;</span><span class="p">]),</span>
+                          <span class="n">Origination_Year</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;Origination_Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
+                          <span class="n">const</span> <span class="o">=</span> <span class="mi">1</span>
+                         <span class="p">)</span>
+                  <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Original_Interest_Rate&#39;</span><span class="p">:</span><span class="s1">&#39;int&#39;</span><span class="p">})</span> <span class="c1"># shorter name will help the table formatting</span>
+             <span class="p">)</span>
+
+<span class="c1"># create a categorical credit bin var with &quot;pd.cut()&quot;</span>
+<span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;creditbins&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Co-borrower_credit_score_at_origination&#39;</span><span class="p">],</span>
+                                 <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">579</span><span class="p">,</span><span class="mi">669</span><span class="p">,</span><span class="mi">739</span><span class="p">,</span><span class="mi">799</span><span class="p">,</span><span class="mi">850</span><span class="p">],</span>
+                                 <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Very Poor&#39;</span><span class="p">,</span><span class="s1">&#39;Fair&#39;</span><span class="p">,</span><span class="s1">&#39;Good&#39;</span><span class="p">,</span><span class="s1">&#39;Very Good&#39;</span><span class="p">,</span><span class="s1">&#39;Exceptional&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="statsmodels">
+<h2>Statsmodels<a class="headerlink" href="#statsmodels" title="Permalink to this headline">¶</a></h2>
+<p>As before, the psuedocode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="o">&lt;</span><span class="n">formula</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">data</span><span class="o">=&lt;</span><span class="n">dataframe</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># you use result to print summary, get predicted values (.predict) or residuals (.resid)</span>
+</pre></div>
+</div>
+<p>Now, let’s save each regression’s result with a different name, and below this, output them all in one nice table:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># one var: &#39;y ~ x&#39; means fit y = a + b*X</span>
+
+<span class="n">reg1</span> <span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;int ~  Borrower_Credit_Score_at_Origination &#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fannie_mae</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">reg1b</span><span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;int ~  l_credscore  &#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">=</span><span class="n">fannie_mae</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">reg1c</span><span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;l_int ~  Borrower_Credit_Score_at_Origination  &#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">=</span><span class="n">fannie_mae</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">reg1d</span><span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;l_int ~  l_credscore  &#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">=</span><span class="n">fannie_mae</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># multiple variables: just add them to the formula</span>
+<span class="c1"># &#39;y ~ x1 + x2&#39; means fit y = a + b*x1 + c*x2</span>
+<span class="n">reg2</span> <span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;int ~  l_credscore + l_LTV &#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">=</span><span class="n">fannie_mae</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># interaction terms: Just use *</span>
+<span class="c1"># Note: always include each variable separately too! (not just x1*x2, but x1+x2+x1*x2)</span>
+<span class="n">reg3</span> <span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;int ~  l_credscore + l_LTV + l_credscore*l_LTV&#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">=</span><span class="n">fannie_mae</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+      
+<span class="c1"># categorical dummies: C() </span>
+<span class="n">reg4</span> <span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;int ~  C(creditbins)  &#39;</span><span class="p">,</span>  <span class="n">data</span><span class="o">=</span><span class="n">fannie_mae</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="n">reg5</span> <span class="o">=</span> <span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;int ~  C(creditbins)  -1&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">fannie_mae</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, time to output them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now I&#39;ll format an output table</span>
+<span class="c1"># I&#39;d like to include extra info in the table (not just coefficients)</span>
+<span class="n">info_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;R-squared&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">rsquared</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+           <span class="s1">&#39;Adj R-squared&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">rsquared_adj</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+           <span class="s1">&#39;No. observations&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">nobs</span><span class="p">)</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+
+<span class="c1"># q4b1 and q4b2 name the dummies differently in the table, so this is a silly fix</span>
+<span class="n">reg4</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">exog_names</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">reg5</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">exog_names</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  
+
+<span class="c1"># This summary col function combines a bunch of regressions into one nice table</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">108</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;                  y = interest rate if not specified, log(interest rate else)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary_col</span><span class="p">(</span><span class="n">results</span><span class="o">=</span><span class="p">[</span><span class="n">reg1</span><span class="p">,</span><span class="n">reg1b</span><span class="p">,</span><span class="n">reg1c</span><span class="p">,</span><span class="n">reg1d</span><span class="p">,</span><span class="n">reg2</span><span class="p">,</span><span class="n">reg3</span><span class="p">,</span><span class="n">reg4</span><span class="p">,</span><span class="n">reg5</span><span class="p">],</span> <span class="c1"># list the result obj here</span>
+                  <span class="n">float_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%0.2f</span><span class="s1">&#39;</span><span class="p">,</span>
+                  <span class="n">stars</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="c1"># stars are easy way to see if anything is statistically significant</span>
+                  <span class="n">model_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39; 3 (log)&#39;</span><span class="p">,</span><span class="s1">&#39;4 (log)&#39;</span><span class="p">,</span><span class="s1">&#39;5&#39;</span><span class="p">,</span><span class="s1">&#39;6&#39;</span><span class="p">,</span><span class="s1">&#39;7&#39;</span><span class="p">,</span><span class="s1">&#39;8&#39;</span><span class="p">],</span> <span class="c1"># these are bad names, lol. Usually, just use the y variable name</span>
+                  <span class="n">info_dict</span><span class="o">=</span><span class="n">info_dict</span><span class="p">,</span>
+                  <span class="n">regressor_order</span><span class="o">=</span><span class="p">[</span> <span class="s1">&#39;Intercept&#39;</span><span class="p">,</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">,</span><span class="s1">&#39;l_credscore&#39;</span><span class="p">,</span><span class="s1">&#39;l_LTV&#39;</span><span class="p">,</span><span class="s1">&#39;l_credscore:l_LTV&#39;</span><span class="p">,</span>
+                                  <span class="s1">&#39;C(creditbins)[Very Poor]&#39;</span><span class="p">,</span><span class="s1">&#39;C(creditbins)[Fair]&#39;</span><span class="p">,</span><span class="s1">&#39;C(creditbins)[Good]&#39;</span><span class="p">,</span><span class="s1">&#39;C(creditbins)[Vrey Good]&#39;</span><span class="p">,</span><span class="s1">&#39;C(creditbins)[Exceptional]&#39;</span><span class="p">]</span>
+                  <span class="p">)</span>
+     <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>============================================================================================================
+                  y = interest rate if not specified, log(interest rate else)
+
+============================================================================================================
+                                        1        2      3 (log) 4 (log)     5         6        7        8   
+------------------------------------------------------------------------------------------------------------
+Intercept                            11.58*** 45.37*** 2.87***  9.50***  44.13*** -16.81*** 6.65***         
+                                     (0.05)   (0.29)   (0.01)   (0.06)   (0.30)   (4.11)    (0.08)          
+Borrower_Credit_Score_at_Origination -0.01***          -0.00***                                             
+                                     (0.00)            (0.00)                                               
+l_credscore                                   -6.07***          -1.19*** -5.99*** 3.22***                   
+                                              (0.04)            (0.01)   (0.04)   (0.62)                    
+l_LTV                                                                    0.15***  14.61***                  
+                                                                         (0.01)   (0.97)                    
+l_credscore:l_LTV                                                                 -2.18***                  
+                                                                                  (0.15)                    
+C(creditbins)[Very Poor]                                                                             6.65***
+                                                                                                     (0.08) 
+C(creditbins)[Fair]                                                                         -0.63*** 6.02***
+                                                                                            (0.08)   (0.02) 
+C(creditbins)[Good]                                                                         -1.17*** 5.48***
+                                                                                            (0.08)   (0.01) 
+C(creditbins)[Exceptional]                                                                  -2.25*** 4.40***
+                                                                                            (0.08)   (0.01) 
+C(creditbins)[Very Good]                                                                    -1.65*** 5.00***
+                                                                                            (0.08)   (0.01) 
+R-squared                            0.13     0.12     0.13     0.12     0.13     0.13      0.11     0.11   
+R-squared Adj.                       0.13     0.12     0.13     0.12     0.13     0.13      0.11     0.11   
+R-squared                            0.13     0.12     0.13     0.12     0.13     0.13      0.11     0.11   
+Adj R-squared                        0.13     0.12     0.13     0.12     0.13     0.13      0.11     0.11   
+No. observations                     134481   134481   134481   134481   134481   134481    67366    67366  
+============================================================================================================
+Standard errors in parentheses.
+* p&lt;.1, ** p&lt;.05, ***p&lt;.01
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="today-work-in-groups-refer-to-the-lectures">
+<h1>Today. Work in groups. Refer to the lectures.<a class="headerlink" href="#today-work-in-groups-refer-to-the-lectures" title="Permalink to this headline">¶</a></h1>
+<p>You might need to print out a few individual regressions with more decimals.</p>
+<ol class="simple">
+<li><p>Interpret coefs in model 1-4</p></li>
+<li><p>Interpret coefs in model 5</p></li>
+<li><p>Interpret coefs in model 6 (and visually?)</p></li>
+<li><p>Interpret coefs in model 7 (and visually? + comp to table)</p></li>
+<li><p>Interpret coefs in model 8 (and visually? + comp to table)</p></li>
+<li><p>Add l_LTV  to Model 8 and interpret (and visually?)</p></li>
+</ol>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./handouts"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Prof. Donald Bowen<br/>
+        
+            &copy; Copyright 2025.<br/>
+          <div class="extra_footer">
+            You're doing well, keep going!
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
