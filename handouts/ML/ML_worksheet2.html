@@ -31,9 +31,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -963,6 +963,11 @@ const thebe_selector_output = ".output, .cell_output"
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-this-worksheet">
+   In this worksheet:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#load-data">
    Load data
   </a>
@@ -987,6 +992,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calibration-display">
+     Calibration display
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#classification-report">
      Classification Report
     </a>
@@ -997,8 +1007,8 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calibration-display">
-     Calibration display
+    <a class="reference internal nav-link" href="#decision-functions">
+     “Decision functions”
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -1006,16 +1016,9 @@ const thebe_selector_output = ".output, .cell_output"
      Precision-Recall Curves
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#roc-curve-receiver-operating-characteristic">
-   ROC curve (“receiver operating characteristic”)
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#detection-error-tradeoff-det">
-     Detection error tradeoff (DET)
+    <a class="reference internal nav-link" href="#roc-curve-receiver-operating-characteristic">
+     ROC curve (“receiver operating characteristic”)
     </a>
    </li>
   </ul>
@@ -1024,15 +1027,20 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#the-problem-with-our-estimator-imbalance">
    The problem with our estimator: Imbalance
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#options-to-deal-with-imbalanced-data">
+   Options to deal with imbalanced data
+  </a>
   <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#options-to-deal-with-imbalanced-data">
-     Options to deal with imbalanced data
-    </a>
-   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#practical-tips">
      🔥🔥🔥 Practical tips: 🔥🔥🔥
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changing-the-threshold-manually">
+     Changing the threshold manually
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -1043,8 +1051,18 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+  <a class="reference internal nav-link" href="#recap-before-exercises">
+   Recap before exercises:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises-1-5-this-is-just-business-math">
+   Exercises 1-5: This is just business math!
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises-6-and-7-now-we-think-about-reflecting-our-biz-logic-in-code">
+   Exercises 6 and 7: Now we think about reflecting our biz logic in code
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1065,13 +1083,25 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="section" id="classification-models">
 <h1>Classification Models<a class="headerlink" href="#classification-models" title="Permalink to this headline">¶</a></h1>
+<p><em>This “worksheet” is mostly textbook/walkthrough content. The exercises are at the end but rely on the proceeding material.</em></p>
 <p>A <strong>classification model</strong> is when you’re predicting an outcome with discrete levels. It can be binary (default vs paid off), or multinomial (red, orange, yellow, green, blue, indigo, violet).</p>
+<p><a class="reference external" href="https://scikit-learn.org/stable/modules/classification_threshold.html">Classification is best divided into two parts:</a></p>
+<ol class="simple">
+<li><p>the statistical problem of learning a model to predict, ideally, class probabilities;</p></li>
+<li><p>the decision problem to take concrete action based on those probability predictions.</p></li>
+</ol>
 <p>We actually estimated a classification model in the last worksheet: Did borrowers pay back a loan?</p>
-<p>In this worksheet:</p>
+<p>We did this by estimating a logitistic (logit) regression.</p>
+<p>A fitted logit model produces, for a given vector of data X, the predicted probability that y=1 for those values of X.</p>
+<p>This is not a classification, its a probability, a number in [0,1].</p>
+<p>A <em>classification model that uses logit</em> takes the logit predicted probability, and outputs a prediction: YES, or NO.</p>
+<p>It does this by setting a <strong>threshold</strong> T: If the predicted probability is above T, then the prediction is YES.</p>
+<div class="section" id="in-this-worksheet">
+<h2>In this worksheet:<a class="headerlink" href="#in-this-worksheet" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>[ ] Ways to evaluate classifications models</p>
 <ul>
-<li><p>You can output a classification report and 5 figures</p></li>
+<li><p>You can output a classification report and key diagnostics</p></li>
 <li><p>You can use and interpret those outputs</p></li>
 </ul>
 </li>
@@ -1082,6 +1112,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">df_after_transform</span><span class="w"> </span><span class="kn">import</span> <span class="n">df_after_transform</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_config</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.calibration</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalibrationDisplay</span>
@@ -1114,6 +1145,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span>
 <span class="p">)</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1180,7 +1212,422 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-b3b9273a-8f78-427a-904b-a2919a2425dc {color: black;background-color: white;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc pre{padding: 0;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-toggleable {background-color: white;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-estimator:hover {background-color: #d4ebff;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-item {z-index: 1;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-parallel::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-parallel-item:only-child::after {width: 0;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;position: relative;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-label-container {position: relative;z-index: 2;text-align: center;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-b3b9273a-8f78-427a-904b-a2919a2425dc div.sk-text-repr-fallback {display: none;}</style><div id="sk-b3b9273a-8f78-427a-904b-a2919a2425dc" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
                  ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
                                                   Pipeline(steps=[(&#x27;simpleimputer&#x27;,
                                                                    SimpleImputer()),
@@ -1191,7 +1638,7 @@ const thebe_selector_output = ".output, .cell_output"
                                                   Pipeline(steps=[(&#x27;onehotencoder&#x27;,
                                                                    OneHotEncoder(drop=&#x27;first&#x27;))]),
                                                   [&#x27;grade&#x27;])])),
-                (&#x27;logisticregression&#x27;, LogisticRegression())])</pre><b>Please rerun this cell to show the HTML repr or trust the notebook.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="87fabb66-8912-4a06-b282-21b6779be089" type="checkbox" ><label for="87fabb66-8912-4a06-b282-21b6779be089" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
+                (&#x27;logisticregression&#x27;, LogisticRegression())])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
                  ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
                                                   Pipeline(steps=[(&#x27;simpleimputer&#x27;,
                                                                    SimpleImputer()),
@@ -1202,7 +1649,7 @@ const thebe_selector_output = ".output, .cell_output"
                                                   Pipeline(steps=[(&#x27;onehotencoder&#x27;,
                                                                    OneHotEncoder(drop=&#x27;first&#x27;))]),
                                                   [&#x27;grade&#x27;])])),
-                (&#x27;logisticregression&#x27;, LogisticRegression())])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="6eae5f52-4d31-4f9f-b8e5-d07813322e34" type="checkbox" ><label for="6eae5f52-4d31-4f9f-b8e5-d07813322e34" class="sk-toggleable__label sk-toggleable__label-arrow">columntransformer: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
+                (&#x27;logisticregression&#x27;, LogisticRegression())])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>columntransformer: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for columntransformer: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
                                  Pipeline(steps=[(&#x27;simpleimputer&#x27;,
                                                   SimpleImputer()),
                                                  (&#x27;standardscaler&#x27;,
@@ -1211,21 +1658,50 @@ const thebe_selector_output = ".output, .cell_output"
                                 (&#x27;pipeline-2&#x27;,
                                  Pipeline(steps=[(&#x27;onehotencoder&#x27;,
                                                   OneHotEncoder(drop=&#x27;first&#x27;))]),
-                                 [&#x27;grade&#x27;])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="ab545e3e-7358-486f-b27e-fd3e66b84cba" type="checkbox" ><label for="ab545e3e-7358-486f-b27e-fd3e66b84cba" class="sk-toggleable__label sk-toggleable__label-arrow">pipeline-1</label><div class="sk-toggleable__content"><pre>[&#x27;annual_inc&#x27;, &#x27;int_rate&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="2dc49c3a-cff1-49a2-b2c7-5367f8442e9a" type="checkbox" ><label for="2dc49c3a-cff1-49a2-b2c7-5367f8442e9a" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="a3cecde4-5f3d-449b-b55c-1067aa72e92f" type="checkbox" ><label for="a3cecde4-5f3d-449b-b55c-1067aa72e92f" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="add98c94-3ad8-45df-870b-0733c6228b20" type="checkbox" ><label for="add98c94-3ad8-45df-870b-0733c6228b20" class="sk-toggleable__label sk-toggleable__label-arrow">pipeline-2</label><div class="sk-toggleable__content"><pre>[&#x27;grade&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="1aca3b46-a788-4179-97e8-2d92579a76d2" type="checkbox" ><label for="1aca3b46-a788-4179-97e8-2d92579a76d2" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder(drop=&#x27;first&#x27;)</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="6bc9f02e-41ae-4482-991b-2e6d8e76111d" type="checkbox" ><label for="6bc9f02e-41ae-4482-991b-2e6d8e76111d" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div></div></div></div></div>
+                                 [&#x27;grade&#x27;])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>pipeline-1</div></div></label><div class="sk-toggleable__content fitted"><pre>[&#x27;annual_inc&#x27;, &#x27;int_rate&#x27;]</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content fitted"><pre>SimpleImputer()</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" ><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>pipeline-2</div></div></label><div class="sk-toggleable__content fitted"><pre>[&#x27;grade&#x27;]</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" ><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>OneHotEncoder</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></div></label><div class="sk-toggleable__content fitted"><pre>OneHotEncoder(drop=&#x27;first&#x27;)</pre></div> </div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox" ><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression()</pre></div> </div></div></div></div></div></div></div></div>
 </div>
 </div>
 <div class="section" id="evaluating-the-classification-model">
 <h2>Evaluating the classification model<a class="headerlink" href="#evaluating-the-classification-model" title="Permalink to this headline">¶</a></h2>
+<p>First, we cover the classic “ML” model evaluation outputs. These aren’t made for business settings, but are useful.</p>
+<ol class="simple">
+<li><p>Calibration Display: Is your model producing well-tuned probabilities?</p></li>
+<li><p>Classification report</p></li>
+<li><p>Confusion Matrix</p></li>
+<li><p>Precision-Recall Curve: Can your model have high recall and precision if we adjust the threshold?</p></li>
+<li><p>ROC Curve: Can your model have low false positives and high recall if we adjust the threshold?</p></li>
+</ol>
+<div class="section" id="calibration-display">
+<h3>Calibration display<a class="headerlink" href="#calibration-display" title="Permalink to this headline">¶</a></h3>
+<p>Our logit estimator produces, for each loan, a prediction of the probability of default. A calibration display groups those predictions into buckets (on the x-axis), and reports the average true outcomes for that bucket (on the y-axis). A perfectly calibrated classifier will be on the 45 degree line.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CalibrationDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.calibration.CalibrationDisplay at 0x277595d06d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/ML_worksheet2_12_1.png" src="../../_images/ML_worksheet2_12_1.png" />
+</div>
+</div>
+<p>This figure suggests that our logit seems to be decently “calibrated”.</p>
+<p>This means the <em>estimation model</em> is decent, and that the <em>classifier</em> <em>can</em> be good.</p>
+<p>This does not mean the classifier is good.</p>
+</div>
 <div class="section" id="classification-report">
 <h3>Classification Report<a class="headerlink" href="#classification-report" title="Permalink to this headline">¶</a></h3>
-<p><strong>The first thing you should do with a classification model is output a <code class="docutils literal notranslate"><span class="pre">classification_report</span></code>.</strong></p>
+<p><strong>When you build a classifier, you should always output a <code class="docutils literal notranslate"><span class="pre">classification_report</span></code>.</strong></p>
 <p><em>Ignore the Warnings. This table is correct. It’s just mad that our model is so bad we never predict a default!</em></p>
 <p>The definition of precision and recall and f1-score <a class="reference external" href="https://ledatascifi.github.io/ledatascifi-2022/content/05/03d_whatToMax.html">are here.</a></p>
+<p>First I explain the terms abstractly, and after the table, I’ll rephase them in more direct language.</p>
 <ul class="simple">
 <li><p>Precision measures: When we predict an outcome, how often does that happen? (Are the predictions precise?)</p></li>
 <li><p>Recall: What fraction of an outcome’s occurrences does your model detect? (“Does the model recall the true occurrences?”)</p>
 <ul>
-<li><p>Aka sensitivity: A sensitive model detects an outcome happening more often?</p></li>
+<li><p>Aka sensitivity: A sensitive model detects an outcome happening more often</p></li>
 </ul>
 </li>
 <li><p>Accuracy: Fraction of labels that are correct across all observations</p></li>
@@ -1254,16 +1730,23 @@ const thebe_selector_output = ".output, .cell_output"
 weighted avg       0.71      0.84      0.77    107843
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
-C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.py:1318: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, msg_start, len(result))
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
 </pre></div>
 </div>
 </div>
 </div>
+<p>Above: We get Precision and Recall for each class. Let’s translate those metrics into business words:</p>
+<ul class="simple">
+<li><p>False (paid back) precision: When our model predicts a loan will be paid back, how many actually were? (84%)</p></li>
+<li><p>True (charge off) precision: When our model predicts a loan will be charged off, how many actually were? (0%)</p></li>
+<li><p>False (paid back) recall: What fraction of the paid off loans does our model predict would be? (100%)</p></li>
+<li><p>True (charge off) recall: What fraction of the charged off loans does our model predict would be? (0%)</p></li>
+</ul>
 </div>
 <div class="section" id="confusion-matrix">
 <h3>Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h3>
@@ -1274,76 +1757,43 @@ C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Paid Back&quot;</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Model 1: Logit with Default Parameters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x1d95d6f7a90&gt;
-</pre></div>
-</div>
-<img alt="../../_images/ML_worksheet2_13_1.png" src="../../_images/ML_worksheet2_13_1.png" />
+<img alt="../../_images/ML_worksheet2_18_0.png" src="../../_images/ML_worksheet2_18_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="calibration-display">
-<h3>Calibration display<a class="headerlink" href="#calibration-display" title="Permalink to this headline">¶</a></h3>
-<p>Our logit estimator produces, for each loan, a prediction of the probability of default. A calibration display groups those predictions into buckets (on the x-axis), and reports the average true outcomes for that bucket (on the y-axis). A perfectly calibrated classifier will be on the 45 degree line.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CalibrationDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.calibration.CalibrationDisplay at 0x1d965a312b0&gt;
-</pre></div>
-</div>
-<img alt="../../_images/ML_worksheet2_15_1.png" src="../../_images/ML_worksheet2_15_1.png" />
-</div>
-</div>
-<p>This figure suggests that our logit seems to be decently “calibrated”, even though it is performing AWFULLY in terms of precision and recall on predicting defaults.</p>
-<p>Indeed, the logit model is producing predictions that are exactly equal to the average in the data! Look:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_logit</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_train</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.156
-</pre></div>
-</div>
-</div>
-</div>
+<p>So even though our logit seems to be decently calibrated, it is performing AWFULLY in terms of precision and recall on predicting defaults, because it never predict a default.</p>
 <p>What gives?</p>
+</div>
+<div class="section" id="decision-functions">
+<h3>“Decision functions”<a class="headerlink" href="#decision-functions" title="Permalink to this headline">¶</a></h3>
 <p>Here’s what happens:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">==============================================================================</span>
-<span class="sd">          A flow chart from our model to the final predictions:</span>
-<span class="sd">==============================================================================</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blah</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">==============================================================================</span>
+<span class="s1">          A flow chart from our model to the final predictions:</span>
+<span class="s1">==============================================================================</span>
 
-<span class="sd">logit     &gt;      ahat,           &gt;             yhat           &gt;         {0,1}</span>
-<span class="sd">                 bhat                        Pr(y=1|X)</span>
-<span class="sd">      ----------        --------------------           --------------</span>
-<span class="sd">      | .fit() |        | .predict_proba() |           | .predict() |</span>
-<span class="sd">      |        |        |  uses ahat bhat  |           |   uses  ?  |</span>
-<span class="sd">      ----------        --------------------           --------------</span>
+<span class="s1">logit     &gt;      ahat,           &gt;             yhat           &gt;         {0,1}</span>
+<span class="s1">                 bhat                        Pr(y=1|X)</span>
+<span class="s1">      ----------        --------------------           --------------</span>
+<span class="s1">      | .fit() |        | .predict_proba() |           | .predict() |</span>
+<span class="s1">      |        |        |  uses ahat bhat  |           |   uses  ?  |</span>
+<span class="s1">      ----------        --------------------           --------------</span>
 
-<span class="sd">&#39;&#39;&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n==============================================================================\n          A flow chart from our model to the final predictions:\n==============================================================================\n\nlogit     &gt;      ahat,           &gt;             yhat           &gt;         {0,1}\n                 bhat                        Pr(y=1|X)\n      ----------        --------------------           --------------\n      | .fit() |        | .predict_proba() |           | .predict() |\n      |        |        |  uses ahat bhat  |           |   uses  ?  |\n      ----------        --------------------           --------------\n\n&#39;
+<span class="s1">&#39;&#39;&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>That last step uses a <strong>“decision function”</strong> that maps the yhat values (predicted probabilities) into predictions.</p>
-<p>To simplify a bit, the <strong>“default threshold”</strong> in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> for logit is 0.5:</p>
+<p>That last step, <code class="docutils literal notranslate"><span class="pre">.predict()</span></code> uses a <strong>“decision function”</strong> that turns the yhat values (predicted probabilities) into predictions.</p>
+<p>The <strong>“default threshold”</strong> in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> for logit is 0.5:</p>
 <ul class="simple">
 <li><p>If yhat&gt;0.5: predict outcome = 1</p></li>
 <li><p>Else: predict outcome = 0</p></li>
@@ -1354,31 +1804,95 @@ C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.
 </div>
 <div class="section" id="precision-recall-curves">
 <h3>Precision-Recall Curves<a class="headerlink" href="#precision-recall-curves" title="Permalink to this headline">¶</a></h3>
-<p>This takes all the predicted probabilities the model produces, and pretends we set a threshold of 0.01, 0.02, … 0.99. For each possible threshold, compute the precision and recall of the predictions, and then plot them all.</p>
+<p>This takes all the predicted probabilities the model produces, and pretends we set a threshold of 0.01, 0.02, … 0.99. For each possible threshold, compute the <strong>precision and recall</strong> of the predictions, and then plot them all.</p>
+<p>Sklearn has a function to do this all at once, which I’ll show next, but I want to show you how it’s being made under the hood to highlight what the figure shows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the predicted probabilities for the positive class</span>
+<span class="n">y_prob</span> <span class="o">=</span> <span class="n">clf_logit</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_train</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Calculate precision and recall values at different thresholds</span>
+<span class="n">thresholds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">:</span>
+
+    <span class="c1"># At this threshold, if the model&#39;s predicted probability</span>
+    <span class="c1"># is greater than the threshold, classify as positive</span>
+    <span class="n">y_pred_threshold</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_prob</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">)</span> 
+    
+    <span class="c1"># Calculate precision and recall</span>
+    <span class="c1"># precision_val = true positives / predicted_true</span>
+    <span class="c1"># recall_val = true positives / actually_true</span>
+
+    <span class="n">tp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y_train</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_pred_threshold</span> <span class="o">==</span> <span class="kc">True</span><span class="p">))</span>
+    <span class="n">predicted_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_pred_threshold</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">actually_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_train</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">precision_val</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">/</span> <span class="n">predicted_true</span> <span class="k">if</span> <span class="n">predicted_true</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">recall_val</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">/</span> <span class="n">actually_true</span> <span class="k">if</span> <span class="n">actually_true</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    
+    <span class="n">precision</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">precision_val</span><span class="p">)</span>
+    <span class="n">recall</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">recall_val</span><span class="p">)</span>
+
+<span class="n">precision</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">recall</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Precision-Recall curve&#39;</span><span class="p">)</span>
+
+<span class="c1"># Annotate the points with their corresponding thresholds</span>
+<span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">zi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span><span class="n">precision</span><span class="p">,</span><span class="n">thresholds</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
+        <span class="nb">round</span><span class="p">(</span><span class="n">zi</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>                     <span class="c1"># Annotation text (z value)</span>
+        <span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">),</span>              <span class="c1"># Point to annotate</span>
+        <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span>  <span class="c1"># How to position the text</span>
+        <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>         <span class="c1"># Offset: 5 points to the right and 5 points up</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span>            <span class="c1"># Horizontal alignment of text</span>
+    <span class="p">)</span>
+
+<span class="c1"># Add labels, title and grid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Recall&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Precision&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Manual Precision-Recall Curve, the threshold level of a given point is labeled&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ML_worksheet2_25_0.png" src="../../_images/ML_worksheet2_25_0.png" />
+</div>
+</div>
 <p>In general, this curve will be sloped downwards <strong>because precision and recall are a tradeoff:</strong></p>
 <ul class="simple">
 <li><p>As you increase the threshold, you’ll reduce false positives (more precision) because you only predict default for loans you’re very confident will default</p></li>
 <li><p>But as you increase the threshold, you’ll predict fewer defaults, meaning you’ll miss some. This will result in lower recall stats.</p></li>
 </ul>
 <p>The ideal model is the one closest to the upper right corner. (Ouch!)</p>
+<p>Here is the one liner to make that graph, it just doesn’t show the threshold values along the chart:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PrecisionRecallDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PrecisionRecallDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x1d9659fe130&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.precision_recall_curve.PrecisionRecallDisplay at 0x2775b26a510&gt;
 </pre></div>
 </div>
-<img alt="../../_images/ML_worksheet2_23_1.png" src="../../_images/ML_worksheet2_23_1.png" />
-</div>
+<img alt="../../_images/ML_worksheet2_27_1.png" src="../../_images/ML_worksheet2_27_1.png" />
 </div>
 </div>
 </div>
 <div class="section" id="roc-curve-receiver-operating-characteristic">
-<h2>ROC curve (“receiver operating characteristic”)<a class="headerlink" href="#roc-curve-receiver-operating-characteristic" title="Permalink to this headline">¶</a></h2>
-<p>This takes all the predicted probabilities the model produces, and pretends we set a threshold of 0.01, 0.02, … 0.99. For each possible threshold, compute the FPR and the TPR.</p>
+<h3>ROC curve (“receiver operating characteristic”)<a class="headerlink" href="#roc-curve-receiver-operating-characteristic" title="Permalink to this headline">¶</a></h3>
+<p>Again, this diagnostic takes all the predicted probabilities the model produces, and pretends we set a threshold of 0.01, 0.02, … 0.99. For each possible threshold, compute the false positive rate (FPR) and the true positive rate (TPR).</p>
+<p>The Y axis is recall for the outcome equal to 1 (charge offs). We want this to equal 1.</p>
+<p>The X axis is 1-recall for the outcome equal to 0 (pay backs). We want this to equal 0. By convention, in a ROC curve, 1-recall for outcome 0 is used because this is equal to the false positive rate. False positives are bad!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RocCurveDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1386,10 +1900,10 @@ C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x1d965cb0670&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.roc_curve.RocCurveDisplay at 0x2775b22c390&gt;
 </pre></div>
 </div>
-<img alt="../../_images/ML_worksheet2_25_1.png" src="../../_images/ML_worksheet2_25_1.png" />
+<img alt="../../_images/ML_worksheet2_29_1.png" src="../../_images/ML_worksheet2_29_1.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1399,23 +1913,6 @@ C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.
 <li><p><strong>“AUC”</strong> reports the area under the curve. 1 is a perfect estimator and 0.5 is a random guess.</p></li>
 </ul>
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Roc_curve.svg/768px-Roc_curve.svg.png"  style="width:50%;"> 
-<div class="section" id="detection-error-tradeoff-det">
-<h3>Detection error tradeoff (DET)<a class="headerlink" href="#detection-error-tradeoff-det" title="Permalink to this headline">¶</a></h3>
-<p>This takes all the predicted probabilities the model produces, and pretends we set a threshold of 0.01, 0.02, … 0.99. For each possible threshold, compute the FPR and the FNR and plot them.</p>
-<p>The perfect estimator is the lower left corner of the chart. (Ouch!)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DetCurveDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.det_curve.DetCurveDisplay at 0x1d965d4ba60&gt;
-</pre></div>
-</div>
-<img alt="../../_images/ML_worksheet2_28_1.png" src="../../_images/ML_worksheet2_28_1.png" />
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="the-problem-with-our-estimator-imbalance">
@@ -1424,9 +1921,11 @@ C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.
 <p>Meaning: We have 85% and 15% for our two classes (paid off and charged off) instead of 50/50.</p>
 <p>Imbalance causes problems with many (though not all) ML estimators.</p>
 <p>By default, <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> treats both outcomes as equally important to predict, which is why it favors the majority class (and always predicts no default).</p>
+</div>
 <div class="section" id="options-to-deal-with-imbalanced-data">
-<h3>Options to deal with imbalanced data<a class="headerlink" href="#options-to-deal-with-imbalanced-data" title="Permalink to this headline">¶</a></h3>
+<h2>Options to deal with imbalanced data<a class="headerlink" href="#options-to-deal-with-imbalanced-data" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
+<li><p>Manually pick a different threshold. If the predicted probablity is above X%, predict the outcome is positive. The default is 50%.</p></li>
 <li><p>Change estimator to “weight” groups equally</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">class-weight=’balanced’</span></code> in tree models and logit</p></li>
@@ -1445,7 +1944,6 @@ C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.
 </ul>
 </li>
 </ol>
-</div>
 <div class="section" id="practical-tips">
 <h3>🔥🔥🔥 Practical tips: 🔥🔥🔥<a class="headerlink" href="#practical-tips" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -1453,58 +1951,50 @@ C:\Users\DonsLaptop\anaconda3\lib\site-packages\sklearn\metrics\_classification.
 <li><p><strong>Try weighting if estimator will let you, then undersampling</strong></p></li>
 </ul>
 </div>
-<div class="section" id="weighting-example">
-<h3>Weighting example<a class="headerlink" href="#weighting-example" title="Permalink to this headline">¶</a></h3>
-<p>Denying a loan to a good customer is not as bad as giving a loan to a bad customer that defaults. You should probably <em>weigh</em> defaults more heavily.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">LogisticRegression()</span></code> model has a parameter that lets you decide how you weigh the class’s importance. You can manually specific them, but <code class="docutils literal notranslate"><span class="pre">LogisticRegression(class_weight='balanced')</span></code> will cause the minority class to be considered equally important overall. (Maybe you want to weigh even more, which you can do by manually setting the weights.)</p>
-<p>So, I’m going to change the pipeline to use that parameter:</p>
+<div class="section" id="changing-the-threshold-manually">
+<h3>Changing the threshold manually<a class="headerlink" href="#changing-the-threshold-manually" title="Permalink to this headline">¶</a></h3>
+<p>Let’s change the threshold to 0.15 (the avg probability of default in the sample) and see how that affects the confusion matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_logit</span><span class="o">.</span><span class="n">get_params</span><span class="p">()</span> <span class="c1"># looking for the name of the parameter, as the pipeline cals it</span>
-<span class="n">clf_logit</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">logisticregression__class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_proba</span> <span class="o">=</span> <span class="n">clf_logit</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_train</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># get the predicted probabilities</span>
+<span class="n">y_mean</span>       <span class="o">=</span> <span class="n">y_train</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># get the mean of y_train</span>
+<span class="n">y_pred</span>       <span class="o">=</span> <span class="p">(</span><span class="n">y_pred_proba</span> <span class="o">&gt;=</span> <span class="n">y_mean</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>     <span class="c1"># convert to binary predictions</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-ab587608-6809-444f-bceb-9328acb1c04a {color: black;background-color: white;}#sk-ab587608-6809-444f-bceb-9328acb1c04a pre{padding: 0;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-toggleable {background-color: white;}#sk-ab587608-6809-444f-bceb-9328acb1c04a label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-ab587608-6809-444f-bceb-9328acb1c04a label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-ab587608-6809-444f-bceb-9328acb1c04a label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-ab587608-6809-444f-bceb-9328acb1c04a input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-ab587608-6809-444f-bceb-9328acb1c04a input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-ab587608-6809-444f-bceb-9328acb1c04a input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-estimator:hover {background-color: #d4ebff;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-item {z-index: 1;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-parallel::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-parallel-item:only-child::after {width: 0;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;position: relative;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-label-container {position: relative;z-index: 2;text-align: center;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-ab587608-6809-444f-bceb-9328acb1c04a div.sk-text-repr-fallback {display: none;}</style><div id="sk-ab587608-6809-444f-bceb-9328acb1c04a" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
-                 ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
-                                                  Pipeline(steps=[(&#x27;simpleimputer&#x27;,
-                                                                   SimpleImputer()),
-                                                                  (&#x27;standardscaler&#x27;,
-                                                                   StandardScaler())]),
-                                                  [&#x27;annual_inc&#x27;, &#x27;int_rate&#x27;]),
-                                                 (&#x27;pipeline-2&#x27;,
-                                                  Pipeline(steps=[(&#x27;onehotencoder&#x27;,
-                                                                   OneHotEncoder(drop=&#x27;first&#x27;))]),
-                                                  [&#x27;grade&#x27;])])),
-                (&#x27;logisticregression&#x27;,
-                 LogisticRegression(class_weight=&#x27;balanced&#x27;))])</pre><b>Please rerun this cell to show the HTML repr or trust the notebook.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="5d364db7-5f23-4b15-aa5a-16cfa3a90dae" type="checkbox" ><label for="5d364db7-5f23-4b15-aa5a-16cfa3a90dae" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
-                 ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
-                                                  Pipeline(steps=[(&#x27;simpleimputer&#x27;,
-                                                                   SimpleImputer()),
-                                                                  (&#x27;standardscaler&#x27;,
-                                                                   StandardScaler())]),
-                                                  [&#x27;annual_inc&#x27;, &#x27;int_rate&#x27;]),
-                                                 (&#x27;pipeline-2&#x27;,
-                                                  Pipeline(steps=[(&#x27;onehotencoder&#x27;,
-                                                                   OneHotEncoder(drop=&#x27;first&#x27;))]),
-                                                  [&#x27;grade&#x27;])])),
-                (&#x27;logisticregression&#x27;,
-                 LogisticRegression(class_weight=&#x27;balanced&#x27;))])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="58793d17-57bf-4900-b2cc-9290d42af8be" type="checkbox" ><label for="58793d17-57bf-4900-b2cc-9290d42af8be" class="sk-toggleable__label sk-toggleable__label-arrow">columntransformer: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
-                                 Pipeline(steps=[(&#x27;simpleimputer&#x27;,
-                                                  SimpleImputer()),
-                                                 (&#x27;standardscaler&#x27;,
-                                                  StandardScaler())]),
-                                 [&#x27;annual_inc&#x27;, &#x27;int_rate&#x27;]),
-                                (&#x27;pipeline-2&#x27;,
-                                 Pipeline(steps=[(&#x27;onehotencoder&#x27;,
-                                                  OneHotEncoder(drop=&#x27;first&#x27;))]),
-                                 [&#x27;grade&#x27;])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="d6dd07e7-ebfa-4246-8439-481e8dfe90db" type="checkbox" ><label for="d6dd07e7-ebfa-4246-8439-481e8dfe90db" class="sk-toggleable__label sk-toggleable__label-arrow">pipeline-1</label><div class="sk-toggleable__content"><pre>[&#x27;annual_inc&#x27;, &#x27;int_rate&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="bcbf2bf9-8466-4da4-b931-eb5246462b56" type="checkbox" ><label for="bcbf2bf9-8466-4da4-b931-eb5246462b56" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="cb5e89d6-9c25-42e7-93ea-195694f97eff" type="checkbox" ><label for="cb5e89d6-9c25-42e7-93ea-195694f97eff" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="96e836de-7bbc-4227-bcad-e1c8931e1bc7" type="checkbox" ><label for="96e836de-7bbc-4227-bcad-e1c8931e1bc7" class="sk-toggleable__label sk-toggleable__label-arrow">pipeline-2</label><div class="sk-toggleable__content"><pre>[&#x27;grade&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="84aa5d65-c8b5-41af-876e-c5cc65e0258c" type="checkbox" ><label for="84aa5d65-c8b5-41af-876e-c5cc65e0258c" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder(drop=&#x27;first&#x27;)</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="b2d8562a-aba7-40ae-bbce-be8bfb4e64a1" type="checkbox" ><label for="b2d8562a-aba7-40ae-bbce-be8bfb4e64a1" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(class_weight=&#x27;balanced&#x27;)</pre></div></div></div></div></div></div></div></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+       False       0.91      0.57      0.70     91024
+        True       0.23      0.69      0.34     16819
+
+    accuracy                           0.59    107843
+   macro avg       0.57      0.63      0.52    107843
+weighted avg       0.80      0.59      0.65    107843
+</pre></div>
 </div>
-<p>Now we can use it. How did we do?</p>
+</div>
+</div>
+</div>
+<div class="section" id="weighting-example">
+<h3>Weighting example<a class="headerlink" href="#weighting-example" title="Permalink to this headline">¶</a></h3>
+<p>Denying a loan to a good customer is not as bad as giving a loan to a bad customer that defaults. You should probably <em>weigh</em> defaults more heavily.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">LogisticRegression()</span></code> model has a parameter that lets you decide how you weigh the class’s importance. You can manually specific them, but <code class="docutils literal notranslate"><span class="pre">LogisticRegression(class_weight='balanced')</span></code> will cause the minority class to be considered equally important overall. (Maybe you want to weigh even more, which you can do by manually setting the weights.)</p>
+<p>So, I’m going to change the pipeline (not the logit) to use that parameter. I just need to find out what the <em>pipeline</em> calls that parameter:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># clf_logit.get_params()</span>
+<span class="c1"># looking for the name of the parameter, as the pipeline calls it</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_logit</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">logisticregression__class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
+
+<span class="n">clf_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> 
                             <span class="n">clf_logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)))</span>
 </pre></div>
@@ -1523,31 +2013,79 @@ weighted avg       0.80      0.59      0.65    107843
 </div>
 </div>
 </div>
-<p>Hey! We managed to actually predict some defaults!</p>
+<p>Hey! We managed to actually predict some defaults! Look:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Paid Back&quot;</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Model 2: Logit With Class Weights&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x1d965dacfd0&gt;
+<img alt="../../_images/ML_worksheet2_38_0.png" src="../../_images/ML_worksheet2_38_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recap-before-exercises">
+<h2>Recap before exercises:<a class="headerlink" href="#recap-before-exercises" title="Permalink to this headline">¶</a></h2>
+<p>We have 5 diagnostics that are useful:</p>
+<ol class="simple">
+<li><p>Calibration Display: Is your model producing well-tuned probabilities?</p></li>
+<li><p>Classification report: How does the classifier do?</p></li>
+<li><p>Confusion Matrix: Show the prediction counts</p></li>
+<li><p>Precision-Recall Curve: Can your model have high recall and precision if we adjust the threshold?</p></li>
+<li><p>ROC Curve: Can your model have low false positives and high recall if we adjust the threshold?</p></li>
+</ol>
+<p>Classifiers struggle with imbalanced data.</p>
+<ul class="simple">
+<li><p>We can tell the model to “balance” the classes (balancing their frequency)</p></li>
+<li><p>We can pick the threshold</p></li>
+</ul>
+<p>The exercises force us to think about these models as business applications.</p>
+</div>
+<div class="section" id="exercises-1-5-this-is-just-business-math">
+<h2>Exercises 1-5: This is just business math!<a class="headerlink" href="#exercises-1-5-this-is-just-business-math" title="Permalink to this headline">¶</a></h2>
+<p>For these questions, assume your bank uses automated underwriting: If the model says you’ll pay back the loan, they make the loan.</p>
+<p>Make extra (reasonable) assumptions as needed to compare the two models:</p>
+<ol class="simple">
+<li><p>How much money does M2 save us relative to M1 from reduced charge-offs?</p></li>
+<li><p>How much foregone profit does M2 have relative to M1?</p></li>
+<li><p>Would you rather use M1 or M2 at your bank and why?</p></li>
+<li><p>Write down a profit function for firm. Use the cells of the confusion matrix as variables, as needed.</p>
+<ul class="simple">
+<li><p>The four cells of the matrix are TN (upper left), FP (upper right), TP (lower right), FN (lower left)</p></li>
+</ul>
+</li>
+<li><p>We want to maximize profits, but all the ML diagnostics above are different. Try to rewrite your profit function to include PRECISION OR RECALL.</p>
+<ul class="simple">
+<li><p>Which do you want to maximize/minimize?</p></li>
+<li><p>Are any of them equivalent to maximizing profits?</p></li>
+</ul>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># put answers here</span>
 </pre></div>
 </div>
-<img alt="../../_images/ML_worksheet2_35_1.png" src="../../_images/ML_worksheet2_35_1.png" />
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<p>Make (reasonable) assumptions as needed to compare the two models:</p>
+<div class="section" id="exercises-6-and-7-now-we-think-about-reflecting-our-biz-logic-in-code">
+<h2>Exercises 6 and 7: Now we think about reflecting our biz logic in code<a class="headerlink" href="#exercises-6-and-7-now-we-think-about-reflecting-our-biz-logic-in-code" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li><p>How much money does this improved model save us relative to the prior model from reduced charge-offs?</p></li>
-<li><p>How much foregone profit does this “improved” model have relative to the prior model?</p></li>
-<li><p>How does this improved model do from the standpoint of a profit maximizing lender? Meaning: Would you rather use the first or the second model, and why?</p></li>
-<li><p>Write down a profit function for firm using the cells of the confusion matrix. (The four cells of the matrix are TNR, TPR, FNR, and FPR.)</p></li>
-<li><p>Based on your profit function, which metric(s) do you want to maximize/minimize in this model? There might not be a clean answer, if so: Discuss candidates and what they capture correctly about the profit function and what they miss.</p></li>
+<li><p>Prof demo 1: WAIT! We want to max profits! Why are we talking about evaluating precision and recall? Let’s just eval profits!</p>
+<ul class="simple">
+<li><p>It turns out that the way we “weigh” the classes in the classifier has a economic intuition.</p></li>
+<li><p>In M1, charge offs and pay backs are treated as equally important, and have weight = 1.</p></li>
+<li><p>In M2, charge offs are made to be equally important in terms of <strong>frequency</strong>.</p></li>
+<li><p>The classifier “upweighs” charge offs to have a weight of 5.7 (0.85/0.15).</p></li>
+<li><p>Let’s introduce a third model (M3): Charge offs should be equally important in terms of <strong>economic cost</strong>.</p></li>
+</ul>
+</li>
+<li><p>Prof demo 2: Can we just… directly optimize the threshold?</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1563,19 +2101,19 @@ weighted avg       0.80      0.59      0.65    107843
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install -U imbalanced-learn</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span> <span class="k">as</span> <span class="n">make_pipeline_with_sampler</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.under_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomUnderSampler</span>
+<span class="c1"># from imblearn.pipeline import make_pipeline as make_pipeline_with_sampler</span>
+<span class="c1"># from imblearn.under_sampling import RandomUnderSampler</span>
 
-<span class="n">logit_undersamp</span> <span class="o">=</span> <span class="n">make_pipeline_with_sampler</span><span class="p">(</span>
-    <span class="n">preproc_pipe</span><span class="p">,</span>
-    <span class="n">RandomUnderSampler</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">),</span>
-    <span class="n">LogisticRegression</span><span class="p">(),</span>
-<span class="p">)</span>
+<span class="c1"># logit_undersamp = make_pipeline_with_sampler(</span>
+<span class="c1">#     preproc_pipe,</span>
+<span class="c1">#     RandomUnderSampler(random_state=42),</span>
+<span class="c1">#     LogisticRegression(),</span>
+<span class="c1"># )</span>
 
-<span class="n">logit_undersamp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> 
+<span class="c1"># logit_undersamp.fit(X_train, y_train) </span>
 
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logit_undersamp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">,)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="c1"># y_pred = logit_undersamp.predict(X_train,)</span>
+<span class="c1"># print(classification_report(y_train, y_pred))</span>
 </pre></div>
 </div>
 </div>
