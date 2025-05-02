@@ -28,7 +28,7 @@ The stakes are high! The winner walks away with a trophy, and gets their name em
 ```
 
 ---
-:img-bottom: img/winners_hana.jpg
+:img-bottom: img/winners_haley.jpg
 
 **2025: Haley Jones**
 
