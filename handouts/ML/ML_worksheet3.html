@@ -31,8 +31,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/frontpage.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/fin377_specialformatting.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/moviescript.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
@@ -1049,6 +1049,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="n">KFold</span><span class="p">,</span>
     <span class="n">cross_validate</span><span class="p">,</span>
     <span class="n">train_test_split</span><span class="p">,</span>
+    <span class="n">TunedThresholdClassifierCV</span>
 <span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">make_pipeline</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
@@ -1071,7 +1072,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="c1"># load data</span>
 
-<span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ML - prof only/inputs/2013_subsample.zip&quot;</span><span class="p">)</span>
+<span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;inputs/2013_subsample.zip&quot;</span><span class="p">)</span>
 
 <span class="c1"># drop some bad columns here, or in the pipeline</span>
 
@@ -1208,7 +1209,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;columntransformer&#39;</span><span class="p">,</span><span class="n">preproc_pipe</span><span class="p">),</span>
                  <span class="p">(</span><span class="s1">&#39;feature_create&#39;</span><span class="p">,</span><span class="s1">&#39;passthrough&#39;</span><span class="p">),</span> 
                  <span class="p">(</span><span class="s1">&#39;feature_select&#39;</span><span class="p">,</span><span class="s1">&#39;passthrough&#39;</span><span class="p">),</span> 
-                 <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">))</span>
+                 <span class="c1"># this last step: does logit but TunedThresholdClassifierCV() </span>
+                 <span class="c1"># picks the threshold that maxes the profit</span>
+                 <span class="p">(</span><span class="s1">&#39;clf&#39;</span><span class="p">,</span> <span class="n">TunedThresholdClassifierCV</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(),</span>
+                                                    <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)),</span>
                 <span class="p">])</span>
 
 <span class="n">pipe</span>
@@ -1216,7 +1220,422 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed {color: black;background-color: white;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed pre{padding: 0;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-toggleable {background-color: white;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-estimator:hover {background-color: #d4ebff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-item {z-index: 1;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 2em;bottom: 0;left: 50%;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item {display: flex;flex-direction: column;position: relative;background-color: white;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-parallel-item:only-child::after {width: 0;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;position: relative;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-label label {font-family: monospace;font-weight: bold;background-color: white;display: inline-block;line-height: 1.2em;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-label-container {position: relative;z-index: 2;text-align: center;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed div.sk-text-repr-fallback {display: none;}</style><div id="sk-96f76560-e3d9-43a4-85ee-d15c3dff54ed" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 0.5em;
+  text-align: center;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
                  ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
                                                   Pipeline(steps=[(&#x27;simpleimputer&#x27;,
                                                                    SimpleImputer()),
@@ -1237,7 +1656,10 @@ const thebe_selector_output = ".output, .cell_output"
                                                   [&#x27;grade&#x27;])])),
                 (&#x27;feature_create&#x27;, &#x27;passthrough&#x27;),
                 (&#x27;feature_select&#x27;, &#x27;passthrough&#x27;),
-                (&#x27;clf&#x27;, LogisticRegression(class_weight=&#x27;balanced&#x27;))])</pre><b>Please rerun this cell to show the HTML repr or trust the notebook.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="d556b31c-2951-4da7-8aa8-c0d6ea882dc0" type="checkbox" ><label for="d556b31c-2951-4da7-8aa8-c0d6ea882dc0" class="sk-toggleable__label sk-toggleable__label-arrow">Pipeline</label><div class="sk-toggleable__content"><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
+                (&#x27;clf&#x27;,
+                 TunedThresholdClassifierCV(cv=5,
+                                            estimator=LogisticRegression(),
+                                            scoring=make_scorer(custom_prof_score, response_method=&#x27;predict&#x27;)))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" ><label for="sk-estimator-id-1" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>Pipeline</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link ">i<span>Not fitted</span></span></div></label><div class="sk-toggleable__content "><pre>Pipeline(steps=[(&#x27;columntransformer&#x27;,
                  ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
                                                   Pipeline(steps=[(&#x27;simpleimputer&#x27;,
                                                                    SimpleImputer()),
@@ -1258,7 +1680,10 @@ const thebe_selector_output = ".output, .cell_output"
                                                   [&#x27;grade&#x27;])])),
                 (&#x27;feature_create&#x27;, &#x27;passthrough&#x27;),
                 (&#x27;feature_select&#x27;, &#x27;passthrough&#x27;),
-                (&#x27;clf&#x27;, LogisticRegression(class_weight=&#x27;balanced&#x27;))])</pre></div></div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="4dfe1b9f-c9e4-4c77-a383-3f15921d2bf2" type="checkbox" ><label for="4dfe1b9f-c9e4-4c77-a383-3f15921d2bf2" class="sk-toggleable__label sk-toggleable__label-arrow">columntransformer: ColumnTransformer</label><div class="sk-toggleable__content"><pre>ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
+                (&#x27;clf&#x27;,
+                 TunedThresholdClassifierCV(cv=5,
+                                            estimator=LogisticRegression(),
+                                            scoring=make_scorer(custom_prof_score, response_method=&#x27;predict&#x27;)))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" ><label for="sk-estimator-id-2" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>columntransformer: ColumnTransformer</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.compose.ColumnTransformer.html">?<span>Documentation for columntransformer: ColumnTransformer</span></a></div></label><div class="sk-toggleable__content "><pre>ColumnTransformer(transformers=[(&#x27;pipeline-1&#x27;,
                                  Pipeline(steps=[(&#x27;simpleimputer&#x27;,
                                                   SimpleImputer()),
                                                  (&#x27;standardscaler&#x27;,
@@ -1271,7 +1696,8 @@ const thebe_selector_output = ".output, .cell_output"
                                 (&#x27;pipeline-2&#x27;,
                                  Pipeline(steps=[(&#x27;onehotencoder&#x27;,
                                                   OneHotEncoder())]),
-                                 [&#x27;grade&#x27;])])</pre></div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="11fcac96-bdff-4aee-bd61-949b0c91ab67" type="checkbox" ><label for="11fcac96-bdff-4aee-bd61-949b0c91ab67" class="sk-toggleable__label sk-toggleable__label-arrow">pipeline-1</label><div class="sk-toggleable__content"><pre>[&#x27;annual_inc&#x27;, &#x27;dti&#x27;, &#x27;fico_range_high&#x27;, &#x27;fico_range_low&#x27;, &#x27;installment&#x27;, &#x27;int_rate&#x27;, &#x27;loan_amnt&#x27;, &#x27;mort_acc&#x27;, &#x27;open_acc&#x27;, &#x27;pub_rec&#x27;, &#x27;pub_rec_bankruptcies&#x27;, &#x27;revol_bal&#x27;, &#x27;revol_util&#x27;, &#x27;total_acc&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="217c3770-6c7d-44a9-ae24-ce1127150b2c" type="checkbox" ><label for="217c3770-6c7d-44a9-ae24-ce1127150b2c" class="sk-toggleable__label sk-toggleable__label-arrow">SimpleImputer</label><div class="sk-toggleable__content"><pre>SimpleImputer()</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="d9b1111c-0a17-4d7c-bfb5-c337c93108b5" type="checkbox" ><label for="d9b1111c-0a17-4d7c-bfb5-c337c93108b5" class="sk-toggleable__label sk-toggleable__label-arrow">StandardScaler</label><div class="sk-toggleable__content"><pre>StandardScaler()</pre></div></div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="6285d217-fb77-4579-b089-cbf4d2592a8b" type="checkbox" ><label for="6285d217-fb77-4579-b089-cbf4d2592a8b" class="sk-toggleable__label sk-toggleable__label-arrow">pipeline-2</label><div class="sk-toggleable__content"><pre>[&#x27;grade&#x27;]</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="8771dc8c-a2d2-459d-a29c-176718375e33" type="checkbox" ><label for="8771dc8c-a2d2-459d-a29c-176718375e33" class="sk-toggleable__label sk-toggleable__label-arrow">OneHotEncoder</label><div class="sk-toggleable__content"><pre>OneHotEncoder()</pre></div></div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="632b9663-1b4a-43e3-83bc-2f4620bf4086" type="checkbox" ><label for="632b9663-1b4a-43e3-83bc-2f4620bf4086" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="5dc20d22-db29-4895-a681-7f5f77f51c03" type="checkbox" ><label for="5dc20d22-db29-4895-a681-7f5f77f51c03" class="sk-toggleable__label sk-toggleable__label-arrow">passthrough</label><div class="sk-toggleable__content"><pre>passthrough</pre></div></div></div><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="d51a5c14-71bd-4218-9306-72f34546a68a" type="checkbox" ><label for="d51a5c14-71bd-4218-9306-72f34546a68a" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(class_weight=&#x27;balanced&#x27;)</pre></div></div></div></div></div></div></div></div></div>
+                                 [&#x27;grade&#x27;])])</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" ><label for="sk-estimator-id-3" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>pipeline-1</div></div></label><div class="sk-toggleable__content "><pre>[&#x27;annual_inc&#x27;, &#x27;dti&#x27;, &#x27;fico_range_high&#x27;, &#x27;fico_range_low&#x27;, &#x27;installment&#x27;, &#x27;int_rate&#x27;, &#x27;loan_amnt&#x27;, &#x27;mort_acc&#x27;, &#x27;open_acc&#x27;, &#x27;pub_rec&#x27;, &#x27;pub_rec_bankruptcies&#x27;, &#x27;revol_bal&#x27;, &#x27;revol_util&#x27;, &#x27;total_acc&#x27;]</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" ><label for="sk-estimator-id-4" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>SimpleImputer</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.impute.SimpleImputer.html">?<span>Documentation for SimpleImputer</span></a></div></label><div class="sk-toggleable__content "><pre>SimpleImputer()</pre></div> </div></div><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>StandardScaler</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></div></label><div class="sk-toggleable__content "><pre>StandardScaler()</pre></div> </div></div></div></div></div></div></div><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" ><label for="sk-estimator-id-6" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>pipeline-2</div></div></label><div class="sk-toggleable__content "><pre>[&#x27;grade&#x27;]</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" ><label for="sk-estimator-id-7" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>OneHotEncoder</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.preprocessing.OneHotEncoder.html">?<span>Documentation for OneHotEncoder</span></a></div></label><div class="sk-toggleable__content "><pre>OneHotEncoder()</pre></div> </div></div></div></div></div></div></div></div></div><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox" ><label for="sk-estimator-id-8" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>passthrough</div></div></label><div class="sk-toggleable__content "><pre>passthrough</pre></div> </div></div><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox" ><label for="sk-estimator-id-9" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>passthrough</div></div></label><div class="sk-toggleable__content "><pre>passthrough</pre></div> </div></div><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox" ><label for="sk-estimator-id-10" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>clf: TunedThresholdClassifierCV</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.model_selection.TunedThresholdClassifierCV.html">?<span>Documentation for clf: TunedThresholdClassifierCV</span></a></div></label><div class="sk-toggleable__content "><pre>TunedThresholdClassifierCV(cv=5, estimator=LogisticRegression(),
+                           scoring=make_scorer(custom_prof_score, response_method=&#x27;predict&#x27;))</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-11" type="checkbox" ><label for="sk-estimator-id-11" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>estimator: LogisticRegression</div></div></label><div class="sk-toggleable__content "><pre>LogisticRegression()</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator  sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-12" type="checkbox" ><label for="sk-estimator-id-12" class="sk-toggleable__label  sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link " rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a></div></label><div class="sk-toggleable__content "><pre>LogisticRegression()</pre></div> </div></div></div></div></div></div></div></div></div></div></div></div></div>
 </div>
 </div>
 <div class="section" id="trying-many-different-models">
@@ -1303,30 +1729,30 @@ const thebe_selector_output = ".output, .cell_output"
                          <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LassoCV</span><span class="p">()),</span>
                          <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LinearSVC</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span>
                                                    <span class="n">dual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                                   <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                                                   <span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">}),</span>
                                         <span class="n">threshold</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">),</span>
                          
-                         <span class="c1"># RFECV is slow here...</span>
-                         <span class="n">RFECV</span><span class="p">(</span><span class="n">LinearSVC</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;l1&quot;</span><span class="p">,</span>
-                                         <span class="n">dual</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                         <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
-                               <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">),</span>                         
-                         <span class="n">RFECV</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
-                               <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">),</span>
+                        <span class="c1">#  # RFECV is slow here...</span>
+                        <span class="c1">#  RFECV(LinearSVC(penalty=&quot;l1&quot;,</span>
+                        <span class="c1">#                  dual=False,</span>
+                        <span class="c1">#                  class_weight=&#39;balanced&#39;),</span>
+                        <span class="c1">#        cv=2,scoring=prof_score),                         </span>
+                        <span class="c1">#  RFECV(LogisticRegression(class_weight=&#39;balanced&#39;),</span>
+                        <span class="c1">#        cv=2,scoring=prof_score),</span>
                          
-                         <span class="c1"># slow but faster than RFECV </span>
-                         <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                        <span class="c1">#  # slow but faster than RFECV </span>
+                         <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">}),</span>
                                                    <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">,</span>
                                                    <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                                                    <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>      
-                         <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
+                         <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">}),</span>
                                                    <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">,</span>
                                                    <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
                                                    <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>    
-                         <span class="n">SequentialFeatureSelector</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">),</span>
-                                                   <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">,</span>
-                                                   <span class="n">n_features_to_select</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-                                                   <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>                         
+                        <span class="c1">#  SequentialFeatureSelector(LogisticRegression(class_weight=&#39;balanced&#39;),</span>
+                        <span class="c1">#                            scoring=prof_score,</span>
+                        <span class="c1">#                            n_features_to_select=15,</span>
+                        <span class="c1">#                            cv=2)                         </span>
                          
                          <span class="p">]),</span>
     
@@ -1334,7 +1760,7 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="p">{</span><span class="s1">&#39;feature_create&#39;</span><span class="p">:</span> <span class="p">[</span>
                         <span class="c1"># this creates interactions between all variables</span>
                         <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interaction_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)],</span>
-     <span class="s1">&#39;feature_select&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;passthrough&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="n">PCA</span><span class="p">(</span><span class="mi">25</span><span class="p">)]</span>
+     <span class="s1">&#39;feature_select&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;passthrough&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="n">PCA</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LassoCV</span><span class="p">())]</span>
     <span class="p">},</span>
     
 <span class="p">]</span>
@@ -1348,7 +1774,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span> <span class="o">=</span> <span class="n">pipe</span><span class="p">,</span> 
                            <span class="n">param_grid</span> <span class="o">=</span> <span class="n">param_grid</span><span class="p">,</span>
                            <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> 
-                           <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span>
+                           <span class="n">scoring</span><span class="o">=</span><span class="n">prof_score</span><span class="p">,</span>
+                           <span class="n">return_train_score</span> <span class="o">=</span><span class="kc">True</span>
                            <span class="p">)</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
@@ -1359,11 +1786,27 @@ const thebe_selector_output = ".output, .cell_output"
 <p>And this is here just to make the slides a little nicer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pretty</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pretty</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+
+<span class="c1"># ad hoc change to test scores: the score is based in part on number of observations</span>
+<span class="c1"># since the test set is 25% of the train, it will look like it&#39;s 25% as good even if its the same</span>
+<span class="c1"># so split*_test_score * 4.0 </span>
+<span class="c1"># and recompute mean_test_score and std_test_score</span>
+
+<span class="n">splits</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">splits</span><span class="p">):</span>
+    <span class="n">pretty</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;split</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">_test_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pretty</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;split</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">_test_score&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">4.0</span>
+    
+<span class="n">pretty</span><span class="p">[</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pretty</span><span class="p">[[</span><span class="sa">f</span><span class="s1">&#39;split</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">_test_score&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">splits</span><span class="p">)]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pretty</span><span class="p">[</span><span class="s1">&#39;std_test_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pretty</span><span class="p">[[</span><span class="sa">f</span><span class="s1">&#39;split</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">_test_score&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">splits</span><span class="p">)]]</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">pretty</span> <span class="o">=</span> <span class="n">pretty</span><span class="p">[[</span><span class="s1">&#39;param_columntransformer&#39;</span><span class="p">,</span><span class="s1">&#39;param_feature_select&#39;</span><span class="p">,</span><span class="s1">&#39;param_feature_create&#39;</span><span class="p">,</span><span class="s1">&#39;params&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;mean_test_score&#39;</span><span class="p">,</span><span class="s1">&#39;std_test_score&#39;</span><span class="p">,</span><span class="s1">&#39;mean_train_score&#39;</span><span class="p">,</span><span class="s1">&#39;std_train_score&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
 <span class="n">pretty</span> <span class="o">=</span> <span class="n">pretty</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;passthrough&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">pretty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;SelectKBest(k=10)&#39;</span>
-<span class="n">pretty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;3 vars (Last class)&#39;</span>
-<span class="n">pretty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;All numeric vars + Grade&#39;</span>
+<span class="n">pretty</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;param_columntransformer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;3 vars (Last class)&#39;</span>
+<span class="n">pretty</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="s1">&#39;param_columntransformer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;All numeric vars + Grade&#39;</span>
 <span class="n">pretty</span>
 </pre></div>
 </div>
@@ -1390,10 +1833,11 @@ const thebe_selector_output = ".output, .cell_output"
       <th>param_columntransformer</th>
       <th>param_feature_select</th>
       <th>param_feature_create</th>
+      <th>params</th>
       <th>mean_test_score</th>
       <th>std_test_score</th>
-      <th>std_fit_time</th>
-      <th>mean_score_time</th>
+      <th>mean_train_score</th>
+      <th>std_train_score</th>
     </tr>
   </thead>
   <tbody>
@@ -1402,180 +1846,195 @@ const thebe_selector_output = ".output, .cell_output"
       <td>3 vars (Last class)</td>
       <td></td>
       <td></td>
-      <td>-2.700</td>
-      <td>5.508829</td>
-      <td>0.026920</td>
-      <td>0.021488</td>
+      <td>{'columntransformer': ColumnTransformer(transformers=[('pipeline-1',
+                                 Pipeline(steps=[('simpleimputer',
+                                                  SimpleImputer()),
+                                                 ('standardscaler',
+                                                  StandardScaler())]),
+                                 ['annual_inc', 'int_rate']),
+                                ('pipeline-2',
+                                 Pipeline(steps=[('onehotencoder',
+                                                  OneHotEncoder())]),
+                                 ['grade'])])}</td>
+      <td>135.712</td>
+      <td>6.005491</td>
+      <td>138.352</td>
+      <td>2.221697</td>
     </tr>
     <tr>
       <th>1</th>
       <td>All numeric vars + Grade</td>
       <td></td>
       <td></td>
-      <td>-3.840</td>
-      <td>4.428237</td>
-      <td>0.075386</td>
-      <td>0.023774</td>
+      <td>{'feature_select': 'passthrough'}</td>
+      <td>147.376</td>
+      <td>7.448039</td>
+      <td>154.288</td>
+      <td>1.561620</td>
     </tr>
     <tr>
       <th>2</th>
       <td>All numeric vars + Grade</td>
       <td>PCA(n_components=5)</td>
       <td></td>
-      <td>-27.768</td>
-      <td>5.066180</td>
-      <td>0.006887</td>
-      <td>0.027951</td>
+      <td>{'feature_select': PCA(n_components=5)}</td>
+      <td>92.000</td>
+      <td>6.761538</td>
+      <td>90.756</td>
+      <td>2.511650</td>
     </tr>
     <tr>
       <th>3</th>
       <td>All numeric vars + Grade</td>
       <td>PCA(n_components=10)</td>
       <td></td>
-      <td>-8.232</td>
-      <td>3.808592</td>
-      <td>0.006719</td>
-      <td>0.026230</td>
+      <td>{'feature_select': PCA(n_components=10)}</td>
+      <td>138.656</td>
+      <td>7.095779</td>
+      <td>146.072</td>
+      <td>1.582535</td>
     </tr>
     <tr>
       <th>4</th>
       <td>All numeric vars + Grade</td>
       <td>PCA(n_components=15)</td>
       <td></td>
-      <td>-2.452</td>
-      <td>3.665048</td>
-      <td>0.010823</td>
-      <td>0.023858</td>
+      <td>{'feature_select': PCA(n_components=15)}</td>
+      <td>141.120</td>
+      <td>5.192610</td>
+      <td>148.472</td>
+      <td>0.763633</td>
     </tr>
     <tr>
       <th>5</th>
       <td>All numeric vars + Grade</td>
       <td>SelectKBest(k=5)</td>
       <td></td>
-      <td>-5.068</td>
-      <td>4.560519</td>
-      <td>0.020482</td>
-      <td>0.027804</td>
+      <td>{'feature_select': SelectKBest(k=5)}</td>
+      <td>125.152</td>
+      <td>7.561291</td>
+      <td>125.400</td>
+      <td>1.752073</td>
     </tr>
     <tr>
       <th>6</th>
       <td>All numeric vars + Grade</td>
       <td>SelectKBest(k=10)</td>
       <td></td>
-      <td>-5.896</td>
-      <td>6.231397</td>
-      <td>0.010137</td>
-      <td>0.028221</td>
+      <td>{'feature_select': SelectKBest()}</td>
+      <td>139.504</td>
+      <td>5.537191</td>
+      <td>141.692</td>
+      <td>0.795246</td>
     </tr>
     <tr>
       <th>7</th>
       <td>All numeric vars + Grade</td>
       <td>SelectKBest(k=15)</td>
       <td></td>
-      <td>-2.580</td>
-      <td>5.209683</td>
-      <td>0.042220</td>
-      <td>0.033146</td>
+      <td>{'feature_select': SelectKBest(k=15)}</td>
+      <td>141.984</td>
+      <td>4.197676</td>
+      <td>147.396</td>
+      <td>3.175693</td>
     </tr>
     <tr>
       <th>8</th>
       <td>All numeric vars + Grade</td>
       <td>SelectFromModel(estimator=LassoCV())</td>
       <td></td>
-      <td>-3.892</td>
-      <td>4.542028</td>
-      <td>0.115747</td>
-      <td>0.032657</td>
+      <td>{'feature_select': SelectFromModel(estimator=LassoCV())}</td>
+      <td>146.784</td>
+      <td>8.759434</td>
+      <td>154.464</td>
+      <td>1.634155</td>
     </tr>
     <tr>
       <th>9</th>
       <td>All numeric vars + Grade</td>
-      <td>SelectFromModel(estimator=LinearSVC(class_weight='balanced', dual=False,\n                                    penalty='l1'),\n                threshold='median')</td>
+      <td>SelectFromModel(estimator=LinearSVC(class_weight={0: 0.02, 1: 0.2}, dual=False,\n                                    penalty='l1'),\n                threshold='median')</td>
       <td></td>
-      <td>-6.736</td>
-      <td>5.610268</td>
-      <td>0.321201</td>
-      <td>0.034710</td>
+      <td>{'feature_select': SelectFromModel(estimator=LinearSVC(class_weight={0: 0.02, 1: 0.2}, dual=False,
+                                    penalty='l1'),
+                threshold='median')}</td>
+      <td>143.392</td>
+      <td>10.337443</td>
+      <td>150.304</td>
+      <td>3.532781</td>
     </tr>
     <tr>
       <th>10</th>
       <td>All numeric vars + Grade</td>
-      <td>RFECV(cv=2,\n      estimator=LinearSVC(class_weight='balanced', dual=False, penalty='l1'),\n      scoring=make_scorer(custom_prof_score))</td>
+      <td>SequentialFeatureSelector(cv=2,\n                          estimator=LogisticRegression(class_weight={0: 0.02,\n                                                                     1: 0.2}),\n                          n_features_to_select=5,\n                          scoring=make_scorer(custom_prof_score, response_method='predict'))</td>
       <td></td>
-      <td>-5.924</td>
-      <td>4.217969</td>
-      <td>8.941669</td>
-      <td>0.030394</td>
+      <td>{'feature_select': SequentialFeatureSelector(cv=2,
+                          estimator=LogisticRegression(class_weight={0: 0.02,
+                                                                     1: 0.2}),
+                          n_features_to_select=5,
+                          scoring=make_scorer(custom_prof_score, response_method='predict'))}</td>
+      <td>138.992</td>
+      <td>9.623072</td>
+      <td>144.948</td>
+      <td>4.397192</td>
     </tr>
     <tr>
       <th>11</th>
       <td>All numeric vars + Grade</td>
-      <td>RFECV(cv=2, estimator=LogisticRegression(class_weight='balanced'),\n      scoring=make_scorer(custom_prof_score))</td>
+      <td>SequentialFeatureSelector(cv=2,\n                          estimator=LogisticRegression(class_weight={0: 0.02,\n                                                                     1: 0.2}),\n                          n_features_to_select=10,\n                          scoring=make_scorer(custom_prof_score, response_method='predict'))</td>
       <td></td>
-      <td>-5.836</td>
-      <td>7.021697</td>
-      <td>3.083498</td>
-      <td>0.049891</td>
+      <td>{'feature_select': SequentialFeatureSelector(cv=2,
+                          estimator=LogisticRegression(class_weight={0: 0.02,
+                                                                     1: 0.2}),
+                          n_features_to_select=10,
+                          scoring=make_scorer(custom_prof_score, response_method='predict'))}</td>
+      <td>139.248</td>
+      <td>6.947022</td>
+      <td>146.168</td>
+      <td>5.989465</td>
     </tr>
     <tr>
       <th>12</th>
       <td>All numeric vars + Grade</td>
-      <td>SequentialFeatureSelector(cv=2,\n                          estimator=LogisticRegression(class_weight='balanced'),\n                          n_features_to_select=5,\n                          scoring=make_scorer(custom_prof_score))</td>
       <td></td>
-      <td>23.580</td>
-      <td>2.599723</td>
-      <td>0.877389</td>
-      <td>0.032348</td>
+      <td>PolynomialFeatures(interaction_only=True)</td>
+      <td>{'feature_create': PolynomialFeatures(interaction_only=True), 'feature_select': 'passthrough'}</td>
+      <td>149.680</td>
+      <td>9.196173</td>
+      <td>164.344</td>
+      <td>3.018673</td>
     </tr>
     <tr>
       <th>13</th>
       <td>All numeric vars + Grade</td>
-      <td>SequentialFeatureSelector(cv=2,\n                          estimator=LogisticRegression(class_weight='balanced'),\n                          n_features_to_select=10,\n                          scoring=make_scorer(custom_prof_score))</td>
-      <td></td>
-      <td>11.048</td>
-      <td>4.400847</td>
-      <td>5.380651</td>
-      <td>0.044987</td>
+      <td>PCA(n_components=15)</td>
+      <td>PolynomialFeatures(interaction_only=True)</td>
+      <td>{'feature_create': PolynomialFeatures(interaction_only=True), 'feature_select': PCA(n_components=15)}</td>
+      <td>35.680</td>
+      <td>6.491595</td>
+      <td>36.476</td>
+      <td>3.989234</td>
     </tr>
     <tr>
       <th>14</th>
       <td>All numeric vars + Grade</td>
-      <td>SequentialFeatureSelector(cv=2,\n                          estimator=LogisticRegression(class_weight='balanced'),\n                          n_features_to_select=15,\n                          scoring=make_scorer(custom_prof_score))</td>
-      <td></td>
-      <td>7.640</td>
-      <td>3.884904</td>
-      <td>5.959993</td>
-      <td>0.038815</td>
+      <td>PCA(n_components=25)</td>
+      <td>PolynomialFeatures(interaction_only=True)</td>
+      <td>{'feature_create': PolynomialFeatures(interaction_only=True), 'feature_select': PCA(n_components=25)}</td>
+      <td>60.608</td>
+      <td>14.632851</td>
+      <td>64.372</td>
+      <td>13.952815</td>
     </tr>
     <tr>
       <th>15</th>
       <td>All numeric vars + Grade</td>
-      <td></td>
+      <td>SelectFromModel(estimator=LassoCV())</td>
       <td>PolynomialFeatures(interaction_only=True)</td>
-      <td>-3.504</td>
-      <td>8.125135</td>
-      <td>0.063040</td>
-      <td>0.132347</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>All numeric vars + Grade</td>
-      <td>PCA(n_components=15)</td>
-      <td>PolynomialFeatures(interaction_only=True)</td>
-      <td>-54.544</td>
-      <td>3.926330</td>
-      <td>0.059258</td>
-      <td>0.166225</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>All numeric vars + Grade</td>
-      <td>PCA(n_components=25)</td>
-      <td>PolynomialFeatures(interaction_only=True)</td>
-      <td>-35.980</td>
-      <td>5.287525</td>
-      <td>0.040258</td>
-      <td>0.143867</td>
+      <td>{'feature_create': PolynomialFeatures(interaction_only=True), 'feature_select': SelectFromModel(estimator=LassoCV())}</td>
+      <td>150.432</td>
+      <td>10.617510</td>
+      <td>163.416</td>
+      <td>3.401868</td>
     </tr>
   </tbody>
 </table>
@@ -1584,59 +2043,25 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We can use the best estimator easily, and we can also learn about what that estimator decided.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is the highest ranked estimator. You can now .predict() with it on new data!</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this code works for pipelines with non-passthrough feature_select</span>
+<span class="c1"># which isn&#39;t the case for the models above... a passthrough feature_select pipeline &quot;won&quot;!</span>
 
-<span class="c1"># this tells us which vars we picked, but is a boolean array (not var names)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns picked&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">[</span><span class="s1">&#39;feature_select&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">support_</span><span class="p">)</span>
+<span class="c1"># # this is the highest ranked estimator. You can now .predict() with it on new data!</span>
+<span class="c1"># print(results.best_estimator_)</span>
 
-<span class="c1"># the df AFTER the preproc step has the var names</span>
-<span class="n">preproc_df</span> <span class="o">=</span> <span class="n">df_after_transform</span><span class="p">(</span><span class="n">preproc_pipe</span><span class="p">,</span><span class="n">X_train</span><span class="p">)</span>
+<span class="c1"># # this tells us which vars we picked, but is a boolean array (not var names)</span>
+<span class="c1"># print(&quot;=&quot;*60)</span>
+<span class="c1"># print(&quot;Columns picked&quot;)</span>
+<span class="c1"># print(results.best_estimator_[&#39;feature_select&#39;].support_)</span>
 
-<span class="c1"># so to get the names of the vars, our df_after_transform helps!</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">[</span><span class="s1">&#39;feature_select&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">support_</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns picked&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">preproc_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[(&#39;columntransformer&#39;,
-                 ColumnTransformer(transformers=[(&#39;pipeline-1&#39;,
-                                                  Pipeline(steps=[(&#39;simpleimputer&#39;,
-                                                                   SimpleImputer()),
-                                                                  (&#39;standardscaler&#39;,
-                                                                   StandardScaler())]),
-                                                  [&#39;annual_inc&#39;, &#39;dti&#39;,
-                                                   &#39;fico_range_high&#39;,
-                                                   &#39;fico_range_low&#39;,
-                                                   &#39;installment&#39;, &#39;int_rate&#39;,
-                                                   &#39;loan_amnt&#39;, &#39;mort_acc&#39;,
-                                                   &#39;open_acc&#39;, &#39;pub_rec&#39;,
-                                                   &#39;pub_rec_bankruptcies&#39;,
-                                                   &#39;revol_bal&#39;, &#39;revol_util&#39;,
-                                                   &#39;total_acc&#39;]),
-                                                 (&#39;pipeline-2&#39;,
-                                                  Pipeline(steps=[(&#39;onehotencoder&#39;,
-                                                                   OneHotEncoder())]),
-                                                  [&#39;grade&#39;])])),
-                (&#39;feature_create&#39;, &#39;passthrough&#39;),
-                (&#39;feature_select&#39;,
-                 SequentialFeatureSelector(cv=2,
-                                           estimator=LogisticRegression(class_weight=&#39;balanced&#39;),
-                                           n_features_to_select=5,
-                                           scoring=make_scorer(custom_prof_score))),
-                (&#39;clf&#39;, LogisticRegression(class_weight=&#39;balanced&#39;))])
-============================================================
-Columns picked
-[False False False False False False False False False False False  True
- False  True  True False  True False False False  True]
-============================================================
-Columns picked
-[&#39;revol_bal&#39;, &#39;total_acc&#39;, &#39;grade_A&#39;, &#39;grade_C&#39;, &#39;grade_G&#39;]
+<span class="c1"># # the df AFTER the preproc step has the var names</span>
+<span class="c1"># preproc_df = df_after_transform(preproc_pipe,X_train)</span>
+
+<span class="c1"># # so to get the names of the vars, our df_after_transform helps!</span>
+<span class="c1"># mask = results.best_estimator_[&#39;feature_select&#39;].support_</span>
+<span class="c1"># print(&quot;=&quot;*60)</span>
+<span class="c1"># print(&quot;Columns picked&quot;)</span>
+<span class="c1"># print(preproc_df.columns[mask].tolist())</span>
 </pre></div>
 </div>
 </div>
