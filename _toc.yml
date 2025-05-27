@@ -234,7 +234,8 @@
     - file: content/05/05d_AssetPricingAnomalyTable1
       title: "Is a factor a tradeable anomaly?" 
     - file: content/05/05e_OpenAP_anomaly_plot
-      title: "Open Asset Pricing"     
+      title: "Open Asset Pricing"  
+    - file: content/05/05f_MLTrading
     - file: content/05/05c_finpacks
         
 # import smattering? (from below)
