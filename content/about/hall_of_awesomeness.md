@@ -73,7 +73,7 @@ _Note: Dashboards on streamlit may take a few minutes to load initially if they 
 | MBAsuperwomen | [ESG and performance](https://faz320.github.io/MBAsuperwomen/)
 | px_lazy | [2022 replication attempt "Lazy Prices"](https://jdean53.github.io/px_lazy/)
 | lazypricesreplication | [2025 replication attempt of "Lazy Prices"](https://lazypricesreplication.streamlit.app/) (repo [here](https://github.com/hannahmgordon/LAZY-PRICES-REPLICATION-AND-DASHBOARD) by [Akanksha Gavade](https://akankshagavade.github.io/), [Hannah Gordon](https://hannahmgordon.github.io/), [Henry Piotrowski](https://henrypiotrowski.github.io/), and [Marti Figueres](https://martifigueres.github.io/))
-| px_lazy | [2025 replication attempt of "Lazy Prices"](https://github.com/ank225git/lazy-prices_replication/blob/main/output/report.ipynb) by Anastasiia Kozlova and Chris Luo
+| Lazy Prices 2 | [2025 replication attempt of "Lazy Prices"](https://github.com/ank225git/lazy-prices_replication/blob/main/output/report.ipynb) by Anastasiia Kozlova and Chris Luo
 | Alpha Dogs | [Predicting Argi-futures with Climate Data](https://lukecost.github.io/CommodityReturns/)
 | Team Crushers | When Markets Invert: The GameStop Effect ([slides](https://docs.google.com/presentation/d/1PihMWaOZC5BLNMb_AU8sfd4SMgkh0lLBAzDJGKckWyE/edit#slide=id.gd9ba07311f_1_6) and [analysis](https://github.com/LeDataSciFi/some_previous_projects/tree/main/team_crushers_2021))
 | Beatcoin | [Crypto Return Factors](https://github.com/LeDataSciFi/some_previous_projects/tree/main/beatcoin_2021)
