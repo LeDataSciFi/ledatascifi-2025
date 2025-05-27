@@ -235,12 +235,9 @@
       title: "Is a factor a tradeable anomaly?" 
     - file: content/05/05e_OpenAP_anomaly_plot
       title: "Open Asset Pricing"  
-    - file: content/05/05f_MLTrading
+    - file: content/05/05f_MLtrading 
     - file: content/05/05c_finpacks
         
-# import smattering? (from below)
-# gradient booksting from L24 2020
-
   - file: content/05/06_thefuture
     sections:        
     - file: content/05/06a_saving
@@ -251,64 +248,3 @@
   chapters:
   - file: content/slides/slides
   - file: content/slides/memes
-  
-
-# #########################################################
-
-
-# # ## A bunch of import statements 
-
-# # Any code you write might use none of these, some of these, or all of them!
-
-# # # dataset loader
-# # from sklearn import datasets
-
-# # # model training and evalutation utilities 
-# # from sklearn.model_selection import train_test_split
-# # from sklearn.model_selection import cross_validate, GridSearchCV
-# # from sklearn.model_selection import StratifiedKFold # this is one way to generate folds
-# # from sklearn.model_selection import KFold
-
-# # # metrics
-# # from sklearn import metrics
-# # from sklearn.metrics import r2_score
-# # from sklearn.metrics import accuracy_score
-# # from sklearn.metrics import classification_report
-# # from sklearn.metrics import confusion_matrix
-
-# # # preprocessing and feature extraction
-# # from sklearn.pipeline import Pipeline, make_pipeline
-# # from sklearn.compose import ColumnTransformer, make_column_selector
-# # from sklearn import preprocessing
-# # from sklearn.preprocessing import StandardScaler, OneHotEncoder
-# # from sklearn.feature_extraction import DictVectorizer
-# # from sklearn.impute import SimpleImputer
-# # from df_after_transform import df_after_transform # df_after_transform.py must be in this folder
-
-# # # feature selection
-# # from sklearn.linear_model import ElasticNet, Lasso, Ridge
-# # from sklearn.feature_selection import SelectKBest, RFE, RFECV,
-
-# # # models
-# # from sklearn.svm import SVC
-# # from sklearn.neighbors import KNeighborsClassifier
-# # from sklearn.linear_model import LinearRegression
-# # from sklearn import linear_model
-# # from sklearn.linear_model import LogisticRegression
-# # from sklearn.tree import DecisionTreeClassifier
-# # from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-# # from sklearn.naive_bayes import GaussianNB
-
-# # # toy data
-# # X, y = datasets.load_iris(return_X_y=True)
-# # X.shape, y.shape
-
-
-
-####################
-
-# l23 exercises 
-# 
-# reg with some vars, then Add 5 new continuous variables to your pipeline and see how the R2 changes
-#
-# implement rfecv - what vars should we choose? implement
