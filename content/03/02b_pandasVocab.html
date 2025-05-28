@@ -810,7 +810,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../05/05d_AssetPricingAnomalyTable1.html">
-     9.6. Is a factor a tradeable anomaly?
+     9.6. Does this signal make a tradeable anomaly?
     </a>
    </li>
    <li class="toctree-l2">
@@ -1044,8 +1044,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Data can be logically stored in many ways. Let’s start by showing one dataset, and three ways it can be stored.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="6b7210a6-4279-4b5d-87ee-c59155312571" name="ae95db93-88d6-4477-b6f4-8fb85019a53b" type="radio">
-</input><label class="tabbed-label" for="6b7210a6-4279-4b5d-87ee-c59155312571">
+<input checked="checked" id="8a81138a-db25-422f-b259-7430b009808a" name="d00c3ce0-d0e8-4a22-b5e3-d6d9b8943c1e" type="radio">
+</input><label class="tabbed-label" for="8a81138a-db25-422f-b259-7430b009808a">
 “Long” Data</label><div class="tabbed-content docutils">
 <p>Here is a <strong>long dataset.</strong> The “key” or “index” is the <em><strong>combination</strong> of year and firm.</em> This is what I’d refer to as a “firm-year” dataset.</p>
 <table class="colwidths-auto table">
@@ -1100,8 +1100,8 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 </div>
-<input id="d70fc12a-2579-4139-8cb6-4972ea4f8022" name="ae95db93-88d6-4477-b6f4-8fb85019a53b" type="radio">
-</input><label class="tabbed-label" for="d70fc12a-2579-4139-8cb6-4972ea4f8022">
+<input id="e9a62474-86ad-4353-b6e7-c5d5e2ae8f8f" name="d00c3ce0-d0e8-4a22-b5e3-d6d9b8943c1e" type="radio">
+</input><label class="tabbed-label" for="e9a62474-86ad-4353-b6e7-c5d5e2ae8f8f">
 Same data, but “Wide”</label><div class="tabbed-content docutils">
 <p>This is the exact same data, but stored as a <strong>wide dataset.</strong> Now, the “key” or “index” is <strong>just</strong> the <em>year</em>, and each variable is duplicated for each firm. So there is a Sales variable for GM, and a Sales variable for Ford.</p>
 <table class="colwidths-auto table">
@@ -1147,8 +1147,8 @@ Same data, but “Wide”</label><div class="tabbed-content docutils">
 <p>A similar case can occur for the row names/numbers. If there is one level of the row name, that’s the Index. If there are multiple levels, it is called a MultiIndex.</p>
 </div>
 </div>
-<input id="ac9ef435-06eb-47b0-aedb-179f212bf646" name="ae95db93-88d6-4477-b6f4-8fb85019a53b" type="radio">
-</input><label class="tabbed-label" for="ac9ef435-06eb-47b0-aedb-179f212bf646">
+<input id="0d7fa052-cee1-43c6-9017-8b4e1c8f56cb" name="d00c3ce0-d0e8-4a22-b5e3-d6d9b8943c1e" type="radio">
+</input><label class="tabbed-label" for="0d7fa052-cee1-43c6-9017-8b4e1c8f56cb">
 Same data, but differently “Wide”</label><div class="tabbed-content docutils">
 <p>Now, the “key” or “index” is just the <em>firm</em>, and each variable is duplicated for each year. So there is a Sales variable for 2000, and a Sales variable for 2001.</p>
 <table class="colwidths-auto table">

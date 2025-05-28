@@ -15,7 +15,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9.6. Cross-Sectional / “Assaying Anomalies” Style Analysis &#8212; LeDataSciFi-2025</title>
+    <title>9.6. Is signal X is useful in predicting returns? &#8212; LeDataSciFi-2025</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -810,7 +810,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     9.6. Is a factor a tradeable anomaly?
+     9.6. Does this signal make a tradeable anomaly?
     </a>
    </li>
    <li class="toctree-l2">
@@ -1010,9 +1010,11 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="cross-sectional-assaying-anomalies-style-analysis">
-<h1><span class="section-number">9.6. </span>Cross-Sectional / “Assaying Anomalies” Style Analysis<a class="headerlink" href="#cross-sectional-assaying-anomalies-style-analysis" title="Permalink to this headline">¶</a></h1>
-<p>This code replicates the “Table 1” analysis in many cross sectional asset pricing papers, which is a univariate sort showing alpha returns of portfolios (determined by sorting stocks along one dimension, thus “univariate”) against six different benchmarks.</p>
+  <div class="section" id="is-signal-x-is-useful-in-predicting-returns">
+<h1><span class="section-number">9.6. </span>Is signal X is useful in predicting returns?<a class="headerlink" href="#is-signal-x-is-useful-in-predicting-returns" title="Permalink to this headline">¶</a></h1>
+<p>In many “cross-sectional” asset pricing papers, the main results are shown in Table 1, and show
+whether we can form portfolios that generate alpha using some signal (a variable that describes <em>something</em> about stocks) to sort stocks into portfolios.</p>
+<p>To make this analysis more rigorous, this analysis measures alpha six different ways (against six different asset pricing models). Among these are the CAPM and FF3 models we just estimated in prior pages.</p>
 <p>The basic idea of this kind of table is that</p>
 <ol class="simple">
 <li><p>We measure <em>something</em> about stocks. Maybe it’s their size, or their recent returns. Let’s call this variable X.</p></li>
@@ -1026,6 +1028,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="simple">
 <li><p>Here is the <a class="reference external" href="https://github.com/velikov-mihail/AssayingAnomalies">repo</a> containing that project’s code (mostly in Matlab as of Spring 2025, but will be in Python soon).</p></li>
 <li><p>The paper describing that project, which you should read (its breezy), and what you should cite is: Novy-Marx, Robert and Velikov, Mihail, Assaying Anomalies (February 13, 2024). Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=4338007">https://ssrn.com/abstract=4338007</a> or <a class="reference external" href="http://dx.doi.org/10.2139/ssrn.4338007">http://dx.doi.org/10.2139/ssrn.4338007</a></p></li>
+<li><p>If you want to go beyond the Table 1 we output here, the next things you should output are precisely what Velikov and Novy-Marx show in their paper after Table 1.</p></li>
 </ul>
 <p><img alt="image.png" src="../../_images/mish_abstract.png" /></p>
 <div class="section" id="what-table-1-looks-like">
@@ -1490,8 +1493,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="step-2-get-your-signal-then-construct-portfolio-returns">
 <h2><span class="section-number">9.6.3. </span>Step 2: Get your signal, then construct portfolio returns.<a class="headerlink" href="#step-2-get-your-signal-then-construct-portfolio-returns" title="Permalink to this headline">¶</a></h2>
-<p><strong>Note: I’m just picking easily available portfolios. Your work is here.</strong></p>
-<p>Upgrade: Make everything from here to the table a function. (So you can do decile or tercile splits, or change how splits are done, in one line of code.)</p>
+<p><strong>Note: For this page, I’m just using pre-constructed portfolio returns for simplicity. To see one way to construct a signal from predictor variables, visit the page on <a class="reference internal" href="05f_MLtrading.html"><span class="doc std std-doc">trading on stock return predictions</span></a></strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># now, here we&#39;d develop some &quot;signal&quot; and then create portfolio rets based on it</span>
