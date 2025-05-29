@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="9.8. Trading on stock return predictions" href="05f_MLtrading.html" />
-    <link rel="prev" title="9.6. Is signal X is useful in predicting returns?" href="05d_AssetPricingAnomalyTable1.html" />
+    <link rel="prev" title="9.6. Is signal X useful in predicting returns?" href="05d_AssetPricingAnomalyTable1.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -983,7 +983,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="section" id="open-asset-pricing">
 <h1><span class="section-number">9.7. </span>Open Asset Pricing<a class="headerlink" href="#open-asset-pricing" title="Permalink to this headline">¶</a></h1>
-<p>An unreal project that contains info on portfolio returns for hundreds of asset pricing anomalies (at the monthly or daily level) and stock-level signals. <strong>It makes it possible for any student to get close to the frontier of asset pricing faster than ever!</strong> This is because it makes it simple to get all the essential data you need. Within the site, there is lots of background info, and a companion paper.</p>
+<p>A remarkable project that contains info on portfolio returns for hundreds of asset pricing anomalies (at the monthly or daily level) and stock-level signals. <strong>It makes it possible for any student to get close to the frontier of asset pricing faster than ever!</strong> This is because it makes it simple to get all the essential data you need. Within the site, there is lots of background info, and a companion paper.</p>
 <p>Using this dataset, you can replicate many classic asset pricing papers.</p>
 <p>You can also hunt for ways to use signals to create portfolios that make money.</p>
 <p>You should check out:</p>
@@ -1001,15 +1001,15 @@ const thebe_selector_output = ".output, .cell_output"
 <ol class="simple">
 <li><p>START HERE, a must: <a class="reference external" href="https://github.com/mk0417/open-asset-pricing-download/blob/master/examples/quick_tour.ipynb">quick tour</a></p></li>
 <li><p><a class="reference external" href="https://github.com/mk0417/open-asset-pricing-download/blob/master/examples/merge_signals_with_crsp.ipynb">Combining it with stock price returns from CRSP</a> (where pros get stock returns, not yfinance):</p></li>
-<li><p><a class="reference external" href="https://github.com/mk0417/open-asset-pricing-download/blob/master/examples/merge_portfolios_with_ff_factors.ipynb">Using with Fama French factors</a> and testing portfolio anamolies</p></li>
+<li><p><a class="reference external" href="https://github.com/mk0417/open-asset-pricing-download/blob/master/examples/merge_portfolios_with_ff_factors.ipynb">Using with Fama French factors</a> and testing portfolio anomalies</p></li>
 <li><p><a class="reference external" href="https://github.com/mk0417/open-asset-pricing-download/blob/master/examples/ML_portfolio_example.ipynb">:star: Machine Learning example :star:</a></p></li>
 <li><p><a class="reference external" href="https://github.com/OpenSourceAP/CrossSectionDemos">More demos, in R though</a></p></li>
 </ol>
 </li>
 </ol>
-<p>Below, a quick tour showing</p>
+<p>Below, I include a quick tour showing how to</p>
 <ul class="simple">
-<li><p>Get the list of signals (Signal Doc) we can download</p></li>
+<li><p>Get the list of signals we can download from the signal doc</p></li>
 <li><p>Download the data (in one line!)</p></li>
 <li><p>Merge with Fama-French Factors</p></li>
 <li><p>Plot the cumulative returns to one anomaly, along with info about when the anomaly was discovered.</p></li>
@@ -1028,7 +1028,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Upgrade: Integrate the publication date for each anomaly. There are clever ways to integrate this without doing multiple vertical lines!</p></li>
 </ul>
 </li>
-<li><p><strong>Plot the moving average returns to one anomalies.</strong></p>
+<li><p><strong>Plot the moving average returns to one anomaly.</strong></p>
 <ul class="simple">
 <li><p>Upgrade: Do as excess returns.</p></li>
 <li><p>Upgrade: Integrate the publication date for it. <em><strong>The idea is to see if the return for this anomaly is lower after publication… did the market incorporate this signal?</strong></em></p></li>
@@ -1294,7 +1294,7 @@ C:\Users\DonsLaptop\AppData\Local\Temp\ipykernel_14552\1088216037.py:36: FutureW
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
     <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">plotme</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;cret&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.2</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cummulative Long-Short Return&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Long-Short Return&#39;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">signal</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Mkt-Rf&#39;</span><span class="p">]:</span>
         <span class="c1"># Add a red vertical line at the publication date and annotate it</span>
@@ -1363,7 +1363,7 @@ C:\Users\DonsLaptop\AppData\Local\Temp\ipykernel_14552\1088216037.py:36: FutureW
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="05d_AssetPricingAnomalyTable1.html" title="previous page"><span class="section-number">9.6. </span>Is signal X is useful in predicting returns?</a>
+    <a class='left-prev' id="prev-link" href="05d_AssetPricingAnomalyTable1.html" title="previous page"><span class="section-number">9.6. </span>Is signal X useful in predicting returns?</a>
     <a class='right-next' id="next-link" href="05f_MLtrading.html" title="next page"><span class="section-number">9.8. </span>Trading on stock return predictions</a>
 
     </div>

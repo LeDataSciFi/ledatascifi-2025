@@ -15,7 +15,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>9.6. Is signal X is useful in predicting returns? &#8212; LeDataSciFi-2025</title>
+    <title>9.6. Is signal X useful in predicting returns? &#8212; LeDataSciFi-2025</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -990,8 +990,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-2-get-your-signal-then-construct-portfolio-returns">
-   9.6.3. Step 2: Get your signal, then construct portfolio returns.
+  <a class="reference internal nav-link" href="#step-2-construct-portfolio-returns-from-your-signal">
+   9.6.3. Step 2: Construct portfolio returns from your signal
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1010,24 +1010,24 @@ const thebe_selector_output = ".output, .cell_output"
         
               <div>
                 
-  <div class="section" id="is-signal-x-is-useful-in-predicting-returns">
-<h1><span class="section-number">9.6. </span>Is signal X is useful in predicting returns?<a class="headerlink" href="#is-signal-x-is-useful-in-predicting-returns" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="is-signal-x-useful-in-predicting-returns">
+<h1><span class="section-number">9.6. </span>Is signal X useful in predicting returns?<a class="headerlink" href="#is-signal-x-useful-in-predicting-returns" title="Permalink to this headline">¶</a></h1>
 <p>In many “cross-sectional” asset pricing papers, the main results are shown in Table 1, and show
 whether we can form portfolios that generate alpha using some signal (a variable that describes <em>something</em> about stocks) to sort stocks into portfolios.</p>
-<p>To make this analysis more rigorous, this analysis measures alpha six different ways (against six different asset pricing models). Among these are the CAPM and FF3 models we just estimated in prior pages.</p>
+<p>To make this analysis more rigorous, we can measure alpha six different ways (against six different asset pricing models). Among these are the CAPM and FF3 models we just estimated in prior pages.</p>
 <p>The basic idea of this kind of table is that</p>
 <ol class="simple">
 <li><p>We measure <em>something</em> about stocks. Maybe it’s their size, or their recent returns. Let’s call this variable X.</p></li>
-<li><p>Then we sort stocks on X every month and divide them into 5 or 10 buckets. The stocks in each bucket constitute a portfolio, so we get the returns for that bucket for the next month. We also compute the “Long-Short” portfolio, which is always the return of the highest bucket minus the lowest bucket. Long-short portfolio are what you would get if you short the stocks in the lowest bucket to go long the highest bucket, and are “zero cost” portfolios.</p></li>
+<li><p>Then we sort stocks on X every month and divide them into 5 or 10 buckets. The stocks in each bucket constitute a portfolio, so we get the returns for that bucket for the next month. We also compute the “Long-Short” portfolio, which is always the return of the highest bucket minus the lowest bucket. The long-short portfolio is what you would get if you short the stocks in the lowest bucket to go long the highest bucket, and are “zero cost” portfolios.</p></li>
 <li><p>We repeat this across time so we can see how each portfolio/bucket does and show the average return in each bucket.</p></li>
-<li><p>To be more sophisticated, we do step 3 a few ways: we look at the portfolio returns compared to the market, and we also compute the portfolio alphas against some benchmark factor models.</p></li>
-<li><p>If we see significant results in the High Minus Low column, practicianers will say that X is an “anomaly”, in that the asset pricing model can’t explain its returns.</p></li>
+<li><p>To be more sophisticated, we do step 3 a few ways: We look at the portfolio returns compared to the market, and we also compute the portfolio alphas against some benchmark factor models.</p></li>
+<li><p>If we see significant results in the High Minus Low column, practitioners will say that X is an “anomaly”, in that the asset pricing model can’t explain its returns.</p></li>
 </ol>
 <hr class="docutils" />
-<p>The plan for this code file comes from the <a class="reference external" href="https://sites.psu.edu/assayinganomalies">“Assaying Anomalies””</a> project, which is a protocol to evaluate whether a given factor X is useful in predicting returns.</p>
+<p>The plan for this code file comes from the <a class="reference external" href="https://sites.psu.edu/assayinganomalies">“Assaying Anomalies”</a> project, which is a protocol to evaluate whether a given factor X is useful in predicting returns.</p>
 <ul class="simple">
 <li><p>Here is the <a class="reference external" href="https://github.com/velikov-mihail/AssayingAnomalies">repo</a> containing that project’s code (mostly in Matlab as of Spring 2025, but will be in Python soon).</p></li>
-<li><p>The paper describing that project, which you should read (its breezy), and what you should cite is: Novy-Marx, Robert and Velikov, Mihail, Assaying Anomalies (February 13, 2024). Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=4338007">https://ssrn.com/abstract=4338007</a> or <a class="reference external" href="http://dx.doi.org/10.2139/ssrn.4338007">http://dx.doi.org/10.2139/ssrn.4338007</a></p></li>
+<li><p>The paper describing that project, which you should read (it is breezy), and what you should cite is: Novy-Marx, Robert and Velikov, Mihail, Assaying Anomalies (February 13, 2024). Available at SSRN: <a class="reference external" href="https://ssrn.com/abstract=4338007">https://ssrn.com/abstract=4338007</a> or <a class="reference external" href="http://dx.doi.org/10.2139/ssrn.4338007">http://dx.doi.org/10.2139/ssrn.4338007</a></p></li>
 <li><p>If you want to go beyond the Table 1 we output here, the next things you should output are precisely what Velikov and Novy-Marx show in their paper after Table 1.</p></li>
 </ul>
 <p><img alt="image.png" src="../../_images/mish_abstract.png" /></p>
@@ -1058,8 +1058,7 @@ whether we can form portfolios that generate alpha using some signal (a variable
 <h2><span class="section-number">9.6.2. </span>Step 1: Get the factor portfolio returns.<a class="headerlink" href="#step-1-get-the-factor-portfolio-returns" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># I think this are in the opensourceAP dataset, and you should grab from that source instead, IMO</span>
-<span class="n">df_factors</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">FamaFrenchReader</span><span class="p">(</span><span class="s1">&#39;F-F_Research_Data_5_Factors_2x3&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df_factors</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">FamaFrenchReader</span><span class="p">(</span><span class="s1">&#39;F-F_Research_Data_5_Factors_2x3&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># add momentum to this</span>
 <span class="n">mom</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">FamaFrenchReader</span><span class="p">(</span><span class="s1">&#39;F-F_Momentum_Factor&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;1900-01-01&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># add momentum</span>
@@ -1491,9 +1490,17 @@ whether we can form portfolios that generate alpha using some signal (a variable
 </div></div>
 </div>
 </div>
-<div class="section" id="step-2-get-your-signal-then-construct-portfolio-returns">
-<h2><span class="section-number">9.6.3. </span>Step 2: Get your signal, then construct portfolio returns.<a class="headerlink" href="#step-2-get-your-signal-then-construct-portfolio-returns" title="Permalink to this headline">¶</a></h2>
-<p><strong>Note: For this page, I’m just using pre-constructed portfolio returns for simplicity. To see one way to construct a signal from predictor variables, visit the page on <a class="reference internal" href="05f_MLtrading.html"><span class="doc std std-doc">trading on stock return predictions</span></a></strong></p>
+<div class="section" id="step-2-construct-portfolio-returns-from-your-signal">
+<h2><span class="section-number">9.6.3. </span>Step 2: Construct portfolio returns from your signal<a class="headerlink" href="#step-2-construct-portfolio-returns-from-your-signal" title="Permalink to this headline">¶</a></h2>
+<p>Above, we said that</p>
+<blockquote>
+<div><ol class="simple">
+<li><p>We measure <em>something</em> about stocks. Maybe it’s their size, or their recent returns. Let’s call this variable X.</p></li>
+<li><p>Then we sort stocks on X every month and divide them into 5 or 10 buckets. The stocks in each bucket constitute a portfolio, so we get the returns for that bucket for the next month. We also compute the “Long-Short” portfolio, which is always the return of the highest bucket minus the lowest bucket. The long-short portfolio is what you would get if you short the stocks in the lowest bucket to go long the highest bucket, and are “zero cost” portfolios.</p></li>
+</ol>
+</div></blockquote>
+<p>This is where you would do that.</p>
+<p><strong>For simplicity, I’m just using pre-constructed portfolio returns on this page. To see one way to construct a signal from predictor variables and how we calculate the portfolio returns, visit the page on <a class="reference internal" href="05f_MLtrading.html"><span class="doc std std-doc">trading on stock return predictions</span></a></strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># now, here we&#39;d develop some &quot;signal&quot; and then create portfolio rets based on it</span>
@@ -1973,7 +1980,7 @@ whether we can form portfolios that generate alpha using some signal (a variable
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># define factor model formulas (these are the right side of the regrssion formulas)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># define factor model formulas (these are the right side of the regression formulas)</span>
 <span class="c1"># these are how formulas are specified for statsmodel&#39;s formula api</span>
 <span class="n">factor_models</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;r^e&#39;</span><span class="p">:</span>  <span class="s1">&#39;1&#39;</span><span class="p">,</span>
@@ -2425,7 +2432,7 @@ whether we can form portfolios that generate alpha using some signal (a variable
 <div class="cell_input docutils container">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run regressions for each portfolio and model</span>
 
-<span class="n">full_reg_outout</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># to save everything, in case we want to access other stuff (like beta loadings)</span>
+<span class="n">full_reg_output</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># to save everything, in case we want to access other stuff (like beta loadings)</span>
 <span class="k">for</span> <span class="n">portfolio</span> <span class="ow">in</span> <span class="n">portfolios</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">formula</span> <span class="ow">in</span> <span class="n">factor_models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">reg</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">portfolio</span><span class="si">}</span><span class="s1"> ~ </span><span class="si">{</span><span class="n">formula</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">reg_df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
@@ -2434,7 +2441,7 @@ whether we can form portfolios that generate alpha using some signal (a variable
         <span class="n">t_stat</span> <span class="o">=</span> <span class="n">reg</span><span class="o">.</span><span class="n">tvalues</span><span class="p">[</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span>
         <span class="n">results</span><span class="o">.</span><span class="n">at</span><span class="p">[(</span><span class="n">model_name</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">),</span> <span class="n">portfolio</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span>
         <span class="n">results</span><span class="o">.</span><span class="n">at</span><span class="p">[(</span><span class="n">model_name</span><span class="p">,</span> <span class="s1">&#39;t-stat&#39;</span><span class="p">),</span> <span class="n">portfolio</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_stat</span>
-        <span class="n">full_reg_outout</span><span class="p">[(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">portfolio</span><span class="p">)]</span> <span class="o">=</span> <span class="n">reg</span>
+        <span class="n">full_reg_output</span><span class="p">[(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">portfolio</span><span class="p">)]</span> <span class="o">=</span> <span class="n">reg</span>
 
 <span class="n">results</span>
 </pre></div>
