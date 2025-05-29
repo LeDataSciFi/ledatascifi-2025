@@ -6,7 +6,7 @@ turn those predictions into a tradable portfolio,
 and assess its performance. 
 
 The app
-- Uses well-known predictive features from academic finance research downloaded from the Open Asset Pricing 
+- Uses well-known predictive features from academic finance research downloaded from Open Asset Pricing 
 - Builds stock prediction models using estimators from the simple (OLS) to the advanced (Neural Nets)
 - Evaluates how profitable trading on these strategies are
 - Contains a practical explanation of the methods, the data used, and how it's done 
