@@ -11,11 +11,11 @@ numpy
 ghp-import
 
 # MyST Markdown support
-myst-parser>=0.18.0,<0.19       # adds Sphinx 5 support :contentReference[oaicite:1]{index=1}
-myst-nb>=0.13.0,<0.14          # must match the parser version
+myst-parser==0.15.2         # the last release that supports Sphinx<5 :contentReference[oaicite:0]{index=0}
+myst-nb==0.13.2             # pins myst-parser~=0.15.2 :contentReference[oaicite:1]{index=1}
 
 # Sphinx and theming
-Sphinx>=5.0,<6.0
+Sphinx>=4.0,<5.0            # lock Sphinx into the 4.x series
 sphinx-book-theme==0.0.39
 
 # Core dependencies
