@@ -6,44 +6,42 @@ on:
     branches:
       - main
   schedule:
-    # Runs at 01:00 AM every Sunday; uses UTC time.
+    # Runs at 02:00 AM every Sunday; uses UTC time.
     - cron: '0 2 * * 0'
   workflow_dispatch:    
 
-# This job installs dependencies, build the book, and pushes it to `gh-pages`
 jobs:
   build-and-deploy-book:
     runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-22.04]
+        python-version: [3.9.22]  # or just 3.9
 
-  strategy:
-    matrix:
-      os: [ubuntu-22.04]
-      python-version: [3.9.22]  # or just 3.9
-  
-  steps:
-    - uses: actions/checkout@v2
-    # Install dependencies
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+    steps:
+      - uses: actions/checkout@v2
+      # Install dependencies
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
 
-    # Build the book
-    - name: Build the book
-      run: |
-        jupyter-book build ./
-    
-    # ad-hoc insertion of google analytics (GA4) snippet 
-    - name: add GA4 snippets 
-      run: |
-        python _scripts/add_ga.py        
+      # Build the book
+      - name: Build the book
+        run: |
+          jupyter-book build ./
+      
+      # ad-hoc insertion of google analytics (GA4) snippet 
+      - name: add GA4 snippets 
+        run: |
+          python _scripts/add_ga.py        
 
-    # Deploy the book's HTML to gh-pages branch
-    - name: GitHub Pages action
-      uses: peaceiris/actions-gh-pages@v3.6.1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: _build/html
+      # Deploy the book's HTML to gh-pages branch
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v3.6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: _build/html
