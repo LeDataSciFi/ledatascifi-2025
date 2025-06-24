@@ -5,26 +5,27 @@
 # so reproducing the collapsing behavior and coloring would require 
 # updates to the css files, if the new pydata theme even allows collapsing.
 
-jupyter-book
-matplotlib
-numpy
-ghp-import
-
-# MyST Markdown support
-myst-parser==0.15.2         # the last release that supports Sphinx<5 :contentReference[oaicite:0]{index=0}
-myst-nb==0.13.2             # pins myst-parser~=0.15.2 :contentReference[oaicite:1]{index=1}
-
-# Sphinx and theming
-Sphinx>=4.0,<5.0            # lock Sphinx into the 4.x series
+# Jupyter-Book and Sphinx
+jupyter-book==0.10.0
+Sphinx==3.5.4
 sphinx-book-theme==0.0.39
 
+# MyST
+myst-parser==0.13.3
+myst-nb==0.11.1
+
 # Core dependencies
-docutils>=0.17,<1.0
-Jinja2<3.1
+docutils==0.16
+Jinja2==3.0.3
+importlib-metadata==4.13.0
+
+# Interactive / notebooks
 ipython==8.12.0
+ipywidgets==7.8.5
 
+# Your tooling
+ghp-import==2.1.0
 
-# between Sept 28 22 and Oct 7 22, something else broke... 
-# action errors mention this package, and 4.12.0 had worked...
-# remain on the importlib-metadata we already know works
-importlib-metadata<5
+# Scientific stack (you can leave these unpinned or pin to your working versions)
+numpy==1.24.4
+matplotlib==3.7.5
