@@ -9,7 +9,8 @@
 jupyter-book==0.10.0
 Sphinx==3.5.4
 sphinx-book-theme==0.0.39
-sphinxcontrib-applehelp<1.0.4
+sphinxcontrib-applehelp<1.0.4     # last 3.x-compatible applehelp
+sphinxcontrib-devhelp<1.0.4      # last 3.x-compatible devhelp
 
 # MyST
 myst-parser==0.13.3
