@@ -11,7 +11,7 @@ Sphinx==3.5.4
 sphinx-book-theme==0.0.39
 sphinxcontrib-applehelp<1.0.4     # last 3.x-compatible applehelp
 sphinxcontrib-devhelp<1.0.4      # last 3.x-compatible devhelp
-sphinxcontrib-htmlhelp<2.1.0 
+sphinxcontrib-htmlhelp<2.0.0 
 sphinxcontrib-serializinghtml==1.1.5
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-jsmath==1.0.1
