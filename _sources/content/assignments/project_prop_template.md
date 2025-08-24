@@ -1,4 +1,4 @@
-#  **Full instructions for the proposals**
+#  **Full instructions for the proposals - Spring 2025 (NOT fall)**
 
 In the project repo, create a file called "proposal.md". It should cover two big things:
 
