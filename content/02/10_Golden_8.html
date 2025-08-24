@@ -136,7 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Schedule, tips, resources
+  Tips and resources
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -156,17 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/community_codebook">
-   Community Codebook
-   <i class="fas fa-external-link-alt">
-   </i>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/handouts">
-   Class Handouts
-   <i class="fas fa-external-link-alt">
-   </i>
+  <a class="reference internal" href="../slides/memes.html">
+   Memes
   </a>
  </li>
 </ul>
@@ -800,18 +791,6 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Memes
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../slides/memes.html">
-   Memes
-  </a>
- </li>
-</ul>
 
 </nav> <!-- To handle the deprecated key -->
 
@@ -978,8 +957,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>There are a few popular auto-formatters (black, yapf, and autopep8). In my <a class="reference external" href="../01/05_jupyterlab.html#my-jupyter-lab-set-up">JupyterLab set up</a>, I explain how I set up Black, the “uncompromising Python code formatter” which is very opinionated (“any color you’d like, as long as it is black”).</p>
 <p>Look at what Black does to this code:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="db30cf00-0b2e-4ba0-9844-7b5ab316e41d" name="cc2d913c-c22e-4180-b771-6299a6370c37" type="radio">
-</input><label class="tabbed-label" for="db30cf00-0b2e-4ba0-9844-7b5ab316e41d">
+<input checked="checked" id="e7081c3c-1239-4576-92d9-680d11b370db" name="61188b53-33e6-4703-8f41-8e860b320d11" type="radio">
+</input><label class="tabbed-label" for="e7081c3c-1239-4576-92d9-680d11b370db">
 Ugly Code I wrote</label><div class="tabbed-content docutils">
 <p>This function is too long to even read:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">very_important_function</span><span class="p">(</span><span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">variables</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
@@ -989,8 +968,8 @@ Ugly Code I wrote</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ca44dd50-72f8-4485-a76f-756aa42658a1" name="cc2d913c-c22e-4180-b771-6299a6370c37" type="radio">
-</input><label class="tabbed-label" for="ca44dd50-72f8-4485-a76f-756aa42658a1">
+<input id="1deb03a2-7126-4ea8-922c-3c25fb77ce5b" name="61188b53-33e6-4703-8f41-8e860b320d11" type="radio">
+</input><label class="tabbed-label" for="1deb03a2-7126-4ea8-922c-3c25fb77ce5b">
 Black fixed it</label><div class="tabbed-content docutils">
 <p>I hit CTRL+SHIFT+F and this was the result:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">very_important_function</span><span class="p">(</span>
@@ -1030,8 +1009,8 @@ Black fixed it</label><div class="tabbed-content docutils">
 <p>A magic number is a literal number or parameter value embedded in your code. Having numbers that act as in-line inputs and parameters can easily lead to errors and make modifying code very tough.</p>
 <p>Here is an example that tries to download and stock price data.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="3f02e1f7-0aba-4397-b4a9-b9e7e7739a34" name="e1b37add-5ada-4ac5-bb21-875753b6b55c" type="radio">
-</input><label class="tabbed-label" for="3f02e1f7-0aba-4397-b4a9-b9e7e7739a34">
+<input checked="checked" id="a6c12c16-cef2-4439-b0cf-b09f5350b0bf" name="bd491765-af28-495d-aa76-b1a94d92f88e" type="radio">
+</input><label class="tabbed-label" for="a6c12c16-cef2-4439-b0cf-b09f5350b0bf">
 Bad</label><div class="tabbed-content docutils">
 <p>If I want to change the stocks included, I’ll need to change the list of stocks twice.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas_datareader</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdr</span>  
@@ -1052,8 +1031,8 @@ Bad</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7d214c33-ab18-40c8-8d89-2c7882aabbb1" name="e1b37add-5ada-4ac5-bb21-875753b6b55c" type="radio">
-</input><label class="tabbed-label" for="7d214c33-ab18-40c8-8d89-2c7882aabbb1">
+<input id="881416f3-0286-4108-850d-6aff8e635796" name="bd491765-af28-495d-aa76-b1a94d92f88e" type="radio">
+</input><label class="tabbed-label" for="881416f3-0286-4108-850d-6aff8e635796">
 Good</label><div class="tabbed-content docutils">
 <p>Now I only need to change the variable <code class="docutils literal notranslate"><span class="pre">stocks</span></code> to alter the entire code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas_datareader</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdr</span>  

@@ -136,7 +136,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Schedule, tips, resources
+  Tips and resources
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -156,17 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/community_codebook">
-   Community Codebook
-   <i class="fas fa-external-link-alt">
-   </i>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/handouts">
-   Class Handouts
-   <i class="fas fa-external-link-alt">
-   </i>
+  <a class="reference internal" href="../slides/memes.html">
+   Memes
   </a>
  </li>
 </ul>
@@ -800,18 +791,6 @@ const thebe_selector_output = ".output, .cell_output"
   </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Memes
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../slides/memes.html">
-   Memes
-  </a>
- </li>
-</ul>
 
 </nav> <!-- To handle the deprecated key -->
 
@@ -982,8 +961,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Data can be logically stored in many ways. Let’s start by showing one dataset, and three ways it can be stored.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d6badd69-9b87-4e0f-b2d8-9a954bc74f96" name="d39a2332-7e2f-4604-b6fd-ce3cef4f19a0" type="radio">
-</input><label class="tabbed-label" for="d6badd69-9b87-4e0f-b2d8-9a954bc74f96">
+<input checked="checked" id="d33006a6-8304-4f9b-a320-4a0937edc84a" name="8c61d749-4def-4b56-9dd8-baa93c0c4d6d" type="radio">
+</input><label class="tabbed-label" for="d33006a6-8304-4f9b-a320-4a0937edc84a">
 “Long” Data</label><div class="tabbed-content docutils">
 <p>Here is a <strong>long dataset.</strong> The “key” or “index” is the <em><strong>combination</strong> of year and firm.</em> This is what I’d refer to as a “firm-year” dataset.</p>
 <table class="colwidths-auto table">
@@ -1038,8 +1017,8 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 </div>
-<input id="c0af870f-c5d6-4155-86ab-2d517db6b962" name="d39a2332-7e2f-4604-b6fd-ce3cef4f19a0" type="radio">
-</input><label class="tabbed-label" for="c0af870f-c5d6-4155-86ab-2d517db6b962">
+<input id="37cc2eb3-30a1-4d7a-a4c1-f702de954a19" name="8c61d749-4def-4b56-9dd8-baa93c0c4d6d" type="radio">
+</input><label class="tabbed-label" for="37cc2eb3-30a1-4d7a-a4c1-f702de954a19">
 Same data, but “Wide”</label><div class="tabbed-content docutils">
 <p>This is the exact same data, but stored as a <strong>wide dataset.</strong> Now, the “key” or “index” is <strong>just</strong> the <em>year</em>, and each variable is duplicated for each firm. So there is a Sales variable for GM, and a Sales variable for Ford.</p>
 <table class="colwidths-auto table">
@@ -1085,8 +1064,8 @@ Same data, but “Wide”</label><div class="tabbed-content docutils">
 <p>A similar case can occur for the row names/numbers. If there is one level of the row name, that’s the Index. If there are multiple levels, it is called a MultiIndex.</p>
 </div>
 </div>
-<input id="a4ac26ae-7719-4d85-aea7-5ea4d4f0e8b8" name="d39a2332-7e2f-4604-b6fd-ce3cef4f19a0" type="radio">
-</input><label class="tabbed-label" for="a4ac26ae-7719-4d85-aea7-5ea4d4f0e8b8">
+<input id="153f3e9d-c086-4c2f-975e-71833e1de38d" name="8c61d749-4def-4b56-9dd8-baa93c0c4d6d" type="radio">
+</input><label class="tabbed-label" for="153f3e9d-c086-4c2f-975e-71833e1de38d">
 Same data, but differently “Wide”</label><div class="tabbed-content docutils">
 <p>Now, the “key” or “index” is just the <em>firm</em>, and each variable is duplicated for each year. So there is a Sales variable for 2000, and a Sales variable for 2001.</p>
 <table class="colwidths-auto table">
