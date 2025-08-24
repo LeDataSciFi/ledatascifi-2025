@@ -1,4 +1,6 @@
-## Objectives 
+## Objectives - Spring 2025 (NOT fall)
+
+_In the fall version, the role of Github in the class is largely removed._
 
 ```{tip}
 1. You can navigate between pages on this site by using the left and right arrow keys on your keyboard.
