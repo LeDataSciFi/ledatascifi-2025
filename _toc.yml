@@ -29,7 +29,7 @@
   - file: content/about/hall_of_awesomeness
   - file: content/about/acknowledgments
   
-- part: Schedule, tips, resources
+- part: Tips and resources
   chapters:
   # - file: content/about/schedule
   #   title: "Dashboard, key links, schedule"
@@ -38,10 +38,11 @@
   - file: content/about/resources
     title: "Resources"
   - file: content/about/tips
-  - url: "https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/community_codebook"
-    title: Community Codebook
-  - url: "https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/handouts"
-    title: Class Handouts
+  # - url: "https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/community_codebook"
+  #   title: Community Codebook
+  # - url: "https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/handouts"
+    # title: Class Handouts
+  - file: content/slides/memes
 
 # - part: Assignments and participation  
 #   chapters:
@@ -244,7 +245,7 @@
     - file: content/05/06b_nextsteps
     - file: content/05/06c_dashboards
     
-- part: Memes
-  chapters:
+# - part: Memes
+  # chapters:
   # - file: content/slides/slides
-  - file: content/slides/memes
+  # - file: content/slides/memes
