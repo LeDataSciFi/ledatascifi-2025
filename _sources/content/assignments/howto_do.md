@@ -1,4 +1,4 @@
-# Homework guidelines
+# Homework guidelines - Spring 2025 (NOT fall)
 
 ## Starting homework
 
