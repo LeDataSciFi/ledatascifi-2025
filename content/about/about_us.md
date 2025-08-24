@@ -1,4 +1,4 @@
-## About us
+## About us - Spring 2025 (NOT Fall 2025)
  
 ````{panels}
 <p style="font-size:18px; line-height:24px; color:#666666; margin:0 0 10px;">  <!-- makes it like H3 -->
