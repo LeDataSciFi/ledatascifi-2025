@@ -1,4 +1,4 @@
-## Grading
+## Grading - Spring 2025 (NOT FALL 2025)
 
 ```{warning}
 Another time, for the people in the back:
