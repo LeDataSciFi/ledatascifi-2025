@@ -1,4 +1,4 @@
-# How to do peer review
+# How to do peer review - Spring 2025 (NOT fall)
 
 After assignments are submitted, 
 - You will be added to the assignment repos of two classmates. Go to [github.com](www.github.com). On the left side of the page, under repositories, you'll see that you have access to assignments for two peers. 
