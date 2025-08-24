@@ -18,21 +18,21 @@
   - file: content/about/objectives
   - file: content/about/outcomes
     title: "Outcomes"
-  - file: content/about/about_us
-    title: "About us + office hours" 
-  - file: content/about/structure_and_policies
+  # - file: content/about/about_us
+    # title: "About us + office hours" 
+  # - file: content/about/structure_and_policies
   - file: content/about/use_of_gpt
     title: "ChatGPT and other AI" 
-  - file: content/about/gradeoverview
+  # - file: content/about/gradeoverview
   - file: content/about/interest
-  - file: content/about/bootcamp
+  # - file: content/about/bootcamp
   - file: content/about/hall_of_awesomeness
   - file: content/about/acknowledgments
   
 - part: Schedule, tips, resources
   chapters:
-  - file: content/about/schedule
-    title: "Dashboard, key links, schedule"
+  # - file: content/about/schedule
+  #   title: "Dashboard, key links, schedule"
   - file: content/about/help
     title: "Help"
   - file: content/about/resources
@@ -43,18 +43,18 @@
   - url: "https://github.com/LeDataSciFi/ledatascifi-2025/tree/main/handouts"
     title: Class Handouts
 
-- part: Assignments and participation  
-  chapters:
-  - file: content/assignments/howto_do
-    title: "How to start and turn in assignments"
-  - file: content/assignments/howto_review 
-    title: "How to do your peer reviews"
-  - file: content/assignments/mid_proj 
-    title: "Midterm project AKA ASGN 5"
-  - file: content/assignments/website_setup 
-    title: "Personal Website AKA ASGN 9"  
-  - file: content/assignments/project 
-    title: "Final projects"
+# - part: Assignments and participation  
+#   chapters:
+#   - file: content/assignments/howto_do
+#     title: "How to start and turn in assignments"
+#   - file: content/assignments/howto_review 
+#     title: "How to do your peer reviews"
+#   - file: content/assignments/mid_proj 
+#     title: "Midterm project AKA ASGN 5"
+#   - file: content/assignments/website_setup 
+#     title: "Personal Website AKA ASGN 9"  
+#   - file: content/assignments/project 
+#     title: "Final projects"
     
 - part: Textbook 
   numbered: true # will number the chapters and sections INSIDE the part(s) below
@@ -244,7 +244,7 @@
     - file: content/05/06b_nextsteps
     - file: content/05/06c_dashboards
     
-- part: Slides and Memes
+- part: Memes
   chapters:
-  - file: content/slides/slides
+  # - file: content/slides/slides
   - file: content/slides/memes
