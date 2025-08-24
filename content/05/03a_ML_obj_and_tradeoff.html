@@ -116,33 +116,13 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/about_us.html">
-   About us + office hours
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../about/structure_and_policies.html">
-   Course structure + policies
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../about/use_of_gpt.html">
    ChatGPT and other AI
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../about/gradeoverview.html">
-   Grading - Spring 2025 (NOT FALL 2025)
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../about/interest.html">
    Interested but unsure?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../about/bootcamp.html">
-   Pre-Class Bootcamp
   </a>
  </li>
  <li class="toctree-l1">
@@ -162,11 +142,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../about/schedule.html">
-   Dashboard, key links, schedule
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../about/help.html">
    Help
@@ -194,38 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
    Class Handouts
    <i class="fas fa-external-link-alt">
    </i>
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Assignments and participation
- </span>
-</p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/howto_do.html">
-   How to start and turn in assignments
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/howto_review.html">
-   How to do your peer reviews
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/mid_proj.html">
-   Midterm project AKA ASGN 5
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/website_setup.html">
-   Personal Website AKA ASGN 9
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../assignments/project.html">
-   Final projects
   </a>
  </li>
 </ul>
@@ -861,15 +804,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Slides and Memes
+  Memes
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../slides/slides.html">
-   Slides from previous classes
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../slides/memes.html">
    Memes
@@ -1062,8 +1000,8 @@ E[\text{model error risk}] = \text{model bias}^2+\text{model variance}+\text{noi
 </div>
 <p>Let’s work through these ideas visually in the next three tabs:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5d9c2ea1-0609-44d7-a32a-ea529f9b8b3e" name="f2021f85-2d69-4a3a-a5bf-a94b429d8daf" type="radio">
-</input><label class="tabbed-label" for="5d9c2ea1-0609-44d7-a32a-ea529f9b8b3e">
+<input checked="checked" id="bf207768-bbf0-4b55-a49c-3bf3ea84e70a" name="2c2a0569-7374-4382-960c-3b0e4bfe7de7" type="radio">
+</input><label class="tabbed-label" for="bf207768-bbf0-4b55-a49c-3bf3ea84e70a">
 The classic bias-variance tradeoff</label><div class="tabbed-content docutils">
 <p>We want to minimize model risk. In the graph below, that is called “Test Error”.</p>
 <ul class="simple">
@@ -1080,8 +1018,8 @@ The classic bias-variance tradeoff</label><div class="tabbed-content docutils">
 </ul>
 <a class="reference internal image-reference" href="../../_images/bias_modeling_bias_var_plot.png"><img alt="bias_var" src="../../_images/bias_modeling_bias_var_plot.png" style="width: 500px;" /></a>
 </div>
-<input id="91a915e2-90b6-4940-b0ad-ea9949c51d88" name="f2021f85-2d69-4a3a-a5bf-a94b429d8daf" type="radio">
-</input><label class="tabbed-label" for="91a915e2-90b6-4940-b0ad-ea9949c51d88">
+<input id="a8fd4940-ed60-4ead-9e7d-9308f302b1c3" name="2c2a0569-7374-4382-960c-3b0e4bfe7de7" type="radio">
+</input><label class="tabbed-label" for="a8fd4940-ed60-4ead-9e7d-9308f302b1c3">
 Optimizing model performance via complexity</label><div class="tabbed-content docutils">
 <p>In the chart below, the blue line depicts how well your model does on the “training sample”, meaning: The data the model is trained on. The red line shows how well your model does on data it has never seen before, a so-called “validation sample”.</p>
 <ul class="simple">
@@ -1091,8 +1029,8 @@ Optimizing model performance via complexity</label><div class="tabbed-content do
 <a class="reference internal image-reference" href="../../_images/validation-curve.png"><img alt="validation" src="../../_images/validation-curve.png" style="width: 500px;" /></a>
 <p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/figures/05.03-validation-curve.png">Source</a></p>
 </div>
-<input id="825981dd-2d0e-4889-bd0c-30c68c471322" name="f2021f85-2d69-4a3a-a5bf-a94b429d8daf" type="radio">
-</input><label class="tabbed-label" for="825981dd-2d0e-4889-bd0c-30c68c471322">
+<input id="cee280e7-5a94-43b6-b57e-caa8a8ae43ea" name="2c2a0569-7374-4382-960c-3b0e4bfe7de7" type="radio">
+</input><label class="tabbed-label" for="cee280e7-5a94-43b6-b57e-caa8a8ae43ea">
 A great video explainer (watch this!)</label><div class="tabbed-content docutils">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EuBBz3bI-aA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
