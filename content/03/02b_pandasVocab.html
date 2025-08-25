@@ -178,53 +178,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01/02_Setup.html">
-     1.2. Set up
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="../01/03_github.html">
-     1.3. GitHub Basics
+     1.2. GitHub Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01/03a_githubworkflow.html">
-     1.4. The GitHub Workflow
+     1.3. The GitHub Workflow
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01/04_Markdown.html">
-     1.5. Markdown basics
+     1.4. Markdown basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01/05_jupyterlab.html">
-     1.6. Jupyter Lab Basics
+     1.5. Jupyter Lab Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01/06_python.html">
-     1.7. Python Basics
+     1.6. Python Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01/07_debugging.html">
-     1.8. Debugging
+     1.7. Debugging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01/07a_errors.html">
-     1.9. Errors
+     1.8. Errors
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01/08_libraries.html">
-     1.10. Libraries/Packages
+     1.9. Libraries/Packages
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../01/09_gitignore.html">
-     1.11. Gitignore Files
+     1.10. Gitignore Files
     </a>
    </li>
   </ul>
@@ -961,8 +956,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Data can be logically stored in many ways. Let’s start by showing one dataset, and three ways it can be stored.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="38e4ccd4-13d7-4455-8e29-f39765ec48c4" name="2a9041a4-abda-4919-b854-fd7c715382a7" type="radio">
-</input><label class="tabbed-label" for="38e4ccd4-13d7-4455-8e29-f39765ec48c4">
+<input checked="checked" id="83f63ca8-bbc9-45a4-805b-6c0f77365d16" name="fbbad8bf-bb8c-4c07-aa76-22c1246196cf" type="radio">
+</input><label class="tabbed-label" for="83f63ca8-bbc9-45a4-805b-6c0f77365d16">
 “Long” Data</label><div class="tabbed-content docutils">
 <p>Here is a <strong>long dataset.</strong> The “key” or “index” is the <em><strong>combination</strong> of year and firm.</em> This is what I’d refer to as a “firm-year” dataset.</p>
 <table class="colwidths-auto table">
@@ -1017,8 +1012,8 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 </div>
-<input id="33900ebb-0af9-4ecd-86d5-4cdca985ba12" name="2a9041a4-abda-4919-b854-fd7c715382a7" type="radio">
-</input><label class="tabbed-label" for="33900ebb-0af9-4ecd-86d5-4cdca985ba12">
+<input id="fd23fc4b-2b75-472e-89fd-ca6fbace937f" name="fbbad8bf-bb8c-4c07-aa76-22c1246196cf" type="radio">
+</input><label class="tabbed-label" for="fd23fc4b-2b75-472e-89fd-ca6fbace937f">
 Same data, but “Wide”</label><div class="tabbed-content docutils">
 <p>This is the exact same data, but stored as a <strong>wide dataset.</strong> Now, the “key” or “index” is <strong>just</strong> the <em>year</em>, and each variable is duplicated for each firm. So there is a Sales variable for GM, and a Sales variable for Ford.</p>
 <table class="colwidths-auto table">
@@ -1064,8 +1059,8 @@ Same data, but “Wide”</label><div class="tabbed-content docutils">
 <p>A similar case can occur for the row names/numbers. If there is one level of the row name, that’s the Index. If there are multiple levels, it is called a MultiIndex.</p>
 </div>
 </div>
-<input id="772bce44-87ea-4c5f-ad3e-292a2f06ac71" name="2a9041a4-abda-4919-b854-fd7c715382a7" type="radio">
-</input><label class="tabbed-label" for="772bce44-87ea-4c5f-ad3e-292a2f06ac71">
+<input id="47bee0cb-2e91-456e-8537-c178686cc20b" name="fbbad8bf-bb8c-4c07-aa76-22c1246196cf" type="radio">
+</input><label class="tabbed-label" for="47bee0cb-2e91-456e-8537-c178686cc20b">
 Same data, but differently “Wide”</label><div class="tabbed-content docutils">
 <p>Now, the “key” or “index” is just the <em>firm</em>, and each variable is duplicated for each year. So there is a Sales variable for 2000, and a Sales variable for 2001.</p>
 <table class="colwidths-auto table">

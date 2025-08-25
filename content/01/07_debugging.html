@@ -15,7 +15,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.8. Debugging - Making code work &#8212; LeDataSciFi-2025</title>
+    <title>1.7. Debugging - Making code work &#8212; LeDataSciFi-2025</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -66,8 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.9. Errors" href="07a_errors.html" />
-    <link rel="prev" title="1.7. Digging into Py(thon)" href="06_python.html" />
+    <link rel="next" title="1.8. Errors" href="07a_errors.html" />
+    <link rel="prev" title="1.6. Digging into Py(thon)" href="06_python.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -178,53 +178,48 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_Setup.html">
-     1.2. Set up
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="03_github.html">
-     1.3. GitHub Basics
+     1.2. GitHub Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03a_githubworkflow.html">
-     1.4. The GitHub Workflow
+     1.3. The GitHub Workflow
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04_Markdown.html">
-     1.5. Markdown basics
+     1.4. Markdown basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="05_jupyterlab.html">
-     1.6. Jupyter Lab Basics
+     1.5. Jupyter Lab Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="06_python.html">
-     1.7. Python Basics
+     1.6. Python Basics
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     1.8. Debugging
+     1.7. Debugging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="07a_errors.html">
-     1.9. Errors
+     1.8. Errors
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="08_libraries.html">
-     1.10. Libraries/Packages
+     1.9. Libraries/Packages
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="09_gitignore.html">
-     1.11. Gitignore Files
+     1.10. Gitignore Files
     </a>
    </li>
   </ul>
@@ -898,17 +893,17 @@ const thebe_selector_output = ".output, .cell_output"
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bugs">
-   1.8.1. Bugs
+   1.7.1. Bugs
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#read-the-error-codes">
-     1.8.1.1. Read the error codes!
+     1.7.1.1. Read the error codes!
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#debug">
-     1.8.1.2.
+     1.7.1.2.
      <code class="docutils literal notranslate">
       <span class="pre">
        %debug
@@ -918,41 +913,41 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#flipping-switches-divide-and-conquer-or-find-the-bug">
-     1.8.1.3. Flipping switches / divide and conquer / or: find the bug
+     1.7.1.3. Flipping switches / divide and conquer / or: find the bug
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#print-statements">
-     1.8.1.4. Print statements
+     1.7.1.4. Print statements
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#seriously-print-your-data-and-objects-often">
-   1.8.2. Seriously… print your data and objects OFTEN!
+   1.7.2. Seriously… print your data and objects OFTEN!
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#no-seriously-look-at-your-data-a-lot">
-     1.8.2.1. No, seriously, look at your data a lot!
+     1.7.2.1. No, seriously, look at your data a lot!
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#are-you-still-stuck">
-   1.8.3. Are you still stuck?
+   1.7.3. Are you still stuck?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#clear-output-and-rerun-from-the-start">
-   1.8.4. Clear output and rerun from the start!
+   1.7.4. Clear output and rerun from the start!
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#did-you-follow-these-tips-and-fix-your-code">
-   1.8.5. Did you follow these tips and fix your code?
+   1.7.5. Did you follow these tips and fix your code?
   </a>
  </li>
 </ul>
@@ -967,9 +962,9 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="section" id="debugging-making-code-work">
-<h1><span class="section-number">1.8. </span>Debugging - Making code work<a class="headerlink" href="#debugging-making-code-work" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.7. </span>Debugging - Making code work<a class="headerlink" href="#debugging-making-code-work" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="bugs">
-<h2><span class="section-number">1.8.1. </span>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.1. </span>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h2>
 <p>Perhaps the most famous early case of a computer bug was reported by <a class="reference external" href="https://en.wikipedia.org/wiki/Grace_Hopper">Grace Hopper</a>, who was absolutely a computer science legend and pioneer, and certainly also a <a class="reference external" href="https://www.youtube.com/watch?v=6QIw1BQIvT4">bad mama jama</a>. You should definitely go down the wiki rabbit hole on Grace’s life sometime.</p>
 <p><img alt="" src="../../_images/bug.jpg" /></p>
 <p>Computers are extremely powerful but incredibly stupid. We want to both</p>
@@ -987,7 +982,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 <p><em><strong>Advice that could save (or cost) you thousands:</strong></em> Those steps are general, and work for other things besides code, like  plumbing and electrical work on your parent’s house.</p>
 <div class="section" id="read-the-error-codes">
-<h3><span class="section-number">1.8.1.1. </span>Read the error codes!<a class="headerlink" href="#read-the-error-codes" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.7.1.1. </span>Read the error codes!<a class="headerlink" href="#read-the-error-codes" title="Permalink to this headline">¶</a></h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><a class="reference external" href="https://www.tutorialsteacher.com/python/error-types-in-python">This website-tutorialsteacher</a> has a nice page listing the most common error types. If you get an error and aren’t sure what it means, refer to this link as a starting point.</p>
@@ -996,11 +991,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>I created a short <a class="reference internal" href="07a_errors.html"><span class="doc std std-doc">walkthrough of the types of errors here.</span></a></p>
 </div>
 <div class="section" id="debug">
-<h3><span class="section-number">1.8.1.2. </span><code class="docutils literal notranslate"><span class="pre">%debug</span></code><a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.7.1.2. </span><code class="docutils literal notranslate"><span class="pre">%debug</span></code><a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/01.06-errors-and-debugging.html#Debugging:-When-Reading-Tracebacks-Is-Not-Enough">Covered in nice detail here</a>.</p>
 </div>
 <div class="section" id="flipping-switches-divide-and-conquer-or-find-the-bug">
-<h3><span class="section-number">1.8.1.3. </span>Flipping switches / divide and conquer / or: find the bug<a class="headerlink" href="#flipping-switches-divide-and-conquer-or-find-the-bug" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.7.1.3. </span>Flipping switches / divide and conquer / or: find the bug<a class="headerlink" href="#flipping-switches-divide-and-conquer-or-find-the-bug" title="Permalink to this headline">¶</a></h3>
 <p>After slaving over your computer and a piece of paper (you smartly planned out your code before you went in head first), you’ve found a clever solution to your problem. Your code is beautiful and elegant, like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1055,7 +1050,7 @@ He spends all day taking calls from people with computer problems, typically men
 <p>Luckily, python error statements tend to be informative enough. Above, we know the issue is in line 4. But in more sophisticated settings, where the lines above aren’t <code class="docutils literal notranslate"><span class="pre">2+2</span></code> but chunks of code, and the error isn’t simply due to syntax or namespace issues… the on/off method can be useful. Why? Because many “errors” can exist even when the code executes.</p>
 </div>
 <div class="section" id="print-statements">
-<h3><span class="section-number">1.8.1.4. </span>Print statements<a class="headerlink" href="#print-statements" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.7.1.4. </span>Print statements<a class="headerlink" href="#print-statements" title="Permalink to this headline">¶</a></h3>
 <p>Another ugly, possibly brutish method of debugging is: put print statements all over your code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1097,7 +1092,7 @@ hey
 </div>
 </div>
 <div class="section" id="seriously-print-your-data-and-objects-often">
-<h2><span class="section-number">1.8.2. </span>Seriously… print your data and objects OFTEN!<a class="headerlink" href="#seriously-print-your-data-and-objects-often" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.2. </span>Seriously… print your data and objects OFTEN!<a class="headerlink" href="#seriously-print-your-data-and-objects-often" title="Permalink to this headline">¶</a></h2>
 <p><strong>Suppose you have a large dataset you want to explore. What can you do to look at it?</strong></p>
 <p>Here are some options:</p>
 <ol class="simple">
@@ -1120,13 +1115,13 @@ hey
 <p>Then you’d simply execute the code in Spyder up to the point you were at, and continue.</p>
 <p>Much of this class will require delivery of <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> files, and I would recommend using Jupyter exclusively at the beginning. However, if you personally prefer Spyder for bigger projects later on, feel free to use Spyder until the project is ready for write up (at which point you copy the code into a <code class="docutils literal notranslate"><span class="pre">ipynb</span></code> file and add Markdown elements to build the report).</p>
 <div class="section" id="no-seriously-look-at-your-data-a-lot">
-<h3><span class="section-number">1.8.2.1. </span>No, seriously, look at your data a lot!<a class="headerlink" href="#no-seriously-look-at-your-data-a-lot" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.7.2.1. </span>No, seriously, look at your data a lot!<a class="headerlink" href="#no-seriously-look-at-your-data-a-lot" title="Permalink to this headline">¶</a></h3>
 <p>This isn’t even a “debugging” point per se.</p>
 <p>You know a 6 is a 6. But we will be handling increasingly large datasets, and it’s easy to make rather large changes without knowing exactly what you have done, … or not done … , if you don’t see into the object. Are you sure that object is exactly what you think it is, containing exactly what you think it does? Thus, the <code class="docutils literal notranslate"><span class="pre">print</span></code> statement and other ways of “glancing into” datasets are crucial. Even when you’ve all become pythonic pros, you should tend towards examining your objects “too much”.</p>
 </div>
 </div>
 <div class="section" id="are-you-still-stuck">
-<h2><span class="section-number">1.8.3. </span>Are you still stuck?<a class="headerlink" href="#are-you-still-stuck" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.3. </span>Are you still stuck?<a class="headerlink" href="#are-you-still-stuck" title="Permalink to this headline">¶</a></h2>
 <p>It’ll happen! We will try to build some ambitious code this semester! (Imagine trying to replicate the CAPM beta estimation on 500 firms in Excel!) Coding complicated analysis is iterative and debugging can be <a class="reference external" href="https://media.giphy.com/media/92S5gReZGnDgY/giphy.gif">as tough as having your IT firm audited</a>.</p>
 <p>So if you’ve tried the above, what can you do?</p>
 <ul class="simple">
@@ -1137,7 +1132,7 @@ hey
 <p><img alt="" src="https://media.giphy.com/media/h6cFYO8miNhok/giphy.gif" />.</p>
 </div>
 <div class="section" id="clear-output-and-rerun-from-the-start">
-<h2><span class="section-number">1.8.4. </span>Clear output and rerun from the start!<a class="headerlink" href="#clear-output-and-rerun-from-the-start" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.4. </span>Clear output and rerun from the start!<a class="headerlink" href="#clear-output-and-rerun-from-the-start" title="Permalink to this headline">¶</a></h2>
 <p><em>(Yes, I’m copying this from the prior page. It’s important!)</em></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1154,7 +1149,7 @@ hey
 </div>
 </div>
 <div class="section" id="did-you-follow-these-tips-and-fix-your-code">
-<h2><span class="section-number">1.8.5. </span>Did you follow these tips and fix your code?<a class="headerlink" href="#did-you-follow-these-tips-and-fix-your-code" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7.5. </span>Did you follow these tips and fix your code?<a class="headerlink" href="#did-you-follow-these-tips-and-fix-your-code" title="Permalink to this headline">¶</a></h2>
 <p>Congrats!</p>
 <p><img alt="" src="https://media.giphy.com/media/5tov263RmYEpPYmcuB/giphy.gif" /></p>
 </div>
@@ -1188,8 +1183,8 @@ hey
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="06_python.html" title="previous page"><span class="section-number">1.7. </span>Digging into Py(thon)</a>
-    <a class='right-next' id="next-link" href="07a_errors.html" title="next page"><span class="section-number">1.9. </span>Errors</a>
+    <a class='left-prev' id="prev-link" href="06_python.html" title="previous page"><span class="section-number">1.6. </span>Digging into Py(thon)</a>
+    <a class='right-next' id="next-link" href="07a_errors.html" title="next page"><span class="section-number">1.8. </span>Errors</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
