@@ -15,7 +15,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1.10. Gitignore files &#8212; LeDataSciFi-2025</title>
+    <title>1.11. Gitignore files &#8212; LeDataSciFi-2025</title>
     
   <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Golden Rules (for Projects and Programs)" href="../02/10_Golden_1.html" />
-    <link rel="prev" title="1.9. Libraries/Packages" href="08_libraries.html" />
+    <link rel="prev" title="1.10. Libraries/Packages" href="08_libraries.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -178,48 +178,53 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="02_Setup.html">
+     1.2. Set up - Spring 2025 (NOT fall 2025)
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="03_github.html">
-     1.2. GitHub Basics
+     1.3. GitHub Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="03a_githubworkflow.html">
-     1.3. The GitHub Workflow
+     1.4. The GitHub Workflow
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04_Markdown.html">
-     1.4. Markdown basics
+     1.5. Markdown basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="05_jupyterlab.html">
-     1.5. Jupyter Lab Basics
+     1.6. Jupyter Lab Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="06_python.html">
-     1.6. Python Basics
+     1.7. Python Basics
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="07_debugging.html">
-     1.7. Debugging
+     1.8. Debugging
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="07a_errors.html">
-     1.8. Errors
+     1.9. Errors
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="08_libraries.html">
-     1.9. Libraries/Packages
+     1.10. Libraries/Packages
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     1.10. Gitignore Files
+     1.11. Gitignore Files
     </a>
    </li>
   </ul>
@@ -893,22 +898,22 @@ const thebe_selector_output = ".output, .cell_output"
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#how-to-create-and-edit-a-gitignore-file">
-   1.10.1. How to create and edit a gitignore file
+   1.11.1. How to create and edit a gitignore file
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#syntax">
-   1.10.2. Syntax
+   1.11.2. Syntax
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#i-have-a-file-in-gitignore-but-it-s-still-on-the-remote-repo">
-   1.10.3. I have a file in gitignore, but it’s still on the remote repo!
+   1.11.3. I have a file in gitignore, but it’s still on the remote repo!
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#more-resources">
-   1.10.4. More resources
+   1.11.4. More resources
   </a>
  </li>
 </ul>
@@ -923,7 +928,7 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="section" id="gitignore-files">
-<h1><span class="section-number">1.10. </span>Gitignore files<a class="headerlink" href="#gitignore-files" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.11. </span>Gitignore files<a class="headerlink" href="#gitignore-files" title="Permalink to this headline">¶</a></h1>
 <p>The process of working on homeworks and projects will inevitably create files that you might not want to sync to the remote repo on <a class="reference external" href="http://GitHub.com">GitHub.com</a>. Because the remote repo is “public” facing, the goal is to have a clean remote repo without miscellaneous files.</p>
 <p>Common versions of files you might not want on the remote repo:</p>
 <ul class="simple">
@@ -933,7 +938,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>So how do we prevent git from syncing these files? The <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file!</p>
 <div class="section" id="how-to-create-and-edit-a-gitignore-file">
-<h2><span class="section-number">1.10.1. </span>How to create and edit a gitignore file<a class="headerlink" href="#how-to-create-and-edit-a-gitignore-file" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.11.1. </span>How to create and edit a gitignore file<a class="headerlink" href="#how-to-create-and-edit-a-gitignore-file" title="Permalink to this headline">¶</a></h2>
 <p>There are several ways to create one:</p>
 <ol class="simple">
 <li><p>When you create a repo, select to add a gitignore file. I usually pick the python template option.</p></li>
@@ -943,7 +948,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Editing it: Any text editor!</p>
 </div>
 <div class="section" id="syntax">
-<h2><span class="section-number">1.10.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.11.2. </span>Syntax<a class="headerlink" href="#syntax" title="Permalink to this headline">¶</a></h2>
 <p>Each line lists a file(s) or folder(s) that shouldn’t be tracked. Wildcards are allowed. For example,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">ipynb_checkpoints</span>
 <span class="o">*/.</span><span class="n">ipynb_checkpoints</span><span class="o">/*</span>
@@ -952,7 +957,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>should prevent the checkpoints Jupyter Lab makes from being synced.</p>
 </div>
 <div class="section" id="i-have-a-file-in-gitignore-but-it-s-still-on-the-remote-repo">
-<h2><span class="section-number">1.10.3. </span>I have a file in gitignore, but it’s still on the remote repo!<a class="headerlink" href="#i-have-a-file-in-gitignore-but-it-s-still-on-the-remote-repo" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.11.3. </span>I have a file in gitignore, but it’s still on the remote repo!<a class="headerlink" href="#i-have-a-file-in-gitignore-but-it-s-still-on-the-remote-repo" title="Permalink to this headline">¶</a></h2>
 <p>That’s because it was already on the remote repo when you added it to the gitignore; <strong>The gitignore file simply tells git to “not sync” those files anymore. It doesn’t mean “delete these files from the remote repo”.</strong></p>
 <p>There are a few ways to delete the extra files in the remote repo. The simplest: Go to the repo on <a class="reference external" href="http://GitHub.com">GitHub.com</a> and delete them individually.</p>
 <p>If you have lots of files you want to suddenly gitignore/delete and you are comfortable running some git commands, you can do it programmatically. Open terminal/powershell, <strong>move the current directory to the root folder of your repo,</strong> and then run these commands in order:</p>
@@ -964,7 +969,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="section" id="more-resources">
-<h2><span class="section-number">1.10.4. </span>More resources<a class="headerlink" href="#more-resources" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.11.4. </span>More resources<a class="headerlink" href="#more-resources" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://git-scm.com/docs/gitignore">The manual for git</a> describes how to use these files in much more detail.</p>
 </div>
 </div>
@@ -997,7 +1002,7 @@ const thebe_selector_output = ".output, .cell_output"
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="08_libraries.html" title="previous page"><span class="section-number">1.9. </span>Libraries/Packages</a>
+    <a class='left-prev' id="prev-link" href="08_libraries.html" title="previous page"><span class="section-number">1.10. </span>Libraries/Packages</a>
     <a class='right-next' id="next-link" href="../02/10_Golden_1.html" title="next page"><span class="section-number">2. </span>Golden Rules (for Projects and Programs)</a>
 
     </div>
