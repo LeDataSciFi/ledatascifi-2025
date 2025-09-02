@@ -15,6 +15,10 @@ The app
 
 Visit the app and check it out! 
 
+---
+
+## Screenshots
+
 ![](img/ModelComps.png)
 
 ![](img/AgainstZoo.png)
