@@ -15,22 +15,19 @@ The stakes are high! The winner walks away with a trophy, and gets their name em
 ````{panels}
 :column: col-sm-4 
 
-:img-bottom: img/trophy_front.jpg
+:img-bottom: img/new_trophy.jpg
 
-**Trophy Front**
+**Trophy**
 
 ---
-:img-bottom: img/trophy_back.jpg
+:img-bottom: img/winners_ethan.jpg
 
-```{link-button} https://ledatascifi.github.io/ledatascifi-2025/_images/trophy_back.jpg
-:text: Trophy Back (click to zoom)
-:classes: stretched-link font-weight-bold text-left
-```
+**2025 Dec: Haley Jones**
 
 ---
 :img-bottom: img/winners_haley.jpg
 
-**2025: Haley Jones**
+**2025 May: Haley Jones**
 
 ---
 :img-bottom: img/winners_hana.jpg
