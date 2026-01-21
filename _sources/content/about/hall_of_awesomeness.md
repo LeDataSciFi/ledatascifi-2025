@@ -22,7 +22,7 @@ The stakes are high! The winner walks away with a trophy, and gets their name em
 ---
 :img-bottom: img/winners_ethan.jpg
 
-**2025 Dec: Haley Jones**
+**2025 Dec: Ethan Lesser**
 
 ---
 :img-bottom: img/winners_haley.jpg
