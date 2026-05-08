@@ -20,6 +20,11 @@ The stakes are high! The winner walks away with a trophy, and gets their name em
 **Trophy**
 
 ---
+:img-bottom: img/winners_alext.jpeg
+
+**2026 May: Alex Tauber**
+
+---
 :img-bottom: img/winners_ethan.jpg
 
 **2025 Dec: Ethan Lesser**
