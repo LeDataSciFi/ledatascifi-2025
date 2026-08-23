@@ -934,18 +934,18 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this cell is copied from the L17 lecture file</span>
-<span class="c1"># EXCEPT: I put the interest rate in its own &quot;y&quot; variable</span>
+<span class="c1"># EXCEPT: I put the interest rate in its own "y" variable</span>
 <span class="c1">#         and remove the y variable from the fannie_mae data</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">url</span>        <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true&#39;</span>
-<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">url</span>        <span class="o">=</span> <span class="s1">'https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true'</span>
+<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">y</span>          <span class="o">=</span> <span class="n">fannie_mae</span><span class="o">.</span><span class="n">Original_Interest_Rate</span>
 <span class="n">fannie_mae</span> <span class="o">=</span> <span class="p">(</span><span class="n">fannie_mae</span>
-                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">]),</span>
-                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Original_LTV_(OLTV)&#39;</span><span class="p">]),</span>
+                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">]),</span>
+                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Original_LTV_(OLTV)'</span><span class="p">]),</span>
                          <span class="p">)</span>
               <span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">11</span><span class="p">:]</span> <span class="c1"># limit to these vars for the sake of this example</span>
              <span class="p">)</span>
@@ -967,7 +967,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Important: For many kinds of models, you will set some desired values for parameters of that model. These are referred to as “hyperparameters”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create (&quot;instantiate&quot;) the class, here I set hyper param alpha=1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create ("instantiate") the class, here I set hyper param alpha=1</span>
 <span class="n">ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> 
 </pre></div>
 </div>

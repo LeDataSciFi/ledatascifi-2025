@@ -997,7 +997,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2><span class="section-number">3.3.2.3. </span>Syntax tips<a class="headerlink" href="#syntax-tips" title="Permalink to this headline">¶</a></h2>
 <p>With <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>, I usually use this syntax that looks something this like for graphing. (Delete the “&lt;” and “&gt;” and replace the inside with what you need.) Obviously, you’ll see many examples in this chapter that deviate from this. Usually, this is because you don’t need to explicitly declare “data”, or because “x” is just assumed as all variables in the dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.&lt;</span><span class="n">function</span><span class="o">&gt;</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">dataframe</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">optional</span> <span class="n">data</span> <span class="n">functions</span><span class="p">],</span>
-               <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;&lt;varname&gt;&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;&lt;varname&gt;&#39;</span><span class="p">,</span>  
+               <span class="n">x</span> <span class="o">=</span> <span class="s1">'&lt;varname&gt;'</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'&lt;varname&gt;'</span><span class="p">,</span>  
                <span class="p">[</span><span class="n">optional</span> <span class="n">arguments</span> <span class="k">for</span> <span class="n">specific</span> <span class="n">plots</span><span class="p">]</span>   <span class="p">)</span>
 </pre></div>
 </div>
@@ -1009,8 +1009,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 </div>
 <p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;td_a &lt; 1 &amp; td_a &gt; 0&#39;</span><span class="p">),</span>
-            <span class="n">x</span><span class="o">=</span><span class="s1">&#39;td_a&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'td_a &lt; 1 &amp; td_a &gt; 0'</span><span class="p">),</span>
+            <span class="n">x</span><span class="o">=</span><span class="s1">'td_a'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

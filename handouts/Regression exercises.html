@@ -1049,8 +1049,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/data/raw/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true&#39;</span>
-<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://github.com/LeDataSciFi/data/raw/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true'</span>
+<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -1067,12 +1067,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fannie_mae</span> <span class="o">=</span> <span class="p">(</span><span class="n">fannie_mae</span>
                   <span class="c1"># create variables</span>
-                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">]),</span>
-                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Original_LTV_(OLTV)&#39;</span><span class="p">]),</span>
-                          <span class="n">Origination_Date</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;Origination_Date&#39;</span><span class="p">]),</span>
-                          <span class="n">Origination_Year</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;Origination_Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
+                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">]),</span>
+                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Original_LTV_(OLTV)'</span><span class="p">]),</span>
+                          <span class="n">Origination_Date</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'Origination_Date'</span><span class="p">]),</span>
+                          <span class="n">Origination_Year</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'Origination_Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
                           <span class="n">const</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-                          <span class="n">great</span> <span class="o">=</span> <span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">800</span>
+                          <span class="n">great</span> <span class="o">=</span> <span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">800</span>
                          <span class="p">)</span>
               
              <span class="p">)</span>
@@ -1083,11 +1083,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Credit rating is a number between 0 and 850. But in some analysis, it might make sense to have categories of credit ratings (e.g. bad to good). I borrowed <a class="reference external" href="https://www.experian.com/blogs/ask-experian/infographic-what-are-the-different-scoring-ranges/">these cutoffs from experian.</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a categorical bin var with &quot;pd.cut()&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a categorical bin var with "pd.cut()"</span>
 
-<span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;creditbins&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">],</span>
+<span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'creditbins'</span><span class="p">]</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">],</span>
                                  <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">579</span><span class="p">,</span><span class="mi">669</span><span class="p">,</span><span class="mi">739</span><span class="p">,</span><span class="mi">799</span><span class="p">,</span><span class="mi">850</span><span class="p">],</span>
-                                 <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Very Poor&#39;</span><span class="p">,</span><span class="s1">&#39;Fair&#39;</span><span class="p">,</span><span class="s1">&#39;Good&#39;</span><span class="p">,</span><span class="s1">&#39;Very Good&#39;</span><span class="p">,</span><span class="s1">&#39;Exceptional&#39;</span><span class="p">])</span>
+                                 <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">'Very Poor'</span><span class="p">,</span><span class="s1">'Fair'</span><span class="p">,</span><span class="s1">'Good'</span><span class="p">,</span><span class="s1">'Very Good'</span><span class="p">,</span><span class="s1">'Exceptional'</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1095,7 +1095,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Here is the variable that created. I notice that 669 (right on the threshold of a bin) goes into the “Fair” bin instead of “Good”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fannie_mae</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">,</span><span class="s1">&#39;creditbins&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fannie_mae</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">,</span><span class="s1">'creditbins'</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1105,7 +1105,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pd.cut took credit , var number between 0 and 850,</span>
 <span class="c1"># and changed it to bins. I labeled the bins explicitly</span>
 
-<span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;creditbins&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'creditbins'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1229,23 +1229,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>The <code class="docutils literal notranslate"><span class="pre">results</span></code> object is different than statsmodels’</p></li>
 </ol>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="c1"># 1. import the &quot;class&quot; of model form sklearn</span>
+<span class="c1"># 1. import the "class" of model form sklearn</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearRegression</span>
 
 <span class="c1"># 2. arrange the data - more work than statsmodels</span>
 
-<span class="c1"># Issue: sklearn doesn&#39;t work with missing values, so drop any obs with missing values</span>
+<span class="c1"># Issue: sklearn doesn't work with missing values, so drop any obs with missing values</span>
 <span class="c1"># replace vars_in_your_reg with a list of variables you want to use, including y</span>
 <span class="n">subset</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">vars_in_your_reg</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
 <span class="c1"># explicitly set up the y variable and the X variables you want</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="c1"># whatever the y variable is</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[[</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span><span class="s1">&#39;X2&#39;</span><span class="p">]]</span> <span class="c1"># list the X vars</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[</span><span class="s1">'y'</span><span class="p">]</span> <span class="c1"># whatever the y variable is</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">subset</span><span class="p">[[</span><span class="s1">'X1'</span><span class="p">,</span><span class="s1">'X2'</span><span class="p">]]</span> <span class="c1"># list the X vars</span>
 
-<span class="c1"># 3. set up the model (&quot;instantiate the model&quot;)</span>
-<span class="c1"># every class of models has &quot;hyperparamaters&quot; that control how you want the model to work</span>
-<span class="c1"># below, fit_intercept=True is a &quot;hyperparameter&quot; for OLS models </span>
+<span class="c1"># 3. set up the model ("instantiate the model")</span>
+<span class="c1"># every class of models has "hyperparamaters" that control how you want the model to work</span>
+<span class="c1"># below, fit_intercept=True is a "hyperparameter" for OLS models </span>
 <span class="c1"># hyperparameters are the things inside the parenthesis of the model class when you declare it</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

@@ -938,9 +938,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">download_file_from_google_drive</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_file_from_google_drive</span>
 
-<span class="c1"># download the file to your computer if you haven&#39;t already</span>
+<span class="c1"># download the file to your computer if you haven't already</span>
 
-<span class="n">filepath_to_download_to</span> <span class="o">=</span> <span class="s1">&#39;my_big_file.csv&#39;</span> <span class="c1"># replace with your preferred name/path</span>
+<span class="n">filepath_to_download_to</span> <span class="o">=</span> <span class="s1">'my_big_file.csv'</span> <span class="c1"># replace with your preferred name/path</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filepath_to_download_to</span><span class="p">)</span>
     <span class="n">download_file_from_google_drive</span><span class="p">(</span>
         <span class="o">&lt;</span><span class="n">put</span> <span class="n">the</span> <span class="n">ID</span> <span class="n">here</span><span class="o">&gt;</span><span class="p">,</span> 
@@ -956,7 +956,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="function">
 <h2><span class="section-number">5.5.2. </span>Function:<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download_file_from_google_drive</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Function Author: @turdus-merula, from https://stackoverflow.com/questions/25010369/wget-curl-large-file-from-google-drive/39225039#39225039</span>
 <span class="sd">    </span>
 <span class="sd">    Docstring Author: Harry Hawkes (GH: @hph220), Lehigh Class of 2020</span>
@@ -967,13 +967,13 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    1. Upload (compressed) files to Lehigh Google Drive. (A non-Lehigh google drive</span>
 <span class="sd">    will work too, but has limitations on space.)</span>
 <span class="sd">    </span>
-<span class="sd">    2. Turn on sharing for the file by right clicking it and selecting &quot;get shareable link&quot;, </span>
-<span class="sd">    but you don&#39;t need to give edit access.</span>
+<span class="sd">    2. Turn on sharing for the file by right clicking it and selecting "get shareable link", </span>
+<span class="sd">    but you don't need to give edit access.</span>
 <span class="sd">    </span>
-<span class="sd">    3. Turn on sharing for users outside of Lehigh University, but you don&#39;t need to give </span>
+<span class="sd">    3. Turn on sharing for users outside of Lehigh University, but you don't need to give </span>
 <span class="sd">    edit access.</span>
 <span class="sd">    </span>
-<span class="sd">    4. Get the ID from the sharing link (found at the end of the sharing URL), you&#39;ll need to</span>
+<span class="sd">    4. Get the ID from the sharing link (found at the end of the sharing URL), you'll need to</span>
 <span class="sd">    put that into your code. </span>
 <span class="sd">    </span>
 <span class="sd">    5. In your file that uses this data:</span>
@@ -981,21 +981,21 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">        import os</span>
 <span class="sd">        from download_file_from_google_drive import download_file_from_google_drive</span>
 <span class="sd">        </span>
-<span class="sd">        # download the file to your computer if you haven&#39;t already</span>
+<span class="sd">        # download the file to your computer if you haven't already</span>
 <span class="sd">        </span>
-<span class="sd">        filepath_to_download_to = &#39;my_big_file.csv&#39; # replace with your preferred name/path</span>
+<span class="sd">        filepath_to_download_to = 'my_big_file.csv' # replace with your preferred name/path</span>
 <span class="sd">        if not os.path.exists(filepath_to_download_to)</span>
 <span class="sd">            download_file_from_google_drive(&lt;put the ID here&gt;, filepath_to_download_to)</span>
 <span class="sd">    </span>
 <span class="sd">        # open it</span>
 <span class="sd">        &lt;open the file, exact method depends on file type&gt;   </span>
-<span class="sd">    &#39;&#39;&#39;</span>  
+<span class="sd">    '''</span>  
   
     <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
     
     <span class="k">def</span><span class="w"> </span><span class="nf">get_confirm_token</span><span class="p">(</span><span class="n">response</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;download_warning&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">'download_warning'</span><span class="p">):</span>
                 <span class="k">return</span> <span class="n">value</span>
 
         <span class="k">return</span> <span class="kc">None</span>
@@ -1003,29 +1003,29 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="k">def</span><span class="w"> </span><span class="nf">save_response_content</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
         <span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">32768</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">destination</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">):</span>
                 <span class="k">if</span> <span class="n">chunk</span><span class="p">:</span> <span class="c1"># filter out keep-alive new chunks</span>
                     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
 
-    <span class="n">URL</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/uc?export=download&quot;</span>
+    <span class="n">URL</span> <span class="o">=</span> <span class="s2">"https://docs.google.com/uc?export=download"</span>
 
     <span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 
-    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="nb">id</span> <span class="p">},</span> <span class="n">stream</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'id'</span> <span class="p">:</span> <span class="nb">id</span> <span class="p">},</span> <span class="n">stream</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
     <span class="n">token</span> <span class="o">=</span> <span class="n">get_confirm_token</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">token</span><span class="p">:</span>
-        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span> <span class="p">:</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">&#39;confirm&#39;</span> <span class="p">:</span> <span class="n">token</span> <span class="p">}</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">'id'</span> <span class="p">:</span> <span class="nb">id</span><span class="p">,</span> <span class="s1">'confirm'</span> <span class="p">:</span> <span class="n">token</span> <span class="p">}</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">params</span><span class="p">,</span> <span class="n">stream</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
     <span class="n">save_response_content</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">destination</span><span class="p">)</span>    
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Usage: python google_drive.py drive_file_id destination_file_path&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Usage: python google_drive.py drive_file_id destination_file_path"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># TAKE ID FROM SHAREABLE LINK</span>
         <span class="n">file_id</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>

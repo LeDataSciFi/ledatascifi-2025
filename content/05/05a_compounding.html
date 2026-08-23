@@ -959,11 +959,11 @@ r[0,T] = \left(\prod_{t=1}^T R_t\right) - 1
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span>
    <span class="c1"># compute gross returns for each asset</span>
-   <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">R</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">])</span>
+   <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">R</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">])</span>
    <span class="c1"># for each portfolio and time period...</span>
-   <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;asset&#39;</span><span class="p">,</span><span class="s1">&#39;timeperiod&#39;</span><span class="p">])</span>
+   <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'asset'</span><span class="p">,</span><span class="s1">'timeperiod'</span><span class="p">])</span>
    <span class="c1"># get the gross returns, and cumulate by taking the product</span>
-   <span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
+   <span class="p">[</span><span class="s1">'R'</span><span class="p">]</span><span class="o">.</span><span class="n">prod</span><span class="p">()</span>
    <span class="c1"># subtract one to get back to simple returns</span>
    <span class="o">-</span><span class="mi">1</span>
 <span class="p">)</span>
@@ -975,12 +975,12 @@ r[0,T] = \left(\prod_{t=1}^T R_t\right) - 1
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span>
  <span class="c1"># for each asset and time period</span>
- <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;asset&quot;</span><span class="p">,</span> <span class="s2">&quot;timeperiod&quot;</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"asset"</span><span class="p">,</span> <span class="s2">"timeperiod"</span><span class="p">])</span>
  <span class="c1"># agg() does the function inside for each group (asset-timeperiod combo)</span>
- <span class="c1"># 1+x[&#39;ret&#39;] gets gross return (R) for each observation in the data</span>
- <span class="c1"># (1+x{&#39;ret&#39;]).prod() takes the product of all R for that group</span>
+ <span class="c1"># 1+x['ret'] gets gross return (R) for each observation in the data</span>
+ <span class="c1"># (1+x{'ret']).prod() takes the product of all R for that group</span>
  <span class="c1"># and then subtract one</span>
- <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">ret</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;ret&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">prod</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">ret</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="s2">"ret"</span><span class="p">])</span><span class="o">.</span><span class="n">prod</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1011,11 +1011,11 @@ r[0,T] = \left(\prod_{t=1}^T R_t\right) - 1
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span>
  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">logR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">df</span><span class="o">.</span><span class="n">ret</span><span class="p">))</span>
  <span class="c1"># for each asset and time period</span>
- <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;asset&quot;</span><span class="p">,</span> <span class="s2">&quot;timeperiod&quot;</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"asset"</span><span class="p">,</span> <span class="s2">"timeperiod"</span><span class="p">])</span>
  <span class="c1"># sum log returns</span>
- <span class="p">[</span><span class="s1">&#39;logR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+ <span class="p">[</span><span class="s1">'logR'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
  <span class="c1"># exponentiate and subtract 1</span>
- <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ret</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;logR&#39;</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span>
+ <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ret</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'logR'</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span>
 <span class="p">)</span>
 </pre></div>
 </div>

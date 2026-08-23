@@ -977,11 +977,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">NEAR_regex</span><span class="p">(</span><span class="n">list_of_words</span><span class="p">,</span><span class="n">max_words_between</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">partial</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">cases_matter</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    list_of_words : list</span>
-<span class="sd">        A list of &quot;words&quot;, each element is a string</span>
+<span class="sd">        A list of "words", each element is a string</span>
 <span class="sd">        </span>
 <span class="sd">        This program will return a regex that will look for times where word1 </span>
 <span class="sd">        is near word2, or word2 is near word 1.</span>
@@ -990,18 +990,18 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">        word3. </span>
 <span class="sd">        </span>
 <span class="sd">    max_words_between : int, optional</span>
-<span class="sd">        How many &quot;words&quot; are allowed between words in list_of_words. The default</span>
+<span class="sd">        How many "words" are allowed between words in list_of_words. The default</span>
 <span class="sd">        is 5, but you should consider this carefully.</span>
 <span class="sd">        </span>
-<span class="sd">        &quot;words&quot; in between are chunks of characters. &quot;DON don don- don12 2454&quot; </span>
+<span class="sd">        "words" in between are chunks of characters. "DON don don- don12 2454" </span>
 <span class="sd">        is 5 words.</span>
 <span class="sd">        </span>
 <span class="sd">        This will not allow matches if the words are separated by a newline </span>
-<span class="sd">        (&quot;\n&quot;) character.</span>
+<span class="sd">        ("\n") character.</span>
 <span class="sd">        </span>
 <span class="sd">    partial : Boolean, optional</span>
 <span class="sd">        If true, will accept longer words than you give. For example, if one </span>
-<span class="sd">        word in your list is &quot;how&quot;, it will match to &quot;howdy&quot;. Be careful in </span>
+<span class="sd">        word in your list is "how", it will match to "howdy". Be careful in </span>
 <span class="sd">        choosing this based on your problem. Partial makes more sense with </span>
 <span class="sd">        longer words. </span>
 <span class="sd">        The default is True.</span>
@@ -1009,8 +1009,8 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    cases_matter: Boolean, optional bt IMPORTANT</span>
 <span class="sd">        If True, will return a regex string that will only catch cases where  </span>
 <span class="sd">        words in the string have the same case as given as input to this </span>
-<span class="sd">        function. For example, if one word here is &quot;Hi&quot;, then the regex </span>
-<span class="sd">        produced by this function will not catch &quot;hi&quot;.</span>
+<span class="sd">        function. For example, if one word here is "Hi", then the regex </span>
+<span class="sd">        produced by this function will not catch "hi".</span>
 <span class="sd">        </span>
 <span class="sd">        If false, will return a regex string that will only work if all letters</span>
 <span class="sd">        in search string are lowercase.</span>
@@ -1032,21 +1032,21 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    3. Optionally ignore line breaks. </span>
 <span class="sd">    </span>
 <span class="sd">    4. Optionally make it lazy (in the last example, </span>
-<span class="sd">    the &quot;correct&quot; answer is probably 2, but it gives 1.)</span>
+<span class="sd">    the "correct" answer is probably 2, but it gives 1.)</span>
 <span class="sd">    </span>
 <span class="sd">        </span>
 <span class="sd">    Unsure about speed</span>
 <span class="sd">    -------</span>
-<span class="sd">    I don&#39;t think this is a very &quot;fast&quot; function, but it should be robust. </span>
+<span class="sd">    I don't think this is a very "fast" function, but it should be robust. </span>
 <span class="sd">  </span>
 <span class="sd">    </span>
 <span class="sd">    Suggested use</span>
 <span class="sd">    -------</span>
 <span class="sd">    # clean your starting string </span>
-<span class="sd">    a_string_you_have = &#39;jack and jill went up the hill&#39;</span>
+<span class="sd">    a_string_you_have = 'jack and jill went up the hill'</span>
 <span class="sd">    </span>
 <span class="sd">    # 1. define words and set up the regex</span>
-<span class="sd">    words = [&#39;jack&#39;,&#39;hill&#39;]                         </span>
+<span class="sd">    words = ['jack','hill']                         </span>
 <span class="sd">    rgx = NEAR_regex(words)                       </span>
 <span class="sd">    </span>
 <span class="sd">    # 2a. count the number of times the word groups are in the text near each other</span>
@@ -1063,18 +1063,18 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    A string which is a regex that can be used to look for cases where all the </span>
 <span class="sd">    input words are near each other.</span>
 
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
                
     <span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">permutations</span>
     
-    <span class="n">start</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(?:\b&#39;</span> <span class="c1"># the r means &quot;raw&quot; as in the backslash is just a backslash, not an escape character</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'(?:\b'</span> <span class="c1"># the r means "raw" as in the backslash is just a backslash, not an escape character</span>
     
     <span class="k">if</span> <span class="n">partial</span><span class="p">:</span>
-        <span class="n">gap</span>   <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;[A-Za-z]*\b(?: +[^ \n\r]*){0,&#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">max_words_between</span><span class="p">)</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;} *\b&#39;</span>
-        <span class="n">end</span>   <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;[A-Za-z]*\b)&#39;</span>
+        <span class="n">gap</span>   <span class="o">=</span> <span class="sa">r</span><span class="s1">'[A-Za-z]*\b(?: +[^ \n\r]*){0,'</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">max_words_between</span><span class="p">)</span><span class="o">+</span><span class="sa">r</span><span class="s1">'} *\b'</span>
+        <span class="n">end</span>   <span class="o">=</span> <span class="sa">r</span><span class="s1">'[A-Za-z]*\b)'</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">gap</span>   <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\b(?: +[^ \n]*){0,&#39;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">max_words_between</span><span class="p">)</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;} *\b&#39;</span>
-        <span class="n">end</span>   <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\b)&#39;</span>
+        <span class="n">gap</span>   <span class="o">=</span> <span class="sa">r</span><span class="s1">'\b(?: +[^ \n]*){0,'</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">max_words_between</span><span class="p">)</span><span class="o">+</span><span class="sa">r</span><span class="s1">'} *\b'</span>
+        <span class="n">end</span>   <span class="o">=</span> <span class="sa">r</span><span class="s1">'\b)'</span>
         
     <span class="n">regex_list</span> <span class="o">=</span> <span class="p">[]</span>
     
@@ -1086,7 +1086,7 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="n">lowerpermu</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">permu</span><span class="p">]</span>
             <span class="n">regex_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start</span><span class="o">+</span><span class="n">gap</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lowerpermu</span><span class="p">)</span><span class="o">+</span><span class="n">end</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="s1">&#39;|&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">regex_list</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">'|'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">regex_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1097,8 +1097,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">near_regex</span><span class="w"> </span><span class="kn">import</span> <span class="n">NEAR_regex</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="n">test</span>  <span class="o">=</span> <span class="s1">&#39;This is a partial string another break with words&#39;</span>
-<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;part&#39;</span><span class="p">,</span><span class="s1">&#39;with&#39;</span><span class="p">]</span>
+<span class="n">test</span>  <span class="o">=</span> <span class="s1">'This is a partial string another break with words'</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'part'</span><span class="p">,</span><span class="s1">'with'</span><span class="p">]</span>
 <span class="n">rgx</span>   <span class="o">=</span> <span class="n">NEAR_regex</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">test</span><span class="p">)))</span>            <span class="c1"># no match (partials not allowed by default) </span>
 </pre></div>
@@ -1148,8 +1148,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span>  <span class="o">=</span> <span class="s1">&#39;This is a partial string </span><span class="se">\n</span><span class="s1"> another break with words&#39;</span>
-<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;part&#39;</span><span class="p">,</span><span class="s1">&#39;with&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span>  <span class="o">=</span> <span class="s1">'This is a partial string </span><span class="se">\n</span><span class="s1"> another break with words'</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'part'</span><span class="p">,</span><span class="s1">'with'</span><span class="p">]</span>
 <span class="n">rgx</span> <span class="o">=</span> <span class="n">NEAR_regex</span><span class="p">(</span><span class="n">words</span><span class="p">,</span><span class="n">partial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">test</span><span class="p">)))</span>            <span class="c1"># fails because of the \n break</span>
 </pre></div>
@@ -1163,8 +1163,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span>  <span class="o">=</span> <span class="s1">&#39;This is a partial string </span><span class="se">\r</span><span class="s1"> another break with words&#39;</span>
-<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;part&#39;</span><span class="p">,</span><span class="s1">&#39;with&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span>  <span class="o">=</span> <span class="s1">'This is a partial string </span><span class="se">\r</span><span class="s1"> another break with words'</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'part'</span><span class="p">,</span><span class="s1">'with'</span><span class="p">]</span>
 <span class="n">rgx</span> <span class="o">=</span> <span class="n">NEAR_regex</span><span class="p">(</span><span class="n">words</span><span class="p">,</span><span class="n">partial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">test</span><span class="p">)))</span>            <span class="c1"># fails with \r too.</span>
 </pre></div>
@@ -1178,8 +1178,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span>  <span class="o">=</span> <span class="s1">&#39;This is a partial string                      another break with words&#39;</span>
-<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;part&#39;</span><span class="p">,</span><span class="s1">&#39;with&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span>  <span class="o">=</span> <span class="s1">'This is a partial string                      another break with words'</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'part'</span><span class="p">,</span><span class="s1">'with'</span><span class="p">]</span>
 <span class="n">rgx</span> <span class="o">=</span> <span class="n">NEAR_regex</span><span class="p">(</span><span class="n">words</span><span class="p">,</span><span class="n">partial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">test</span><span class="p">)))</span>            <span class="c1"># extra spaces are treated as one space, no impact</span>
 </pre></div>
@@ -1194,7 +1194,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The <code class="docutils literal notranslate"><span class="pre">cases_matter</span></code> parameter is pretty simple. If true, then it only reports a match if the string’s case exactly match how you typed your search terms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;part&#39;</span><span class="p">,</span><span class="s1">&#39;With&#39;</span><span class="p">]</span>                     <span class="c1"># changed to Capitalized &quot;With&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'part'</span><span class="p">,</span><span class="s1">'With'</span><span class="p">]</span>                     <span class="c1"># changed to Capitalized "With"</span>
 <span class="n">rgx</span>   <span class="o">=</span> <span class="n">NEAR_regex</span><span class="p">(</span><span class="n">words</span><span class="p">,</span><span class="n">partial</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">cases_matter</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">test</span><span class="p">)))</span>            <span class="c1"># no match</span>
 </pre></div>
@@ -1209,9 +1209,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>You can look for three terms that all have to be next to each other:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;part&#39;</span><span class="p">,</span><span class="s1">&#39;with&#39;</span><span class="p">,</span><span class="s1">&#39;this&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'part'</span><span class="p">,</span><span class="s1">'with'</span><span class="p">,</span><span class="s1">'this'</span><span class="p">]</span>
 <span class="n">rgx</span> <span class="o">=</span> <span class="n">NEAR_regex</span><span class="p">(</span><span class="n">words</span><span class="p">,</span><span class="n">partial</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">test</span><span class="p">)))</span>            <span class="c1"># no match - good! &quot;This&quot; != &quot;this&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">test</span><span class="p">)))</span>            <span class="c1"># no match - good! "This" != "this"</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">test</span><span class="o">.</span><span class="n">lower</span><span class="p">())))</span>    <span class="c1"># match - good!</span>
 </pre></div>
 </div>
@@ -1256,8 +1256,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span>  <span class="o">=</span> <span class="s1">&#39;hey jimmy                      hi james          sup john&#39;</span>
-<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;(hey|hi|sup)&#39;</span><span class="p">,</span><span class="s1">&#39;(jimmy|james)&#39;</span><span class="p">]</span>     <span class="c1"># search for a greeting </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span>  <span class="o">=</span> <span class="s1">'hey jimmy                      hi james          sup john'</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'(hey|hi|sup)'</span><span class="p">,</span><span class="s1">'(jimmy|james)'</span><span class="p">]</span>     <span class="c1"># search for a greeting </span>
 <span class="n">rgx</span> <span class="o">=</span> <span class="n">NEAR_regex</span><span class="p">(</span><span class="n">words</span><span class="p">,</span><span class="n">max_words_between</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">texts</span><span class="p">)))</span>            <span class="c1"># both are caught</span>
 </pre></div>
@@ -1280,7 +1280,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hey jimmy&#39;, &#39;hi james&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['hey jimmy', 'hi james']
 </pre></div>
 </div>
 </div>
@@ -1304,7 +1304,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgx</span> <span class="o">=</span> <span class="n">NEAR_regex</span><span class="p">(</span><span class="n">words</span><span class="p">,</span><span class="n">max_words_between</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">texts</span><span class="p">)))</span>            <span class="c1"># the regex isn&#39;t greedy - it misses inner matches!</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">texts</span><span class="p">)))</span>            <span class="c1"># the regex isn't greedy - it misses inner matches!</span>
 <span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">rgx</span><span class="p">,</span><span class="n">texts</span><span class="p">)]</span>
 </pre></div>
 </div>
@@ -1313,7 +1313,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hey jimmy                      hi james&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['hey jimmy                      hi james']
 </pre></div>
 </div>
 </div>
@@ -1355,13 +1355,13 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.sec.gov/Archives/edgar/data/1318605/000156459019003165/0001564590-19-003165.txt&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://www.sec.gov/Archives/edgar/data/1318605/000156459019003165/0001564590-19-003165.txt'</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
-<span class="c1"># putting the &quot;Good ideas&quot; from 4.4 to work to clean the document:</span>
+<span class="c1"># putting the "Good ideas" from 4.4 to work to clean the document:</span>
 <span class="n">lower</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="n">no_punc</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\W&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">lower</span><span class="p">)</span>
-<span class="n">cleaned</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">no_punc</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">no_punc</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\W'</span><span class="p">,</span><span class="s1">' '</span><span class="p">,</span><span class="n">lower</span><span class="p">)</span>
+<span class="n">cleaned</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\s+'</span><span class="p">,</span><span class="s1">' '</span><span class="p">,</span><span class="n">no_punc</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

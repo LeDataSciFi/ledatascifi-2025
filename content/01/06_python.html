@@ -1047,7 +1047,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3><span class="section-number">1.7.2.2. </span>Arithmetic<a class="headerlink" href="#arithmetic" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: these cells aren&#39;t showing the answers on the website on purpose! </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: these cells aren't showing the answers on the website on purpose! </span>
 
 <span class="c1"># YOU: TYPE ALL OF THESE OUT ON YOUR OTHER PARTICIPATION SHEET... YOU CAN OMIT THE COMMENTS IF YOU WANT</span>
 <span class="c1"># YOU: TRY VARIATIONS TOO...</span>
@@ -1067,7 +1067,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">%</span><span class="k">3</span>) # mod operator
 <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># multiplication</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 2 to the power of three</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># ^ is NOT the power operator!!! it is a &#39;bit&#39; operator - you don&#39;t need to know this for now</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">^</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># ^ is NOT the power operator!!! it is a 'bit' operator - you don't need to know this for now</span>
 
 <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="p">(</span><span class="mi">4</span><span class="o">+</span><span class="mi">15</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 1. PEMDAS applies </span>
                   <span class="c1"># 2. If the last command in a cell return an *object*, jupyter auto prints it w/o needing print()</span>
@@ -1109,7 +1109,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">)</span>        <span class="c1"># if both sides of *and* are true, the whole thing is</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span><span class="p">)</span>         <span class="c1"># if either side of *or* is true, the whole thing is</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">b</span><span class="p">)</span>    <span class="c1"># *not* negates what is after it</span>
-<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">a</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># &quot;not b&quot; is true, so the whole thing is true</span>
+<span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">a</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># "not b" is true, so the whole thing is true</span>
 </pre></div>
 </div>
 </div>
@@ -1177,7 +1177,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;list&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'list'&gt;
 [1, 2, 3]
 [1, 2, 3, 4]
 </pre></div>
@@ -1232,7 +1232,7 @@ False
 <p><code class="docutils literal notranslate"><span class="pre">str</span></code>. There are built-in functions that work on strings directly. Let’s look at a few:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="s1">&#39;some string&#39;</span> <span class="c1"># a = &quot;some string&quot; is the same. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="s1">'some string'</span> <span class="c1"># a = "some string" is the same. </span>
 
 <span class="c1"># some functions work on strings directly</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span> 
@@ -1335,16 +1335,16 @@ False
 <p>This code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># If the condition is true, python will do anything that is in the </span>
 <span class="c1"># block of code belonging to the if statement. But 7 &lt; 5 is false,</span>
-<span class="c1"># so python won&#39;t do anything that &quot;belongs&quot; to this &quot;if&quot;</span>
+<span class="c1"># so python won't do anything that "belongs" to this "if"</span>
 <span class="k">if</span> <span class="mi">7</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I will not print.&#39;</span><span class="p">)</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nor will I&#39;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'I will not print.'</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Nor will I'</span><span class="p">)</span> 
 </pre></div>
 </div>
 <p>… will not do the same thing as this code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="mi">7</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>     
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;I will not print.&#39;</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;But I will!&#39;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'I will not print.'</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">'But I will!'</span><span class="p">)</span> 
 </pre></div>
 </div>
 <p>…because in the second version, the second print line isn’t indented and therefore isn’t part of the “if” statement</p>
@@ -1418,7 +1418,7 @@ False
 <p>Syntax:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">:</span>                         <span class="c1"># you must use the colon!</span>
      <span class="o">&lt;</span><span class="n">do</span> <span class="n">some</span> <span class="n">stuff</span> <span class="k">if</span> <span class="n">condition</span> <span class="ow">is</span> <span class="n">true</span><span class="o">&gt;</span> <span class="c1"># remember to indent things inside the if</span>
-<span class="k">elif</span> <span class="o">&lt;</span><span class="n">condition</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">:</span>                       <span class="c1"># &quot;elif&quot; as in &quot;Else-If&quot;</span>
+<span class="k">elif</span> <span class="o">&lt;</span><span class="n">condition</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">:</span>                       <span class="c1"># "elif" as in "Else-If"</span>
     <span class="o">&lt;</span><span class="n">do</span> <span class="n">stuff</span> <span class="k">if</span> <span class="n">condition</span> <span class="mi">1</span> <span class="ow">is</span> <span class="n">false</span> <span class="n">but</span> <span class="n">condition</span> <span class="mi">2</span> <span class="ow">is</span> <span class="n">true</span><span class="o">&gt;</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="o">&lt;</span><span class="k">if</span> <span class="n">neither</span> <span class="n">condition</span> <span class="mi">1</span> <span class="n">nor</span> <span class="mi">2</span> <span class="n">are</span> <span class="n">true</span><span class="p">,</span> <span class="n">do</span> <span class="n">this</span><span class="o">&gt;</span>
@@ -1438,8 +1438,8 @@ False
     <span class="n">capitol</span><span class="o">=</span><span class="n">stateCapitals</span><span class="p">[</span><span class="n">state</span><span class="p">]</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">capitol</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">capitol</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
-    <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;Ohio&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Michigan is better than Ohio&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="s2">"Ohio"</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Michigan is better than Ohio"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1457,8 +1457,8 @@ False
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">counter</span> <span class="o">&lt;</span> <span class="mi">7</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
-    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># &quot;+=&quot; is short for &quot;add to myself&quot;. </span>
-                 <span class="c1"># Here, it&#39;s an abbreviation for: counter = counter + 1</span>
+    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># "+=" is short for "add to myself". </span>
+                 <span class="c1"># Here, it's an abbreviation for: counter = counter + 1</span>
 </pre></div>
 </div>
 </div>
@@ -1525,9 +1525,9 @@ False
 <p><strong>If you want to reuse the output at any point later in your code, use return instead of print!</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">silly_me</span><span class="p">():</span>
     <span class="c1"># a simple function for illustration, just outputs a string</span>
-    <span class="k">return</span> <span class="s2">&quot;this is a string&quot;</span>
+    <span class="k">return</span> <span class="s2">"this is a string"</span>
     
-<span class="n">a</span> <span class="o">=</span> <span class="n">silly_me</span><span class="p">()</span> <span class="c1"># now &quot;a&quot; is the string &quot;this is a string&quot;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">silly_me</span><span class="p">()</span> <span class="c1"># now "a" is the string "this is a string"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>       <span class="c1"># and you can print the output without putting print in the function</span>
 </pre></div>
 </div>
@@ -1541,19 +1541,19 @@ False
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    Returns a list. Element 0 is a+bx, element 1 is 2. </span>
 <span class="sd">    </span>
 <span class="sd">    The first argument you give goes to x, the second to a, the third to b.</span>
 <span class="sd">    If you do not provide a or b, they default to the value 1.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;WHOA THIS IS NEGATIVE&quot;</span>
+        <span class="k">return</span> <span class="s2">"WHOA THIS IS NEGATIVE"</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># you can return any object(s) you want! this is a list, for example</span>
 
 <span class="n">zz</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>         
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">zz</span><span class="p">))</span>      <span class="c1"># Inside the function, it takes the first arg</span>
-                  <span class="c1"># and calls it &quot;x&quot;. So here x is -100 inside.</span>
+                  <span class="c1"># and calls it "x". So here x is -100 inside.</span>
                   <span class="c1"># because x&lt;0, the func returns WHOA</span>
                   <span class="c1"># and never gets to a+b*x</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>   
@@ -1579,13 +1579,13 @@ f(x, a=1, b=1)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this won&#39;t work! python requires you to use the keyword arguments AFTER the positional arguments</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this won't work! python requires you to use the keyword arguments AFTER the positional arguments</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;C:\Users\DONSLA~1\AppData\Local\Temp/ipykernel_6932/3182615729.py&quot;</span><span class="gt">, line </span><span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> "C:\Users\DONSLA~1\AppData\Local\Temp/ipykernel_6932/3182615729.py"</span><span class="gt">, line </span><span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
                 <span class="o">^</span>
 <span class="ne">SyntaxError</span>: positional argument follows keyword argument
@@ -1627,7 +1627,7 @@ f(x, a=1, b=1)
 <span class="ne">C</span>:\Users\DONSLA~1\AppData\Local\Temp/ipykernel_6932/3825219627.py in &lt;module&gt;
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>   <span class="c1"># variables defined INSIDE a function are NOT visible OUTSIDE the func</span>
 
-<span class="ne">NameError</span>: name &#39;xyz&#39; is not defined
+<span class="ne">NameError</span>: name 'xyz' is not defined
 </pre></div>
 </div>
 </div>
@@ -1640,7 +1640,7 @@ f(x, a=1, b=1)
     <span class="n">x</span><span class="o">=</span><span class="mi">2</span>
     <span class="k">return</span> <span class="n">x</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">silly_func</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>               <span class="c1"># changing the downstream variable inside the function didn&#39;t change the upstream version</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>               <span class="c1"># changing the downstream variable inside the function didn't change the upstream version</span>
 </pre></div>
 </div>
 </div>

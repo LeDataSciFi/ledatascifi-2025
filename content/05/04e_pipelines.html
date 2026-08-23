@@ -951,7 +951,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># set_config(pandas) might slow down sklearn, but should be used during development to </span>
 <span class="c1"># facilitate EDA/ABCD, bc we can see the transformed data with variable names</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_config</span>          
-<span class="n">set_config</span><span class="p">(</span><span class="n">transform_output</span><span class="o">=</span><span class="s2">&quot;pandas&quot;</span><span class="p">)</span> 
+<span class="n">set_config</span><span class="p">(</span><span class="n">transform_output</span><span class="o">=</span><span class="s2">"pandas"</span><span class="p">)</span> 
 
 <span class="n">ridge_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(),</span><span class="n">Ridge</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
 </pre></div>
@@ -982,12 +982,12 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_validate</span>
 
-<span class="n">url</span>        <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true&#39;</span>
-<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">url</span>        <span class="o">=</span> <span class="s1">'https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true'</span>
+<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">y</span>          <span class="o">=</span> <span class="n">fannie_mae</span><span class="o">.</span><span class="n">Original_Interest_Rate</span>
 <span class="n">fannie_mae</span> <span class="o">=</span> <span class="p">(</span><span class="n">fannie_mae</span>
-                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">]),</span>
-                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Original_LTV_(OLTV)&#39;</span><span class="p">]),</span>
+                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">]),</span>
+                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Original_LTV_(OLTV)'</span><span class="p">]),</span>
                          <span class="p">)</span>
               <span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">11</span><span class="p">:]</span> 
              <span class="p">)</span>
@@ -1017,7 +1017,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cross_validate</span><span class="p">(</span><span class="n">ridge_pipe</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span>
-              <span class="n">cv</span><span class="o">=</span><span class="n">KFold</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)[</span><span class="s1">&#39;test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+              <span class="n">cv</span><span class="o">=</span><span class="n">KFold</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'r2'</span><span class="p">)[</span><span class="s1">'test_score'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1088,11 +1088,11 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># Step 2: how to deal with categorical vars</span>
 <span class="c1">#############</span>
 
-<span class="n">cat_pipe</span>   <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">,</span><span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">cat_pipe</span>   <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">'first'</span><span class="p">,</span><span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 
 <span class="c1"># notes on this cat pipe:</span>
 <span class="c1">#     OneHotEncoder is just one way to deal with categorical vars</span>
-<span class="c1">#     drop=&#39;first&#39; is necessary if the model is regression</span>
+<span class="c1">#     drop='first' is necessary if the model is regression</span>
 <span class="c1">#     sparse_output=False might slow down sklearn, BUT IT MUST BE USED WITH set_config(pandas) !!! </span>
 
 <span class="c1">#############</span>
@@ -1102,11 +1102,11 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">preproc_pipe</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>  
     <span class="p">[</span> <span class="c1"># arg 1 of ColumnTransformer is a list, so this starts the list</span>
     <span class="c1"># a tuple for the numerical vars: name, pipe, which vars to apply to</span>
-    <span class="p">(</span><span class="s2">&quot;num_impute&quot;</span><span class="p">,</span> <span class="n">numer_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;l_credscore&#39;</span><span class="p">,</span><span class="s1">&#39;TCMR&#39;</span><span class="p">]),</span>
+    <span class="p">(</span><span class="s2">"num_impute"</span><span class="p">,</span> <span class="n">numer_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">'l_credscore'</span><span class="p">,</span><span class="s1">'TCMR'</span><span class="p">]),</span>
     <span class="c1"># a tuple for the categorical vars: name, pipe, which vars to apply to</span>
-    <span class="p">(</span><span class="s2">&quot;cat_trans&quot;</span><span class="p">,</span> <span class="n">cat_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Property_state&#39;</span><span class="p">])</span>
+    <span class="p">(</span><span class="s2">"cat_trans"</span><span class="p">,</span> <span class="n">cat_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">'Property_state'</span><span class="p">])</span>
     <span class="p">]</span>
-    <span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="s1">&#39;drop&#39;</span> <span class="c1"># you either drop or passthrough any vars not modified above</span>
+    <span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="s1">'drop'</span> <span class="c1"># you either drop or passthrough any vars not modified above</span>
 <span class="p">)</span>
 
 <span class="c1">#############</span>
@@ -1127,14 +1127,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>So here is the raw data:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span>        <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true&#39;</span>
-<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span>        <span class="o">=</span> <span class="s1">'https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true'</span>
+<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">y</span>          <span class="o">=</span> <span class="n">fannie_mae</span><span class="o">.</span><span class="n">Original_Interest_Rate</span>
 <span class="n">fannie_mae</span> <span class="o">=</span> <span class="p">(</span><span class="n">fannie_mae</span>
-                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">]),</span>
-                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Original_LTV_(OLTV)&#39;</span><span class="p">]),</span>
+                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">]),</span>
+                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Original_LTV_(OLTV)'</span><span class="p">]),</span>
                          <span class="p">)</span>
-             <span class="p">[[</span><span class="s1">&#39;TCMR&#39;</span><span class="p">,</span> <span class="s1">&#39;Property_state&#39;</span><span class="p">,</span> <span class="s1">&#39;l_credscore&#39;</span><span class="p">,</span> <span class="s1">&#39;l_LTV&#39;</span><span class="p">]]</span>
+             <span class="p">[[</span><span class="s1">'TCMR'</span><span class="p">,</span> <span class="s1">'Property_state'</span><span class="p">,</span> <span class="s1">'l_credscore'</span><span class="p">,</span> <span class="s1">'l_LTV'</span><span class="p">]]</span>
              <span class="p">)</span>
 
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># this helps us control the randomness so we can reproduce results exactly</span>

@@ -1005,20 +1005,20 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>   <span class="p">(</span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="mi">2000</span><span class="p">):</span><span class="mi">10</span><span class="p">,</span>
-                   <span class="p">(</span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="mi">2001</span><span class="p">):</span><span class="mi">12</span><span class="p">,</span>
-                   <span class="p">(</span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="mi">2002</span><span class="p">):</span><span class="mi">14</span><span class="p">,</span>
-                   <span class="p">(</span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="mi">2003</span><span class="p">):</span><span class="mi">16</span><span class="p">,</span>
-                   <span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span><span class="mi">2000</span><span class="p">):</span><span class="mi">11</span><span class="p">,</span>
-                   <span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span><span class="mi">2001</span><span class="p">):</span><span class="mi">13</span><span class="p">,</span>
-                   <span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span><span class="mi">2002</span><span class="p">):</span><span class="mi">13</span><span class="p">,</span>
-                   <span class="p">(</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span><span class="mi">2003</span><span class="p">):</span><span class="mi">15</span><span class="p">})</span>
+<span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>   <span class="p">(</span><span class="s1">'Ford'</span><span class="p">,</span><span class="mi">2000</span><span class="p">):</span><span class="mi">10</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">'Ford'</span><span class="p">,</span><span class="mi">2001</span><span class="p">):</span><span class="mi">12</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">'Ford'</span><span class="p">,</span><span class="mi">2002</span><span class="p">):</span><span class="mi">14</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">'Ford'</span><span class="p">,</span><span class="mi">2003</span><span class="p">):</span><span class="mi">16</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">'GM'</span><span class="p">,</span><span class="mi">2000</span><span class="p">):</span><span class="mi">11</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">'GM'</span><span class="p">,</span><span class="mi">2001</span><span class="p">):</span><span class="mi">13</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">'GM'</span><span class="p">,</span><span class="mi">2002</span><span class="p">):</span><span class="mi">13</span><span class="p">,</span>
+                   <span class="p">(</span><span class="s1">'GM'</span><span class="p">,</span><span class="mi">2003</span><span class="p">):</span><span class="mi">15</span><span class="p">})</span>
       <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
-      <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Sales&#39;</span><span class="p">})</span>
-      <span class="o">.</span><span class="n">rename_axis</span><span class="p">([</span><span class="s1">&#39;Firm&#39;</span><span class="p">,</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+      <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">'Sales'</span><span class="p">})</span>
+      <span class="o">.</span><span class="n">rename_axis</span><span class="p">([</span><span class="s1">'Firm'</span><span class="p">,</span><span class="s1">'Year'</span><span class="p">])</span>
       <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
      <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tall:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Tall:"</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1110,7 +1110,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>So before we use <code class="docutils literal notranslate"><span class="pre">stack</span></code> and <code class="docutils literal notranslate"><span class="pre">unstack</span></code> here, put the firm and year into the index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Firm&#39;</span><span class="p">,</span><span class="s1">&#39;Year&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tall</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">'Firm'</span><span class="p">,</span><span class="s1">'Year'</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1120,9 +1120,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>If your index has multiple levels, the level parameter is used to pick which to unstack. “0” is the innermost level of the index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Unstack (make it shorter+wider) on level 0/Firm:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Unstack (make it shorter+wider) on level 0/Firm:</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">tall</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Unstack (make it shorter+wider) on level 1/Year:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Unstack (make it shorter+wider) on level 1/Year:</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">tall</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1262,11 +1262,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save the wide df above to this name for subseq examples</span>
 <span class="n">wide_year</span> <span class="o">=</span> <span class="n">tall</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Stack it back (make it tall): wide_year.stack()</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Stack it back (make it tall): wide_year.stack()</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">wide_year</span><span class="o">.</span><span class="n">stack</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Year-then-firm doesn&#39;t make much sense.</span><span class="se">\n</span><span class="s2">Reorder to firm-year: wide_year.stack().swaplevel()&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Year-then-firm doesn't make much sense.</span><span class="se">\n</span><span class="s2">Reorder to firm-year: wide_year.stack().swaplevel()"</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">wide_year</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Year-then-firm sorting make much sense.</span><span class="se">\n</span><span class="s2">Sort to firm-year: wide_year.stack().swaplevel().sort_index()&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">Year-then-firm sorting make much sense.</span><span class="se">\n</span><span class="s2">Sort to firm-year: wide_year.stack().swaplevel().sort_index()"</span><span class="p">)</span> 
 <span class="n">display</span><span class="p">(</span><span class="n">wide_year</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1341,7 +1341,7 @@ const thebe_selector_output = ".output, .cell_output"
     </tr>
   </tbody>
 </table>
-</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year-then-firm doesn&#39;t make much sense.
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year-then-firm doesn't make much sense.
 Reorder to firm-year: wide_year.stack().swaplevel()
 </pre></div>
 </div>
@@ -1503,7 +1503,7 @@ Sort to firm-year: wide_year.stack().swaplevel().sort_index()
 <p>Here, you can see how the lambda function takes inputs and creates output the same way a function does:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dumb_prog</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>     <span class="c1"># I added &quot;dumb_prog =&quot; to name the lambda function and use it</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dumb_prog</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>     <span class="c1"># I added "dumb_prog =" to name the lambda function and use it</span>
 <span class="n">dumb_prog</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1547,11 +1547,11 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># common syntax within pandas</span>
 <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">&lt;</span><span class="n">newvarname</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">lambda</span> <span class="o">&lt;</span><span class="n">tempnameforpriorobj</span><span class="o">&gt;</span><span class="p">:</span>  <span class="o">&lt;</span><span class="n">do</span> <span class="n">stuff</span> <span class="n">to</span> <span class="n">tempnameforpriorobj</span><span class="o">&gt;</span>   <span class="p">)</span>       
 
-<span class="c1"># often, tempname is just &quot;x&quot; for short</span>
+<span class="c1"># often, tempname is just "x" for short</span>
 <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">&lt;</span><span class="n">newvarname</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">someFunc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span> <span class="p">)</span>      
 
 <span class="c1"># example:</span>
-<span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lev</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;dltt&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;dlc&#39;</span><span class="p">])</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;at&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lev</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'dltt'</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="s1">'dlc'</span><span class="p">])</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="s1">'at'</span><span class="p">]</span> <span class="p">)</span>
 
 </pre></div>
 </div>
@@ -1569,8 +1569,8 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
-                   <span class="s1">&#39;data&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'key'</span><span class="p">:[</span><span class="s2">"A"</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">,</span><span class="s2">"A"</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">],</span>
+                   <span class="s1">'data'</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'key'</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="c1"># the input</span>
 </pre></div>
@@ -1634,7 +1634,7 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># groupby().sum() shrinks the dataset</span>
-<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">'key'</span><span class="p">)[</span><span class="s1">'data'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
        <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span> <span class="p">)</span> <span class="c1"># just added this line bc df prints prettier than series</span>
 </pre></div>
 </div>
@@ -1686,7 +1686,7 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># groupby().transform(sum) does NOT shrink the dataset</span>
 
-<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>    
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">'key'</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>    
 </pre></div>
 </div>
 </div>
@@ -1749,10 +1749,10 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># option 1: create the var</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;groupsum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'groupsum'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">'key'</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
 
 <span class="c1"># option 2: create the var with assign (can be used inside chains)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">groupsum</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">groupsum</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">'key'</span><span class="p">)[</span><span class="s1">'data'</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="nb">sum</span><span class="p">))</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> 
 </pre></div>
@@ -1829,10 +1829,10 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <p><code class="docutils literal notranslate"><span class="pre">.pipe()</span></code> allows you to hand a dataframe to functions that don’t work directly on dataframes.</p>
 <div class="admonition-the-syntax-of-pipe admonition">
 <p class="admonition-title">The syntax of .pipe()</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="o">&lt;</span><span class="s1">&#39;outside function&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
-        <span class="o">&lt;</span><span class="s1">&#39;if the first parameter of the outside function isnt the df, &#39;</span>
-         <span class="s1">&#39;the name of the parameter that is expecting the dataframe&#39;</span><span class="o">&gt;</span><span class="p">,</span>
-        <span class="o">&lt;</span><span class="s1">&#39;any other parameters youd give the outside function&#39;</span><span class="o">&gt;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="o">&lt;</span><span class="s1">'outside function'</span><span class="o">&gt;</span><span class="p">,</span> 
+        <span class="o">&lt;</span><span class="s1">'if the first parameter of the outside function isnt the df, '</span>
+         <span class="s1">'the name of the parameter that is expecting the dataframe'</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="o">&lt;</span><span class="s1">'any other parameters youd give the outside function'</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Note that the object after the pipe command is run might not be a dataframe anymore! It’s whatever object the piped function produces!</p>
@@ -1842,11 +1842,11 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <p><a class="reference external" href="https://tomaugspurger.github.io/method-chaining">From one of the pandas devs:</a></p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jack_jill</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="p">(</span><span class="n">jack_jill</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">went_up</span><span class="p">,</span> <span class="s1">&#39;hill&#39;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">fetch</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">fell_down</span><span class="p">,</span> <span class="s1">&#39;jack&#39;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">broke</span><span class="p">,</span> <span class="s1">&#39;crown&#39;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">tumble_after</span><span class="p">,</span> <span class="s1">&#39;jill&#39;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">jack_jill</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">went_up</span><span class="p">,</span> <span class="s1">'hill'</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">fetch</span><span class="p">,</span> <span class="s1">'water'</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">fell_down</span><span class="p">,</span> <span class="s1">'jack'</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">broke</span><span class="p">,</span> <span class="s1">'crown'</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">tumble_after</span><span class="p">,</span> <span class="s1">'jill'</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1858,16 +1858,16 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <h3><span class="section-number">3.2.7.4.2. </span>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://stmorse.github.io/journal/tidyverse-style-pandas.html">From Steven Morse:</a></p>
 <blockquote>
-<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;diamonds&#39;</span><span class="p">)</span>
- <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cut in [&quot;Ideal&quot;, &quot;Good&quot;] &amp; </span><span class="se">\</span>
-<span class="s1">         clarity in [&quot;IF&quot;, &quot;SI2&quot;] &amp; </span><span class="se">\</span>
-<span class="s1">         carat &lt; 3&#39;</span><span class="p">)</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span>
-        <span class="n">row</span><span class="o">=</span><span class="s1">&#39;cut&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;clarity&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;color&#39;</span><span class="p">,</span>
-        <span class="n">hue_order</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;DEFGHIJ&#39;</span><span class="p">),</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">'diamonds'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'cut in ["Ideal", "Good"] &amp; </span><span class="se">\</span>
+<span class="s1">         clarity in ["IF", "SI2"] &amp; </span><span class="se">\</span>
+<span class="s1">         carat &lt; 3'</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">),</span>
+        <span class="n">row</span><span class="o">=</span><span class="s1">'cut'</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">'clarity'</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">'color'</span><span class="p">,</span>
+        <span class="n">hue_order</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">'DEFGHIJ'</span><span class="p">),</span>
         <span class="n">height</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
         <span class="n">legend_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
- <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">,</span> <span class="s1">'carat'</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
  <span class="o">.</span><span class="n">add_legend</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -1886,16 +1886,16 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">csnap</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Custom Help function to print things in method chaining.    </span>
-<span class="sd">        Will also print a message, which helps if you&#39;re printing a bunch of these, so that you know which csnap print happens at which point.</span>
+<span class="w">    </span><span class="sd">""" Custom Help function to print things in method chaining.    </span>
+<span class="sd">        Will also print a message, which helps if you're printing a bunch of these, so that you know which csnap print happens at which point.</span>
 <span class="sd">        Returns back the df to further use in chaining.</span>
 <span class="sd">        </span>
 <span class="sd">        Usage examples - within a chain of methods:</span>
 <span class="sd">            df.pipe(csnap)</span>
 <span class="sd">            df.pipe(csnap, lambda x: &lt;do stuff&gt;)</span>
-<span class="sd">            df.pipe(csnap, msg=&quot;Shape here&quot;)</span>
-<span class="sd">            df.pipe(csnap, lambda x: x.sample(10), msg=&quot;10 random obs&quot;)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">            df.pipe(csnap, msg="Shape here")</span>
+<span class="sd">            df.pipe(csnap, lambda x: x.sample(10), msg="10 random obs")</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">msg</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
     <span class="n">display</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
@@ -1908,12 +1908,12 @@ When you get to the "assign" step, what you would do to reference a variable is 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Shape before describe&quot;</span><span class="p">)</span>
- <span class="o">.</span><span class="n">describe</span><span class="p">()[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>  <span class="c1"># get the distribution stats of a variable (I&#39;m just doing something to show csnap off)</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Shape after describe and pick one var&quot;</span><span class="p">)</span> <span class="c1"># see, it prints a message from within the chain!</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">"Shape before describe"</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">describe</span><span class="p">()[</span><span class="s1">'data'</span><span class="p">]</span>  <span class="c1"># get the distribution stats of a variable (I'm just doing something to show csnap off)</span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">"Shape after describe and pick one var"</span><span class="p">)</span> <span class="c1"># see, it prints a message from within the chain!</span>
  <span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ones</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
- <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;Random sample of df at point #3&quot;</span><span class="p">)</span> <span class="c1"># see, it prints a message from within the chain! </span>
+ <span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">csnap</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">msg</span><span class="o">=</span><span class="s2">"Random sample of df at point #3"</span><span class="p">)</span> <span class="c1"># see, it prints a message from within the chain! </span>
  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">twos</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">threes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>

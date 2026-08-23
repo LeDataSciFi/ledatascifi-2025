@@ -1032,8 +1032,8 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">left_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;firm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Citi&#39;</span><span class="p">,</span><span class="s1">&#39;Citi&#39;</span><span class="p">,],</span>
-                    <span class="s1">&#39;v1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;Bravo&#39;</span><span class="p">]})</span>
+                    <span class="s1">'firm'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Citi'</span><span class="p">,</span><span class="s1">'Citi'</span><span class="p">,],</span>
+                    <span class="s1">'v1'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Alpha'</span><span class="p">,</span> <span class="s1">'Bravo'</span><span class="p">]})</span>
 <span class="n">display</span><span class="p">(</span><span class="n">left_df</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1079,8 +1079,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">right_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;firm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Citi&#39;</span><span class="p">,</span><span class="s1">&#39;Citi&#39;</span><span class="p">,</span><span class="s1">&#39;WF&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;v2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Charlie&#39;</span><span class="p">,</span><span class="s1">&#39;Delta&#39;</span><span class="p">,</span><span class="s1">&#39;Echo&#39;</span><span class="p">]})</span>    
+                    <span class="s1">'firm'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Citi'</span><span class="p">,</span><span class="s1">'Citi'</span><span class="p">,</span><span class="s1">'WF'</span><span class="p">],</span>
+                    <span class="s1">'v2'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Charlie'</span><span class="p">,</span><span class="s1">'Delta'</span><span class="p">,</span><span class="s1">'Echo'</span><span class="p">]})</span>    
 <span class="n">display</span><span class="p">(</span><span class="n">right_df</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1130,7 +1130,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1199,41 +1199,41 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">merge_type</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">,</span><span class="n">on</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    This function could use case test. E.g.: multiple key vars, missing vars </span>
 <span class="sd">    </span>
 <span class="sd">    Feature request: This only works if the key vars are named the same in both datasets.  </span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="sd">    '''</span>
     <span class="c1"># if there are duplicates, dropping them will shrink the key vector</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="n">on</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">df1</span><span class="p">[</span><span class="n">on</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()):</span>
-        <span class="n">_l</span> <span class="o">=</span> <span class="s2">&quot;many&quot;</span>
+        <span class="n">_l</span> <span class="o">=</span> <span class="s2">"many"</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">_l</span> <span class="o">=</span> <span class="s2">&quot;one&quot;</span>
+        <span class="n">_l</span> <span class="o">=</span> <span class="s2">"one"</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">on</span><span class="p">])</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">on</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()):</span>
-        <span class="n">_r</span> <span class="o">=</span> <span class="s2">&quot;many&quot;</span>
+        <span class="n">_r</span> <span class="o">=</span> <span class="s2">"many"</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">_r</span> <span class="o">=</span> <span class="s2">&quot;one&quot;</span>
-    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">_to_</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_l</span><span class="p">,</span><span class="n">_r</span><span class="p">)</span>
+        <span class="n">_r</span> <span class="o">=</span> <span class="s2">"one"</span>
+    <span class="k">return</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">_to_</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_l</span><span class="p">,</span><span class="n">_r</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_type</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">,</span><span class="s1">&#39;firm&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_type</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">,</span><span class="s1">'firm'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;many_to_many&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'many_to_many'
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;firm&#39;</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span>
-                <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;many_to_many&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'firm'</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">,</span>
+                <span class="n">validate</span><span class="o">=</span><span class="s1">'many_to_many'</span><span class="p">,</span>
                 <span class="n">indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1301,17 +1301,17 @@ const thebe_selector_output = ".output, .cell_output"
 <h2><span class="section-number">3.4.1.3. </span><code class="docutils literal notranslate"><span class="pre">indicator=True</span></code><a class="headerlink" href="#indicator-true" title="Permalink to this headline">¶</a></h2>
 <p>The post-merge variable created by <code class="docutils literal notranslate"><span class="pre">indicator=True</span></code> can be very useful to have around. After a merge, you can count the number of rows from each dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">some_informative_name</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">,</span><span class="n">indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">some_informative_name</span><span class="p">[</span><span class="s1">&#39;_merge&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> 
+<span class="n">some_informative_name</span><span class="p">[</span><span class="s1">'_merge'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> 
 </pre></div>
 </div>
 <p>In action:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">&#39;firm&#39;</span><span class="p">,</span>   <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span>  
-         <span class="c1"># NOTICE! &quot;how&quot; has changed from prior example to outer</span>
-                <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;many_to_many&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="s1">'firm'</span><span class="p">,</span>   <span class="n">how</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">,</span>  
+         <span class="c1"># NOTICE! "how" has changed from prior example to outer</span>
+                <span class="n">validate</span><span class="o">=</span><span class="s1">'many_to_many'</span><span class="p">,</span>
                 <span class="n">indicator</span><span class="o">=</span><span class="kc">True</span>
-        <span class="p">)[</span><span class="s1">&#39;_merge&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>          <span class="c1"># [&#39;_merge&#39;].value_counts()  </span>
+        <span class="p">)[</span><span class="s1">'_merge'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>          <span class="c1"># ['_merge'].value_counts()  </span>
 </pre></div>
 </div>
 </div>
@@ -1356,13 +1356,13 @@ Name: _merge, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;firm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Accenture&#39;</span><span class="p">,</span><span class="s1">&#39;Citi&#39;</span><span class="p">,</span><span class="s1">&#39;GS&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">]})</span>
+                    <span class="s1">'firm'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Accenture'</span><span class="p">,</span><span class="s1">'Citi'</span><span class="p">,</span><span class="s1">'GS'</span><span class="p">],</span>
+                    <span class="s1">'varA'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A1'</span><span class="p">,</span> <span class="s1">'A2'</span><span class="p">,</span> <span class="s1">'A3'</span><span class="p">]})</span>
 
 <span class="n">right_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;firm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GS&#39;</span><span class="p">,</span><span class="s1">&#39;Chase&#39;</span><span class="p">,</span><span class="s1">&#39;WF&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varB&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varc&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]})</span>                             
+                    <span class="s1">'firm'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'GS'</span><span class="p">,</span><span class="s1">'Chase'</span><span class="p">,</span><span class="s1">'WF'</span><span class="p">],</span>
+                    <span class="s1">'varB'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B1'</span><span class="p">,</span> <span class="s1">'B2'</span><span class="p">,</span> <span class="s1">'B3'</span><span class="p">],</span>
+                    <span class="s1">'varc'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C1'</span><span class="p">,</span> <span class="s1">'C2'</span><span class="p">,</span> <span class="s1">'C3'</span><span class="p">]})</span>                             
 </pre></div>
 </div>
 </div>
@@ -1393,8 +1393,8 @@ Name: _merge, dtype: int64
 <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">someNewData</span><span class="p">,</span> 
               <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="n">listofvars</span><span class="p">],</span>
-              <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span>
-              <span class="n">validate</span><span class="o">=</span><span class="s1">&#39;one_to_one&#39;</span><span class="p">)</span> <span class="c1"># or &#39;many_to_one&#39;</span>
+              <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">,</span>
+              <span class="n">validate</span><span class="o">=</span><span class="s1">'one_to_one'</span><span class="p">)</span> <span class="c1"># or 'many_to_one'</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1403,12 +1403,12 @@ Name: _merge, dtype: int64
 <h2><span class="section-number">3.4.1.6. </span>Create your variables before a merge when possible<a class="headerlink" href="#create-your-variables-before-a-merge-when-possible" title="Permalink to this headline">¶</a></h2>
 <p>Suppose you want to merge in a new variable to your analysis data. The variable is a function of a variable in another dataset. Should we create the variable before the merge or after the merge?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># before </span>
-<span class="n">newVar</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">right</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="n">newVar</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">right</span><span class="p">[</span><span class="s1">'x'</span><span class="p">])</span>
 <span class="n">left</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">newVar</span><span class="p">)</span>
 
 <span class="c1"># after </span>
 <span class="n">merge</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
-<span class="n">merge</span><span class="p">[</span><span class="s1">&#39;newVar&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">merge</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">])</span>
+<span class="n">merge</span><span class="p">[</span><span class="s1">'newVar'</span><span class="p">]</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">merge</span><span class="p">[</span><span class="s1">'x'</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>Both are feasible! So which should you choose?</p>
@@ -1426,11 +1426,11 @@ Name: _merge, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                   <span class="s2">&quot;industry&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> 
+                   <span class="s2">"industry"</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> 
                    <span class="p">})</span> 
-<span class="n">right</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">))</span>
+<span class="n">right</span><span class="p">[</span><span class="s1">'x'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">'x'</span><span class="p">))</span>
 <span class="n">display</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STD if you calculate it before the merge:&quot;</span><span class="p">,</span><span class="n">right</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"STD if you calculate it before the merge:"</span><span class="p">,</span><span class="n">right</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1503,7 +1503,7 @@ Name: _merge, dtype: int64
 <span class="c1"># if the left df had 6 days for each industry </span>
 <span class="n">after_merge</span> <span class="o">=</span> <span class="n">right</span>
 <span class="n">after_merge</span> <span class="o">=</span> <span class="n">after_merge</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;STD if you calculate it after the merge:&quot;</span><span class="p">,</span><span class="n">after_merge</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"STD if you calculate it after the merge:"</span><span class="p">,</span><span class="n">after_merge</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>

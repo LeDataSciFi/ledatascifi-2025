@@ -907,13 +907,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;\w</span><span class="si">{3}</span><span class="s2">&quot;</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">&quot;hey there guy&quot;</span><span class="p">)</span> <span class="c1"># whoops, &quot;the&quot; isnt a 3 letter word</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">"\w</span><span class="si">{3}</span><span class="s2">"</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">"hey there guy"</span><span class="p">)</span> <span class="c1"># whoops, "the" isnt a 3 letter word</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hey&#39;, &#39;the&#39;, &#39;guy&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['hey', 'the', 'guy']
 </pre></div>
 </div>
 </div>
@@ -922,15 +922,15 @@ const thebe_selector_output = ".output, .cell_output"
 <p>So let’s try this next pattern, which looks for three letters and then a space:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;(\w</span><span class="si">{3}</span><span class="s2">) &quot;</span> <span class="c1"># I added a space after it. </span>
-<span class="c1"># the () is a way of saying &quot;I&#39;m interested in the stuff (a word, hopefully) inside the parenthesis</span>
-<span class="c1"># even through I need to tell you about other things to find our target words&quot; </span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">&quot;hey there guy&quot;</span><span class="p">)</span> <span class="c1"># whoops, &quot;the&quot; isnt a 3 letter word</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s2">"(\w</span><span class="si">{3}</span><span class="s2">) "</span> <span class="c1"># I added a space after it. </span>
+<span class="c1"># the () is a way of saying "I'm interested in the stuff (a word, hopefully) inside the parenthesis</span>
+<span class="c1"># even through I need to tell you about other things to find our target words" </span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">"hey there guy"</span><span class="p">)</span> <span class="c1"># whoops, "the" isnt a 3 letter word</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hey&#39;, &#39;ere&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['hey', 'ere']
 </pre></div>
 </div>
 </div>
@@ -938,8 +938,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Darn. It found the 2 times three letters were followed by a space. It missed the “guy” because that isn’t followed by a space. But there is a way to catch multiple kinds of word boundaries: “<code class="docutils literal notranslate"><span class="pre">\b</span></code>”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s2">&quot;(\w</span><span class="si">{3}</span><span class="s2">)</span><span class="se">\b</span><span class="s2">&quot;</span> <span class="c1"># \b means the string has to be followed by a word boundary</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">&quot;hey there guy&quot;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s2">"(\w</span><span class="si">{3}</span><span class="s2">)</span><span class="se">\b</span><span class="s2">"</span> <span class="c1"># \b means the string has to be followed by a word boundary</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">"hey there guy"</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -952,7 +952,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Except that still didn’t work, but this time for an annoying reason. <code class="docutils literal notranslate"><span class="pre">\b</span></code> means word boundary in regex, yes but before the string is used by regex,  python processes the string, and <code class="docutils literal notranslate"><span class="pre">\b</span></code> in a python string means “backspace”. Annoying, but look:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\b</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\b</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -965,7 +965,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference internal" href="#"><span class="doc std std-doc">The workaround was discussed at the bottom of the last page: Use “raw string notation”.</span></a> This means the string is left “as is”. Look:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\b'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -978,13 +978,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Ok, back to our idea of using the word boundary to get “guy”, this time with a “raw string”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(\w</span><span class="si">{3}</span><span class="s2">)\b&quot;</span> 
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">&quot;hey there guy&quot;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"(\w</span><span class="si">{3}</span><span class="s2">)\b"</span> 
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">"hey there guy"</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hey&#39;, &#39;ere&#39;, &#39;guy&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['hey', 'ere', 'guy']
 </pre></div>
 </div>
 </div>
@@ -992,13 +992,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>That worked! Now, we need to get rid of “ere”. A word starts after a word boundary, right?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;\b(\w</span><span class="si">{3}</span><span class="s2">)\b&quot;</span>  <span class="c1"># make sure the word has a boundary before it</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">&quot;hey there guy&quot;</span><span class="p">)</span>  <span class="c1"># got it!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"\b(\w</span><span class="si">{3}</span><span class="s2">)\b"</span>  <span class="c1"># make sure the word has a boundary before it</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="s2">"hey there guy"</span><span class="p">)</span>  <span class="c1"># got it!</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hey&#39;, &#39;guy&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['hey', 'guy']
 </pre></div>
 </div>
 </div>

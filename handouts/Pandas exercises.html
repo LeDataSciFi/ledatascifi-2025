@@ -936,7 +936,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas_datareader</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdr</span>  <span class="c1"># IF NECESSARY, from terminal: pip install pandas_datareader</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">numpy.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">default_rng</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># display option for pandas</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">"display.max_rows"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># display option for pandas</span>
 <span class="c1"># more here: https://pandas.pydata.org/pandas-docs/stable/user_guide/options.html</span>
 </pre></div>
 </div>
@@ -953,7 +953,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">rg</span> <span class="o">=</span> <span class="n">default_rng</span><span class="p">()</span>
 <span class="n">myray</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;myray:&quot;</span><span class="p">,</span> <span class="n">myray</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"myray:"</span><span class="p">,</span> <span class="n">myray</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -968,7 +968,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Booleans arrays: Asking a logic test on an array, returns the array, where each element has been tested against that logic and converted to the boolean answer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q2 - (a) boolean array + (b) &quot;masking&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q2 - (a) boolean array + (b) "masking"</span>
 
 <span class="c1"># (a)</span>
 
@@ -995,7 +995,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># you can specify start and end dates this way</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span>
-<span class="n">macro_df</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;GDP&#39;</span><span class="p">,</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">,</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">macro_df</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'GDP'</span><span class="p">,</span><span class="s1">'CPIAUCSL'</span><span class="p">,</span><span class="s1">'UNRATE'</span><span class="p">],</span> <span class="s1">'fred'</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1134,24 +1134,24 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">start</span> <span class="o">=</span> <span class="mi">1990</span> <span class="c1"># pandas datareader can infer these are years</span>
 <span class="n">end</span> <span class="o">=</span> <span class="mi">2018</span>
-<span class="n">macro_data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;CAUR&#39;</span><span class="p">,</span><span class="s1">&#39;MIUR&#39;</span><span class="p">,</span><span class="s1">&#39;PAUR&#39;</span><span class="p">,</span> <span class="c1"># unemployment </span>
-                                  <span class="s1">&#39;LXXRSA&#39;</span><span class="p">,</span><span class="s1">&#39;DEXRSA&#39;</span><span class="p">,</span><span class="s1">&#39;WDXRSA&#39;</span><span class="p">,</span> <span class="c1"># case shiller index in LA, Detroit, DC (no PA  available!)</span>
-                                  <span class="s1">&#39;MEHOINUSCAA672N&#39;</span><span class="p">,</span><span class="s1">&#39;MEHOINUSMIA672N&#39;</span><span class="p">,</span><span class="s1">&#39;MEHOINUSPAA672N&#39;</span><span class="p">],</span> <span class="c1">#  </span>
-                                 <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-<span class="n">macro_data</span> <span class="o">=</span> <span class="n">macro_data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="c1"># get&#39;s the first observation for each variable in a given year</span>
+<span class="n">macro_data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'CAUR'</span><span class="p">,</span><span class="s1">'MIUR'</span><span class="p">,</span><span class="s1">'PAUR'</span><span class="p">,</span> <span class="c1"># unemployment </span>
+                                  <span class="s1">'LXXRSA'</span><span class="p">,</span><span class="s1">'DEXRSA'</span><span class="p">,</span><span class="s1">'WDXRSA'</span><span class="p">,</span> <span class="c1"># case shiller index in LA, Detroit, DC (no PA  available!)</span>
+                                  <span class="s1">'MEHOINUSCAA672N'</span><span class="p">,</span><span class="s1">'MEHOINUSMIA672N'</span><span class="p">,</span><span class="s1">'MEHOINUSPAA672N'</span><span class="p">],</span> <span class="c1">#  </span>
+                                 <span class="s1">'fred'</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">macro_data</span> <span class="o">=</span> <span class="n">macro_data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'Y'</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="c1"># get's the first observation for each variable in a given year</span>
 
 <span class="c1"># CLEAN UP THE FORMATING SOMEWHAT</span>
 
 <span class="n">macro_data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">macro_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> DATA BEFORE FORMATTING: </span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2"> DATA BEFORE FORMATTING: </span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">macro_data</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span> <span class="c1"># see how the data looks now? ugly variable names, but its an annual dataset at least</span>
 <span class="n">macro_data</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">&#39;Unemployment&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">),(</span><span class="s1">&#39;Unemployment&#39;</span><span class="p">,</span><span class="s1">&#39;MI&#39;</span><span class="p">),(</span><span class="s1">&#39;Unemployment&#39;</span><span class="p">,</span><span class="s1">&#39;PA&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;HouseIdx&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">),(</span><span class="s1">&#39;HouseIdx&#39;</span><span class="p">,</span><span class="s1">&#39;MI&#39;</span><span class="p">),(</span><span class="s1">&#39;HouseIdx&#39;</span><span class="p">,</span><span class="s1">&#39;PA&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;MedIncome&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">),(</span><span class="s1">&#39;MedIncome&#39;</span><span class="p">,</span><span class="s1">&#39;MI&#39;</span><span class="p">),(</span><span class="s1">&#39;MedIncome&#39;</span><span class="p">,</span><span class="s1">&#39;PA&#39;</span><span class="p">)</span>
+    <span class="p">(</span><span class="s1">'Unemployment'</span><span class="p">,</span><span class="s1">'CA'</span><span class="p">),(</span><span class="s1">'Unemployment'</span><span class="p">,</span><span class="s1">'MI'</span><span class="p">),(</span><span class="s1">'Unemployment'</span><span class="p">,</span><span class="s1">'PA'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'HouseIdx'</span><span class="p">,</span><span class="s1">'CA'</span><span class="p">),(</span><span class="s1">'HouseIdx'</span><span class="p">,</span><span class="s1">'MI'</span><span class="p">),(</span><span class="s1">'HouseIdx'</span><span class="p">,</span><span class="s1">'PA'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'MedIncome'</span><span class="p">,</span><span class="s1">'CA'</span><span class="p">),(</span><span class="s1">'MedIncome'</span><span class="p">,</span><span class="s1">'MI'</span><span class="p">),(</span><span class="s1">'MedIncome'</span><span class="p">,</span><span class="s1">'PA'</span><span class="p">)</span>
     <span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> DATA AFTER FORMATTING: </span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">macro_data</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span> <span class="c1"># this is a dataset that is &quot;wide&quot;, and now </span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2"> DATA AFTER FORMATTING: </span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">macro_data</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span> <span class="c1"># this is a dataset that is "wide", and now </span>
                        <span class="c1"># the column variable names have 2 levels - var name, </span>
                        <span class="c1"># and unit/state that variable applies to</span>
 </pre></div>

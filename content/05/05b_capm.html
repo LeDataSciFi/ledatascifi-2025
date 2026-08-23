@@ -1016,7 +1016,7 @@ The returns don’t even have to be firms! They can be any asset. (Portfolios, m
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># choose your firms and years </span>
-<span class="n">stocks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SBUX&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">]</span>
+<span class="n">stocks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'SBUX'</span><span class="p">,</span><span class="s1">'AAPL'</span><span class="p">,</span><span class="s1">'MSFT'</span><span class="p">]</span>
 <span class="n">start</span>  <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">end</span>    <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
 </pre></div>
@@ -1034,18 +1034,18 @@ The returns don’t even have to be firms! They can be any asset. (Portfolios, m
 <span class="c1"># we need to do some data manipulation to get the data ready </span>
 <span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span> <span class="n">start</span> <span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span>   <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>      <span class="c1"># change yf date format to match pdr</span>
-<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">'Adj Close'</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
 <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># tickers as col names, works no matter order of tics</span>
 
 <span class="c1"># refmt from wide to long</span>
 <span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Firm&#39;</span><span class="p">,</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span>
+<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Firm'</span><span class="p">,</span><span class="s1">'Date'</span><span class="p">,</span><span class="s1">'Adj Close'</span><span class="p">]</span>
 
 <span class="c1"># add return var = pct_change() function compares to prior row</span>
-<span class="c1"># EXCEPT: don&#39;t compare for first row of one firm with last row of prior firm!</span>
+<span class="c1"># EXCEPT: don't compare for first row of one firm with last row of prior firm!</span>
 <span class="c1"># MAKE SURE YOU CREATE THE VARIABLES WITHIN EACH FIRM - use groupby</span>
-<span class="n">stock_prices</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Firm&#39;</span><span class="p">)[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-<span class="n">stock_prices</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span> <span class="o">*</span><span class="mi">100</span> <span class="c1"># convert to p.p. to match FF&#39;s convention on scaling (daily % rets)</span>
+<span class="n">stock_prices</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Firm'</span><span class="p">)[</span><span class="s1">'Adj Close'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">stock_prices</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">*</span><span class="mi">100</span> <span class="c1"># convert to p.p. to match FF's convention on scaling (daily % rets)</span>
 <span class="n">stock_prices</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1204,8 +1204,8 @@ The returns don’t even have to be firms! They can be any asset. (Portfolios, m
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need (r_mkt - rf), and rf</span>
 <span class="c1"># the Fama French data library is a benchmark asset pricing dataset </span>
-<span class="n">ff</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_famafrench</span><span class="p">(</span><span class="s1">&#39;F-F_Research_Data_5_Factors_2x3_daily&#39;</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># the [0] is because the imported obect is a dictionary, and key=0 is the dataframe</span>
-<span class="n">ff</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Mkt-RF&quot;</span><span class="p">:</span><span class="s2">&quot;mkt_excess&quot;</span><span class="p">})</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_famafrench</span><span class="p">(</span><span class="s1">'F-F_Research_Data_5_Factors_2x3_daily'</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># the [0] is because the imported obect is a dictionary, and key=0 is the dataframe</span>
+<span class="n">ff</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"Mkt-RF"</span><span class="p">:</span><span class="s2">"mkt_excess"</span><span class="p">})</span>
 <span class="n">ff</span>
 </pre></div>
 </div>
@@ -1362,10 +1362,10 @@ The returns don’t even have to be firms! They can be any asset. (Portfolios, m
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">assets_and_factors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
     <span class="n">left</span><span class="o">=</span><span class="n">stock_prices</span><span class="p">,</span>
     <span class="n">right</span><span class="o">=</span><span class="n">ff</span><span class="p">,</span>
-    <span class="n">on</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span>
-    <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span>
+    <span class="n">on</span><span class="o">=</span><span class="s2">"Date"</span><span class="p">,</span>
+    <span class="n">how</span><span class="o">=</span><span class="s2">"inner"</span><span class="p">,</span>
     <span class="n">indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">validate</span><span class="o">=</span><span class="s2">&quot;many_to_one&quot;</span><span class="p">,</span>
+    <span class="n">validate</span><span class="o">=</span><span class="s2">"many_to_one"</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">assets_and_factors</span>
 </pre></div>
@@ -1577,8 +1577,8 @@ The returns don’t even have to be firms! They can be any asset. (Portfolios, m
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">reg_in_groupby</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">formula</span><span class="o">=</span><span class="s2">&quot;ret_excess ~ mkt_excess + SMB + HML&quot;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">reg_in_groupby</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">formula</span><span class="o">=</span><span class="s2">"ret_excess ~ mkt_excess + SMB + HML"</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Want to run regressions after groupby? E.g., repeat the regression </span>
 <span class="sd">    for each firm-year?</span>
 <span class="sd">    </span>
@@ -1590,7 +1590,7 @@ The returns don’t even have to be firms! They can be any asset. (Portfolios, m
 <span class="sd">    Usage: </span>
 <span class="sd">        df.groupby(&lt;whatever&gt;).apply(reg_in_groupby)</span>
 <span class="sd">        df.groupby(&lt;whatever&gt;).apply(reg_in_groupby,formula=&lt;whatever&gt;)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">formula</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1609,10 +1609,10 @@ The returns don’t even have to be firms! They can be any asset. (Portfolios, m
             <span class="n">ret_excess</span> <span class="o">=</span> <span class="n">assets_and_factors</span><span class="o">.</span><span class="n">ret</span> <span class="o">-</span> <span class="n">assets_and_factors</span><span class="o">.</span><span class="n">RF</span><span class="p">)</span>
     
     <span class="c1"># ok, run the regs, so easy!</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Firm&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">reg_in_groupby</span><span class="p">,</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;ret_excess ~ mkt_excess&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Firm'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">reg_in_groupby</span><span class="p">,</span><span class="n">formula</span><span class="o">=</span><span class="s1">'ret_excess ~ mkt_excess'</span><span class="p">)</span>
     
     <span class="c1"># and clean up - with better var names</span>
-    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Intercept&#39;</span><span class="p">:</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="s1">&#39;mkt_excess&#39;</span><span class="p">:</span><span class="s1">&#39;beta&#39;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'Intercept'</span><span class="p">:</span><span class="s1">'alpha'</span><span class="p">,</span><span class="s1">'mkt_excess'</span><span class="p">:</span><span class="s1">'beta'</span><span class="p">})</span>
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>

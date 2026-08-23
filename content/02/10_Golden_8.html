@@ -957,19 +957,19 @@ const thebe_selector_output = ".output, .cell_output"
 <p>There are a few popular auto-formatters (black, yapf, and autopep8). In my <a class="reference external" href="../01/05_jupyterlab.html#my-jupyter-lab-set-up">JupyterLab set up</a>, I explain how I set up Black, the “uncompromising Python code formatter” which is very opinionated (“any color you’d like, as long as it is black”).</p>
 <p>Look at what Black does to this code:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e5191886-7713-4de0-ac87-23330a7bb3a8" name="da30a07a-949f-449a-8f77-0eb98197d8c5" type="radio">
-</input><label class="tabbed-label" for="e5191886-7713-4de0-ac87-23330a7bb3a8">
+<input checked="checked" id="afcb0fcd-ba5d-49ba-a2c9-75137fa0d4bd" name="7e148604-2eb8-4a4a-9abd-83260f375ab1" type="radio">
+</input><label class="tabbed-label" for="afcb0fcd-ba5d-49ba-a2c9-75137fa0d4bd">
 Ugly Code I wrote</label><div class="tabbed-content docutils">
 <p>This function is too long to even read:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">very_important_function</span><span class="p">(</span><span class="n">template</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">variables</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Applies `variables` to the `template` and writes to `file`.&quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Applies `variables` to the `template` and writes to `file`."""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="o">...</span>
 </pre></div>
 </div>
 </div>
-<input id="28a41d76-5738-4edc-837c-dfc827cacfdb" name="da30a07a-949f-449a-8f77-0eb98197d8c5" type="radio">
-</input><label class="tabbed-label" for="28a41d76-5738-4edc-837c-dfc827cacfdb">
+<input id="9f21a53b-298a-41ab-b1f6-7a3ed03633f0" name="7e148604-2eb8-4a4a-9abd-83260f375ab1" type="radio">
+</input><label class="tabbed-label" for="9f21a53b-298a-41ab-b1f6-7a3ed03633f0">
 Black fixed it</label><div class="tabbed-content docutils">
 <p>I hit CTRL+SHIFT+F and this was the result:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">very_important_function</span><span class="p">(</span>
@@ -980,8 +980,8 @@ Black fixed it</label><div class="tabbed-content docutils">
     <span class="n">header</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Applies `variables` to the `template` and writes to `file`.&quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Applies `variables` to the `template` and writes to `file`."""</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="o">...</span>
 </pre></div>
 </div>
@@ -1009,8 +1009,8 @@ Black fixed it</label><div class="tabbed-content docutils">
 <p>A magic number is a literal number or parameter value embedded in your code. Having numbers that act as in-line inputs and parameters can easily lead to errors and make modifying code very tough.</p>
 <p>Here is an example that tries to download and stock price data.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="fa854692-1da4-4912-983a-892940df1752" name="c1f527c1-7982-4854-b204-a95cc72961b2" type="radio">
-</input><label class="tabbed-label" for="fa854692-1da4-4912-983a-892940df1752">
+<input checked="checked" id="22d24237-1167-436e-b1c7-2a32ceb12600" name="4ce06795-454d-43fa-a529-3d4e65db58e6" type="radio">
+</input><label class="tabbed-label" for="22d24237-1167-436e-b1c7-2a32ceb12600">
 Bad</label><div class="tabbed-content docutils">
 <p>If I want to change the stocks included, I’ll need to change the list of stocks twice.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas_datareader</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdr</span>  
@@ -1021,18 +1021,18 @@ Bad</label><div class="tabbed-content docutils">
 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2004</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
 
-<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">([</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">],</span> <span class="n">start</span> <span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">([</span><span class="s1">'MSFT'</span><span class="p">,</span><span class="s1">'AAPL'</span><span class="p">],</span> <span class="n">start</span> <span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span>   <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>      <span class="c1"># change yf date format to match pdr</span>
-<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
-<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">]</span>
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">'Adj Close'</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
+<span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'MSFT'</span><span class="p">,</span><span class="s1">'AAPL'</span><span class="p">]</span>
 
 
 <span class="c1"># do more stuff...</span>
 </pre></div>
 </div>
 </div>
-<input id="e58fd3df-875e-45c1-9423-59625b17fa0e" name="c1f527c1-7982-4854-b204-a95cc72961b2" type="radio">
-</input><label class="tabbed-label" for="e58fd3df-875e-45c1-9423-59625b17fa0e">
+<input id="b62b304b-4158-4d16-b7e0-1300c4931fcc" name="4ce06795-454d-43fa-a529-3d4e65db58e6" type="radio">
+</input><label class="tabbed-label" for="b62b304b-4158-4d16-b7e0-1300c4931fcc">
 Good</label><div class="tabbed-content docutils">
 <p>Now I only need to change the variable <code class="docutils literal notranslate"><span class="pre">stocks</span></code> to alter the entire code.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas_datareader</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pdr</span>  
@@ -1042,10 +1042,10 @@ Good</label><div class="tabbed-content docutils">
 <span class="c1"># load stock returns </span>
 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2004</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">)</span>
-<span class="n">stocks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;AAPL&#39;</span><span class="p">]</span>
+<span class="n">stocks</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'MSFT'</span><span class="p">,</span><span class="s1">'AAPL'</span><span class="p">]</span>
 <span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">yf</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">stocks</span><span class="p">,</span> <span class="n">start</span> <span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span>   <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>      <span class="c1"># change yf date format to match pdr</span>
-<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
+<span class="n">stock_prices</span>         <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">'Adj Close'</span><span class="p">)</span>     <span class="c1"># reduce to just columns with this in the name</span>
 <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># tickers as col names, works no matter order of tics</span>
 
 <span class="c1"># do more stuff...</span>

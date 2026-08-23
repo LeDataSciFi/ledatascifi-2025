@@ -945,7 +945,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2017</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># you can specify start and end dates this way</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span>
-<span class="n">macro_df</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;GDP&#39;</span><span class="p">,</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">,</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">macro_df</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'GDP'</span><span class="p">,</span><span class="s1">'CPIAUCSL'</span><span class="p">,</span><span class="s1">'UNRATE'</span><span class="p">],</span> <span class="s1">'fred'</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -970,7 +970,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># do your work here</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">insufficient_but_starting_eda</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">cat_vars_list</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    </span>
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1004,19 +1004,19 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="sd">    </span>
 <span class="sd">    FEATURE REQUEST: optionally print more stats (percentiles)</span>
 <span class="sd">    </span>
-<span class="sd">    &#39;&#39;&#39;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span>  <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(),</span>  <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The shape is: &quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Info:&quot;</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span> <span class="c1"># memory usage, name, dtype, and # of non-null obs (--&gt; # of missing obs) per variable</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span> <span class="c1"># summary stats, and you can customize the list!</span>
+<span class="sd">    '''</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span>  <span class="s1">'</span><span class="se">\n</span><span class="s1">---'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(),</span>  <span class="s1">'</span><span class="se">\n</span><span class="s1">---'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">---'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The shape is: "</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">---'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Info:"</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">(),</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">---'</span><span class="p">)</span> <span class="c1"># memory usage, name, dtype, and # of non-null obs (--&gt; # of missing obs) per variable</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">---'</span><span class="p">)</span> <span class="c1"># summary stats, and you can customize the list!</span>
     <span class="k">if</span> <span class="n">cat_vars_list</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">cat_vars_list</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="s2">&quot;has&quot;</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span><span class="s2">&quot;values and its top 10 most common are:&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">---&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">var</span><span class="p">,</span><span class="s2">"has"</span><span class="p">,</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span><span class="s2">"values and its top 10 most common are:"</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">---'</span><span class="p">)</span>
         
-<span class="n">insufficient_but_starting_eda</span><span class="p">(</span><span class="n">macro_df</span><span class="p">,[</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">])</span>  
+<span class="n">insufficient_but_starting_eda</span><span class="p">(</span><span class="n">macro_df</span><span class="p">,[</span><span class="s1">'UNRATE'</span><span class="p">])</span>  
 </pre></div>
 </div>
 </div>
@@ -1037,11 +1037,11 @@ DATE
 2020-12-01        NaN   261.560     6.7
 2021-01-01  22038.226   262.231     6.3 
 ---
-Index([&#39;GDP&#39;, &#39;CPIAUCSL&#39;, &#39;UNRATE&#39;], dtype=&#39;object&#39;) 
+Index(['GDP', 'CPIAUCSL', 'UNRATE'], dtype='object') 
 ---
 The shape is:  (49, 3) 
 ---
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+&lt;class 'pandas.core.frame.DataFrame'&gt;
 DatetimeIndex: 49 entries, 2017-01-01 to 2021-01-01
 Freq: MS
 Data columns (total 3 columns):
@@ -1102,9 +1102,9 @@ Name: UNRATE, dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># do your work here</span>
 
 <span class="c1"># v1:</span>
-<span class="n">part2_df</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
-<span class="n">part2_df</span><span class="p">[</span><span class="s1">&#39;real_gdp_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">part2_df</span><span class="p">[</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
-<span class="n">part2_df</span><span class="p">[</span><span class="s1">&#39;real_gdp_pct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">part2_df</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'GDPCA'</span><span class="p">],</span> <span class="s1">'fred'</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
+<span class="n">part2_df</span><span class="p">[</span><span class="s1">'real_gdp_pct'</span><span class="p">]</span> <span class="o">=</span> <span class="n">part2_df</span><span class="p">[</span><span class="s1">'GDPCA'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+<span class="n">part2_df</span><span class="p">[</span><span class="s1">'real_gdp_pct'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="c1"># prof notes: after students present, go through, bit by bit</span>
 <span class="c1"># then add comments (a la psuedo), </span>
@@ -1121,8 +1121,8 @@ Name: UNRATE, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># v1.1: chain the last 2 lines together</span>
-<span class="n">part2_df</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
-<span class="n">part2_df</span><span class="p">[</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">part2_df</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'GDPCA'</span><span class="p">],</span> <span class="s1">'fred'</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
+<span class="n">part2_df</span><span class="p">[</span><span class="s1">'GDPCA'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1158,27 +1158,27 @@ dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># v2.0: chaining - but involves a lambda function work around</span>
-<span class="c1"># don&#39;t cover until we go over lambdas</span>
+<span class="c1"># don't cover until we go over lambdas</span>
 <span class="p">(</span>
     <span class="c1"># DL data</span>
-    <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">,</span><span class="s1">&#39;GDPA&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
+    <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'GDPCA'</span><span class="p">,</span><span class="s1">'GDPA'</span><span class="p">],</span> <span class="s1">'fred'</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
     
     <span class="c1"># create the var</span>
     <span class="c1"># syntax is: .assign(newname = fcn(df(var)))</span>
     <span class="c1"># try this:</span>
     <span class="c1">#.assign(sillyvar=1)</span>
-    <span class="c1"># but this df doesn&#39;t have a name! how do we access it?</span>
-    <span class="c1"># trick: &quot;lambda&quot; function. </span>
+    <span class="c1"># but this df doesn't have a name! how do we access it?</span>
+    <span class="c1"># trick: "lambda" function. </span>
     <span class="c1">#        here x is the object that assign is working on,</span>
     <span class="c1">#        meaning what ever is produced right before .assign</span>
     <span class="c1">#        which is just the **df** we DLed on the line above</span>
     <span class="c1">#</span>
     <span class="c1"># this is VERY COMMON in pandas chaining:</span>
     <span class="c1"># .assign(newvarname = lambda &lt;tempnameforpriorobj&gt;:  &lt;do stuff to tempnameforpriorobj&gt;   )       </span>
-    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">real_gdp_pct</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">real_gdp_pct</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'GDPCA'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">())</span>
     
     <span class="c1"># grab the var and take its mean</span>
-    <span class="p">[</span><span class="s1">&#39;real_gdp_pct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="p">[</span><span class="s1">'real_gdp_pct'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1194,11 +1194,11 @@ dtype: float64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># v2.1: chaining - clean</span>
 <span class="p">(</span>
     <span class="c1"># DL data</span>
-    <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">,</span><span class="s1">&#39;GDPA&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
+    <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'GDPCA'</span><span class="p">,</span><span class="s1">'GDPA'</span><span class="p">],</span> <span class="s1">'fred'</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
     <span class="c1"># create var</span>
-    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">real_gdp_pct</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">real_gdp_pct</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'GDPCA'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">())</span>
     <span class="c1"># get mean value</span>
-    <span class="p">[</span><span class="s1">&#39;real_gdp_pct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="p">[</span><span class="s1">'real_gdp_pct'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1216,18 +1216,18 @@ dtype: float64
 <span class="c1"># v2.1: chaining - clean</span>
 <span class="p">(</span>
     <span class="c1"># DL data</span>
-    <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">,</span><span class="s1">&#39;GDPA&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
+    <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'GDPCA'</span><span class="p">,</span><span class="s1">'GDPA'</span><span class="p">],</span> <span class="s1">'fred'</span><span class="p">,</span> <span class="mi">1960</span><span class="p">,</span> <span class="mi">2018</span><span class="p">)</span> 
     <span class="c1"># create var pct change</span>
-    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">real_gdp_pct</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;GDPCA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">real_gdp_pct</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'GDPCA'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">())</span>
     <span class="c1"># get the decade from the index (do this BIT BY BIT)</span>
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> <span class="c1"># turn it into variable</span>
         <span class="c1"># how to pull year out of date?</span>
         <span class="c1"># DATE is a datetime series. dt is a way to access properities of the date </span>
     <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">decade</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">DATE</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
     <span class="c1"># for each decade = groupby!</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;decade&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'decade'</span><span class="p">)</span>
     <span class="c1"># take mean</span>
-    <span class="p">[</span><span class="s1">&#39;real_gdp_pct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="p">[</span><span class="s1">'real_gdp_pct'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1255,24 +1255,24 @@ Name: real_gdp_pct, dtype: float64
 
 <span class="n">start</span> <span class="o">=</span> <span class="mi">1990</span> <span class="c1"># pandas datareader can infer these are years</span>
 <span class="n">end</span> <span class="o">=</span> <span class="mi">2018</span>
-<span class="n">macro_data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;CAUR&#39;</span><span class="p">,</span><span class="s1">&#39;MIUR&#39;</span><span class="p">,</span><span class="s1">&#39;PAUR&#39;</span><span class="p">,</span> <span class="c1"># unemployment </span>
-                                  <span class="s1">&#39;LXXRSA&#39;</span><span class="p">,</span><span class="s1">&#39;DEXRSA&#39;</span><span class="p">,</span><span class="s1">&#39;WDXRSA&#39;</span><span class="p">,</span> <span class="c1"># case shiller index in LA, Detroit, DC (no PA  available!)</span>
-                                  <span class="s1">&#39;MEHOINUSCAA672N&#39;</span><span class="p">,</span><span class="s1">&#39;MEHOINUSMIA672N&#39;</span><span class="p">,</span><span class="s1">&#39;MEHOINUSPAA672N&#39;</span><span class="p">],</span> <span class="c1">#  </span>
-                                 <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-<span class="n">macro_data</span> <span class="o">=</span> <span class="n">macro_data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="c1"># get&#39;s the first observation for each variable in a given year</span>
+<span class="n">macro_data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">'CAUR'</span><span class="p">,</span><span class="s1">'MIUR'</span><span class="p">,</span><span class="s1">'PAUR'</span><span class="p">,</span> <span class="c1"># unemployment </span>
+                                  <span class="s1">'LXXRSA'</span><span class="p">,</span><span class="s1">'DEXRSA'</span><span class="p">,</span><span class="s1">'WDXRSA'</span><span class="p">,</span> <span class="c1"># case shiller index in LA, Detroit, DC (no PA  available!)</span>
+                                  <span class="s1">'MEHOINUSCAA672N'</span><span class="p">,</span><span class="s1">'MEHOINUSMIA672N'</span><span class="p">,</span><span class="s1">'MEHOINUSPAA672N'</span><span class="p">],</span> <span class="c1">#  </span>
+                                 <span class="s1">'fred'</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">macro_data</span> <span class="o">=</span> <span class="n">macro_data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'Y'</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span> <span class="c1"># get's the first observation for each variable in a given year</span>
 
 <span class="c1"># CLEAN UP THE FORMATING SOMEWHAT</span>
 
 <span class="n">macro_data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">macro_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> DATA BEFORE FORMATTING: </span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2"> DATA BEFORE FORMATTING: </span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">macro_data</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span> <span class="c1"># see how the data looks now? ugly variable names, but its an annual dataset at least</span>
 <span class="n">macro_data</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([</span>
-    <span class="p">(</span><span class="s1">&#39;Unemployment&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">),(</span><span class="s1">&#39;Unemployment&#39;</span><span class="p">,</span><span class="s1">&#39;MI&#39;</span><span class="p">),(</span><span class="s1">&#39;Unemployment&#39;</span><span class="p">,</span><span class="s1">&#39;PA&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;HouseIdx&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">),(</span><span class="s1">&#39;HouseIdx&#39;</span><span class="p">,</span><span class="s1">&#39;MI&#39;</span><span class="p">),(</span><span class="s1">&#39;HouseIdx&#39;</span><span class="p">,</span><span class="s1">&#39;PA&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;MedIncome&#39;</span><span class="p">,</span><span class="s1">&#39;CA&#39;</span><span class="p">),(</span><span class="s1">&#39;MedIncome&#39;</span><span class="p">,</span><span class="s1">&#39;MI&#39;</span><span class="p">),(</span><span class="s1">&#39;MedIncome&#39;</span><span class="p">,</span><span class="s1">&#39;PA&#39;</span><span class="p">)</span>
+    <span class="p">(</span><span class="s1">'Unemployment'</span><span class="p">,</span><span class="s1">'CA'</span><span class="p">),(</span><span class="s1">'Unemployment'</span><span class="p">,</span><span class="s1">'MI'</span><span class="p">),(</span><span class="s1">'Unemployment'</span><span class="p">,</span><span class="s1">'PA'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'HouseIdx'</span><span class="p">,</span><span class="s1">'CA'</span><span class="p">),(</span><span class="s1">'HouseIdx'</span><span class="p">,</span><span class="s1">'MI'</span><span class="p">),(</span><span class="s1">'HouseIdx'</span><span class="p">,</span><span class="s1">'PA'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'MedIncome'</span><span class="p">,</span><span class="s1">'CA'</span><span class="p">),(</span><span class="s1">'MedIncome'</span><span class="p">,</span><span class="s1">'MI'</span><span class="p">),(</span><span class="s1">'MedIncome'</span><span class="p">,</span><span class="s1">'PA'</span><span class="p">)</span>
     <span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2"> DATA AFTER FORMATTING: </span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">macro_data</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span> <span class="c1"># this is a dataset that is &quot;wide&quot;, and now </span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2"> DATA AFTER FORMATTING: </span><span class="se">\n\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">macro_data</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span> <span class="c1"># this is a dataset that is "wide", and now </span>
                        <span class="c1"># the column variable names have 2 levels - var name, </span>
                        <span class="c1"># and unit/state that variable applies to</span>
 </pre></div>
@@ -1391,7 +1391,7 @@ DATE
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># do your work here: </span>
 
-<span class="c1"># let&#39;s pseudocode</span>
+<span class="c1"># let's pseudocode</span>
 
 <span class="c1"># q6 </span>
 <span class="c1"># get decade variable</span>
@@ -1403,7 +1403,7 @@ DATE
 <span class="c1"># get annual pct change in house price and income for each state</span>
 <span class="c1"># average those for each state within decade</span>
 
-<span class="c1"># HEY! those are similar - let&#39;s combine:</span>
+<span class="c1"># HEY! those are similar - let's combine:</span>
 
 <span class="c1"># get decade variable</span>
 <span class="c1"># get annual change in unemploy for each state</span>
@@ -1420,35 +1420,35 @@ DATE
 HINT: <a class="reference internal" href="../02/10_Golden_3.html"><span class="doc std std-doc">ABCD</span></a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.float_format'</span><span class="p">,</span> <span class="s1">'</span><span class="si">{:,.2f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
 
 <span class="p">(</span>
     <span class="c1"># reformat the data to tall:</span>
-    <span class="n">macro_data</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;level_0&#39;</span><span class="p">:</span><span class="s1">&#39;state&#39;</span><span class="p">})</span>
+    <span class="n">macro_data</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'level_0'</span><span class="p">:</span><span class="s1">'state'</span><span class="p">})</span>
     
     <span class="c1"># create vars &lt;---- this is not even needed to explain this block!</span>
     <span class="o">.</span><span class="n">assign</span><span class="p">(</span>
-            <span class="n">decade</span>          <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
-            <span class="n">unemploy_diff</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;Unemployment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(),</span>
-            <span class="n">HouseIdx_pctch</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;HouseIdx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(),</span>
-            <span class="n">MedIncome_pctch</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;MedIncome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>    
+            <span class="n">decade</span>          <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">10</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">'DATE'</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+            <span class="n">unemploy_diff</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'Unemployment'</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(),</span>
+            <span class="n">HouseIdx_pctch</span>  <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'HouseIdx'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(),</span>
+            <span class="n">MedIncome_pctch</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="s1">'MedIncome'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>    
     <span class="p">)</span>
     
     <span class="c1"># opt A for output:</span>
-    <span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;decade&#39;</span><span class="p">,</span>
-                 <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">,</span>
-                 <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;unemploy_diff&#39;</span><span class="p">,</span><span class="s1">&#39;HouseIdx_pctch&#39;</span><span class="p">,</span><span class="s1">&#39;MedIncome_pctch&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">'decade'</span><span class="p">,</span>
+                 <span class="n">columns</span><span class="o">=</span><span class="s1">'state'</span><span class="p">,</span>
+                 <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="s1">'unemploy_diff'</span><span class="p">,</span><span class="s1">'HouseIdx_pctch'</span><span class="p">,</span><span class="s1">'MedIncome_pctch'</span><span class="p">])</span>
     <span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># for more meaningful displays </span>
     
     <span class="c1"># opt B for output + formatting (here, as percentages)</span>
-<span class="c1">#     .groupby([&#39;state&#39;,&#39;decade&#39;])</span>
-<span class="c1">#     [[&#39;unemploy_diff&#39;,&#39;HouseIdx_pctch&#39;,&#39;MedIncome_pctch&#39;]].mean()</span>
+<span class="c1">#     .groupby(['state','decade'])</span>
+<span class="c1">#     [['unemploy_diff','HouseIdx_pctch','MedIncome_pctch']].mean()</span>
 <span class="c1">#     .multiply(100)</span>
-<span class="c1">#     # note about this: unemp isn&#39;t a % diff, but a p.p </span>
+<span class="c1">#     # note about this: unemp isn't a % diff, but a p.p </span>
 <span class="c1">#     # so I make it explicit </span>
-<span class="c1">#     .style.format({&#39;HouseIdx_pctch&#39;: &#39;{0:,.2f}%&#39;,</span>
-<span class="c1">#                    &#39;MedIncome_pctch&#39;: &#39;{0:,.2f}%&#39;,</span>
-<span class="c1">#                    &#39;unemploy_diff&#39;: &#39;{0:,.2f} p.p.&#39;}) </span>
+<span class="c1">#     .style.format({'HouseIdx_pctch': '{0:,.2f}%',</span>
+<span class="c1">#                    'MedIncome_pctch': '{0:,.2f}%',</span>
+<span class="c1">#                    'unemploy_diff': '{0:,.2f} p.p.'}) </span>
     
 <span class="p">)</span>    
 </pre></div>

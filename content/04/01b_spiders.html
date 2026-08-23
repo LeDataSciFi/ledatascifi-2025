@@ -964,14 +964,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">search_itunes</span><span class="p">(</span><span class="n">search_term</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39;Run one simple iTunes search&#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">'''Run one simple iTunes search'''</span>
     
-    <span class="n">base_url</span> <span class="o">=</span> <span class="s1">&#39;https://itunes.apple.com/search&#39;</span>
-    <span class="n">search_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;term&#39;</span><span class="p">:</span> <span class="n">search_term</span><span class="p">}</span>
+    <span class="n">base_url</span> <span class="o">=</span> <span class="s1">'https://itunes.apple.com/search'</span>
+    <span class="n">search_parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'term'</span><span class="p">:</span> <span class="n">search_term</span><span class="p">}</span>
     
     <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">base_url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">search_parameters</span><span class="p">)</span>
     
-    <span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">&#39;results&#39;</span><span class="p">])</span>
+    <span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()[</span><span class="s1">'results'</span><span class="p">])</span>
     
     <span class="k">return</span> <span class="n">results_df</span>
 </pre></div>
@@ -981,8 +981,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>We can run this one artist at a time:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_itunes</span><span class="p">(</span><span class="s1">&#39;billie eilish&#39;</span><span class="p">)</span>      <span class="c1"># one search at a time</span>
-<span class="n">search_itunes</span><span class="p">(</span><span class="s1">&#39;father john misty&#39;</span><span class="p">)</span>  <span class="c1"># &quot;another one&quot; - dj khaled</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search_itunes</span><span class="p">(</span><span class="s1">'billie eilish'</span><span class="p">)</span>      <span class="c1"># one search at a time</span>
+<span class="n">search_itunes</span><span class="p">(</span><span class="s1">'father john misty'</span><span class="p">)</span>  <span class="c1"># "another one" - dj khaled</span>
 </pre></div>
 </div>
 </div>
@@ -990,14 +990,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Or we can loop over them and <do something> (TBD, but saving the <code class="docutils literal notranslate"><span class="pre">results_df</span></code> to files is a good idea):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artists</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;billie eilish&#39;</span><span class="p">,</span><span class="s1">&#39;father john misty&#39;</span><span class="p">]</span> <span class="c1"># you can loop over them!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">artists</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'billie eilish'</span><span class="p">,</span><span class="s1">'father john misty'</span><span class="p">]</span> <span class="c1"># you can loop over them!</span>
 
 <span class="c1"># download the results and save locally</span>
 <span class="k">for</span> <span class="n">artist</span> <span class="ow">in</span> <span class="n">artists</span><span class="p">:</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">search_itunes</span><span class="p">(</span><span class="n">artist</span><span class="p">)</span>
     <span class="c1"># you could do anything with the results here</span>
     <span class="c1"># a good idea in many projects: save the webpage/search results</span>
-    <span class="c1"># even better: add the saving function inside the &quot;search_itunes&quot; fcn</span>
+    <span class="c1"># even better: add the saving function inside the "search_itunes" fcn</span>
     <span class="c1"># but this is just a toy illustration, so nothing happens</span>
     <span class="k">pass</span>
     
@@ -1034,7 +1034,7 @@ Issue 1:  The jobs are slow<div class="summary-down docutils">
 <ol>
 <li><p class="card-text"><strong>Write code that only hits the server one time</strong>, and saves the results to your computer. “Step 1” of the <code class="docutils literal notranslate"><span class="pre">search_itunes</span></code> example above does that. Then “step 2” uses/parses those files without going to the webpages again.</p></li>
 <li><p class="card-text"><strong>You want your spider to resume, not restart.</strong> Ensure that your code can resume where it left off without having to restart from scratch. My usual solution:</p>
-<div class="highlight-PYTHON notranslate"><div class="highlight"><pre><span></span><span class="c1"># as I&#39;m looping over webpages:</span>
+<div class="highlight-PYTHON notranslate"><div class="highlight"><pre><span></span><span class="c1"># as I'm looping over webpages:</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="o">&lt;</span><span class="n">filename</span> <span class="n">this</span> <span class="n">page</span> <span class="n">would</span> <span class="n">get</span><span class="o">&gt;</span><span class="p">):</span> 
     <span class="n">okay_do_the_download</span><span class="p">()</span> <span class="c1"># whatever the function is</span>
 <span class="c1"># if not, skip to the next webpage</span>
@@ -1046,13 +1046,13 @@ Issue 1:  The jobs are slow<div class="summary-down docutils">
     try:
         r = requests.get(base_url, params = search_parameters)
     except:
-        print(&quot;hey this didn&#39;t work! prob print better info than&quot;)
-        print(&quot;this string&quot;)
-        # or... create strings and append them to an &quot;error_list&quot;,
+        print("hey this didn't work! prob print better info than")
+        print("this string")
+        # or... create strings and append them to an "error_list",
         # which you save to a text file or csv after the code finishes
         # and you can look at it then
     else:
-        results_df = pd.DataFrame(r.json()[&#39;results&#39;])
+        results_df = pd.DataFrame(r.json()['results'])
     ```        
 </pre></div>
 </div>

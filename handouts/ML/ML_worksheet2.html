@@ -1061,10 +1061,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_pipeline</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">StandardScaler</span>
 
-<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>  <span class="c1"># display=&#39;text&#39; is the default</span>
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">"diagram"</span><span class="p">)</span>  <span class="c1"># display='text' is the default</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span>
-    <span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="s2">"display.max_colwidth"</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">"display.max_rows"</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">"display.max_columns"</span><span class="p">,</span> <span class="kc">None</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1075,7 +1075,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;inputs/2013_subsample.zip&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'inputs/2013_subsample.zip'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1086,10 +1086,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Here, we will use <code class="docutils literal notranslate"><span class="pre">test_train_split</span></code>, though this might not</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first let&#39;s separate y from X (as is typically done)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">loan_status</span> <span class="o">==</span> <span class="s2">&quot;Charged Off&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first let's separate y from X (as is typically done)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">loan_status</span> <span class="o">==</span> <span class="s2">"Charged Off"</span>
 <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">loans</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;loan_status&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">loans</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">"loan_status"</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># stratify will make sure that test/train both have equal fractions of outcome</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
@@ -1107,16 +1107,16 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up pipeline to clean each type of variable (1 pipe per var type)</span>
 
-<span class="n">numer_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="n">StandardScaler</span><span class="p">())</span>
+<span class="n">numer_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">),</span> <span class="n">StandardScaler</span><span class="p">())</span>
 
-<span class="n">cat_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">))</span>
+<span class="n">cat_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s2">"first"</span><span class="p">))</span>
 
 <span class="c1"># combine those (make_column_transformer is like make_pipeline, maybe easier on the eyes!)</span>
 
 <span class="n">preproc_pipe</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">numer_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;annual_inc&quot;</span><span class="p">,</span> <span class="s2">&quot;int_rate&quot;</span><span class="p">]),</span>
-    <span class="p">(</span><span class="n">cat_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;grade&quot;</span><span class="p">]),</span>
-    <span class="n">remainder</span><span class="o">=</span><span class="s2">&quot;drop&quot;</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">numer_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s2">"annual_inc"</span><span class="p">,</span> <span class="s2">"int_rate"</span><span class="p">]),</span>
+    <span class="p">(</span><span class="n">cat_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s2">"grade"</span><span class="p">]),</span>
+    <span class="n">remainder</span><span class="o">=</span><span class="s2">"drop"</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="c1"># estimator</span>
@@ -1653,11 +1653,11 @@ weighted avg       0.71      0.84      0.77    107843
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
 c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
 c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
-  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
 </pre></div>
 </div>
 </div>
@@ -1679,8 +1679,8 @@ c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Paid Back&quot;</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Model 1: Logit with Default Parameters&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"Paid Back"</span><span class="p">,</span> <span class="s2">"Default"</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Model 1: Logit with Default Parameters'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1697,7 +1697,7 @@ c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.
 <p>Here’s what happens:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blah</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blah</span> <span class="o">=</span> <span class="s1">'''</span>
 <span class="s1">==============================================================================</span>
 <span class="s1">          A flow chart from our model to the final predictions:</span>
 <span class="s1">==============================================================================</span>
@@ -1709,7 +1709,7 @@ c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.
 <span class="s1">      |        |        |  uses ahat bhat  |           |   uses  ?  |</span>
 <span class="s1">      ----------        --------------------           --------------</span>
 
-<span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">'''</span>
 </pre></div>
 </div>
 </div>
@@ -1740,7 +1740,7 @@ c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.
 
 <span class="k">for</span> <span class="n">threshold</span> <span class="ow">in</span> <span class="n">thresholds</span><span class="p">:</span>
 
-    <span class="c1"># At this threshold, if the model&#39;s predicted probability</span>
+    <span class="c1"># At this threshold, if the model's predicted probability</span>
     <span class="c1"># is greater than the threshold, classify as positive</span>
     <span class="n">y_pred_threshold</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_prob</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">)</span> 
     
@@ -1763,22 +1763,22 @@ c:\Users\DonsLaptop\anaconda3\Lib\site-packages\sklearn\metrics\_classification.
 
 <span class="c1"># Create the plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Precision-Recall curve&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span> <span class="n">precision</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'.'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Precision-Recall curve'</span><span class="p">)</span>
 
 <span class="c1"># Annotate the points with their corresponding thresholds</span>
 <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">zi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span><span class="n">precision</span><span class="p">,</span><span class="n">thresholds</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
         <span class="nb">round</span><span class="p">(</span><span class="n">zi</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>                     <span class="c1"># Annotation text (z value)</span>
         <span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">),</span>              <span class="c1"># Point to annotate</span>
-        <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span>  <span class="c1"># How to position the text</span>
+        <span class="n">textcoords</span><span class="o">=</span><span class="s2">"offset points"</span><span class="p">,</span>  <span class="c1"># How to position the text</span>
         <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>         <span class="c1"># Offset: 5 points to the right and 5 points up</span>
-        <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span>            <span class="c1"># Horizontal alignment of text</span>
+        <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span>            <span class="c1"># Horizontal alignment of text</span>
     <span class="p">)</span>
 
 <span class="c1"># Add labels, title and grid</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Recall&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Precision&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Manual Precision-Recall Curve, the threshold level of a given point is labeled&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Recall'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Precision'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Manual Precision-Recall Curve, the threshold level of a given point is labeled'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1914,7 +1914,7 @@ weighted avg       0.80      0.59      0.65    107843
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_logit</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">logisticregression__class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf_logit</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="n">logisticregression__class_weight</span><span class="o">=</span><span class="s1">'balanced'</span><span class="p">)</span>
 
 <span class="n">clf_logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> 
@@ -1938,8 +1938,8 @@ weighted avg       0.80      0.59      0.65    107843
 <p>Hey! We managed to actually predict some defaults! Look:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Paid Back&quot;</span><span class="p">,</span> <span class="s2">&quot;Default&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Model 2: Logit With Class Weights&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">from_estimator</span><span class="p">(</span><span class="n">clf_logit</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s2">"Paid Back"</span><span class="p">,</span> <span class="s2">"Default"</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Model 2: Logit With Class Weights'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

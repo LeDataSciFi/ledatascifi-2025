@@ -917,13 +917,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">left_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;firm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Accenture&#39;</span><span class="p">,</span><span class="s1">&#39;Citi&#39;</span><span class="p">,</span><span class="s1">&#39;GS&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varA&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">]})</span>
+                    <span class="s1">'firm'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Accenture'</span><span class="p">,</span><span class="s1">'Citi'</span><span class="p">,</span><span class="s1">'GS'</span><span class="p">],</span>
+                    <span class="s1">'varA'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'A1'</span><span class="p">,</span> <span class="s1">'A2'</span><span class="p">,</span> <span class="s1">'A3'</span><span class="p">]})</span>
 
 <span class="n">right_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;firm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GS&#39;</span><span class="p">,</span><span class="s1">&#39;Chase&#39;</span><span class="p">,</span><span class="s1">&#39;WF&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varB&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varc&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]})</span>    
+                    <span class="s1">'firm'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'GS'</span><span class="p">,</span><span class="s1">'Chase'</span><span class="p">,</span><span class="s1">'WF'</span><span class="p">],</span>
+                    <span class="s1">'varB'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B1'</span><span class="p">,</span> <span class="s1">'B2'</span><span class="p">,</span> <span class="s1">'B3'</span><span class="p">],</span>
+                    <span class="s1">'varc'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C1'</span><span class="p">,</span> <span class="s1">'C2'</span><span class="p">,</span> <span class="s1">'C3'</span><span class="p">]})</span>    
 </pre></div>
 </div>
 </div>
@@ -968,14 +968,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ChosenOne</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;tic&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GS&#39;</span><span class="p">,</span><span class="s1">&#39;GS&#39;</span><span class="p">,</span><span class="s1">&#39;GS&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varB&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varc&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]})</span>    
+                    <span class="s1">'tic'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'GS'</span><span class="p">,</span><span class="s1">'GS'</span><span class="p">,</span><span class="s1">'GS'</span><span class="p">],</span>
+                    <span class="s1">'varB'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'B1'</span><span class="p">,</span> <span class="s1">'B2'</span><span class="p">,</span> <span class="s1">'B3'</span><span class="p">],</span>
+                    <span class="s1">'varc'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C1'</span><span class="p">,</span> <span class="s1">'C2'</span><span class="p">,</span> <span class="s1">'C3'</span><span class="p">]})</span>    
 
 <span class="n">CurryForThree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;var1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GS&#39;</span><span class="p">,</span><span class="s1">&#39;GS&#39;</span><span class="p">,</span><span class="s1">&#39;GS&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varD&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;E1&#39;</span><span class="p">,</span> <span class="s1">&#39;E2&#39;</span><span class="p">,</span> <span class="s1">&#39;E3&#39;</span><span class="p">]})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;var1&#39;</span><span class="p">)</span>
+                    <span class="s1">'var1'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'GS'</span><span class="p">,</span><span class="s1">'GS'</span><span class="p">,</span><span class="s1">'GS'</span><span class="p">],</span>
+                    <span class="s1">'varD'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'D1'</span><span class="p">,</span> <span class="s1">'D2'</span><span class="p">,</span> <span class="s1">'D3'</span><span class="p">],</span>
+                    <span class="s1">'varE'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'E1'</span><span class="p">,</span> <span class="s1">'E2'</span><span class="p">,</span> <span class="s1">'E3'</span><span class="p">]})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'var1'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1005,14 +1005,14 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">poppop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;tic&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;TSLA&#39;</span><span class="p">,</span><span class="s1">&#39;TSLA&#39;</span><span class="p">,</span><span class="s1">&#39;GM&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varB&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2016&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="s1">&#39;2018&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varc&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]})</span>    
+                    <span class="s1">'tic'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'TSLA'</span><span class="p">,</span><span class="s1">'TSLA'</span><span class="p">,</span><span class="s1">'GM'</span><span class="p">],</span>
+                    <span class="s1">'varB'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2016'</span><span class="p">,</span> <span class="s1">'2017'</span><span class="p">,</span> <span class="s1">'2018'</span><span class="p">],</span>
+                    <span class="s1">'varc'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'C1'</span><span class="p">,</span> <span class="s1">'C2'</span><span class="p">,</span> <span class="s1">'C3'</span><span class="p">]})</span>    
 
 <span class="n">CurryForThree</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-                    <span class="s1">&#39;var1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;TSLA&#39;</span><span class="p">,</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varD&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2016&#39;</span><span class="p">,</span> <span class="s1">&#39;2017&#39;</span><span class="p">,</span> <span class="s1">&#39;2018&#39;</span><span class="p">],</span>
-                    <span class="s1">&#39;varE&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;E1&#39;</span><span class="p">,</span> <span class="s1">&#39;E2&#39;</span><span class="p">,</span> <span class="s1">&#39;E3&#39;</span><span class="p">]})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;var1&#39;</span><span class="p">)</span>
+                    <span class="s1">'var1'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'F'</span><span class="p">,</span><span class="s1">'TSLA'</span><span class="p">,</span><span class="s1">'TSLA'</span><span class="p">],</span>
+                    <span class="s1">'varD'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2016'</span><span class="p">,</span> <span class="s1">'2017'</span><span class="p">,</span> <span class="s1">'2018'</span><span class="p">],</span>
+                    <span class="s1">'varE'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'E1'</span><span class="p">,</span> <span class="s1">'E2'</span><span class="p">,</span> <span class="s1">'E3'</span><span class="p">]})</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'var1'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

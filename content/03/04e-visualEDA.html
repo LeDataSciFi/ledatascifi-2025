@@ -983,7 +983,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZipFile</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">urllib.request</span><span class="w"> </span><span class="kn">import</span> <span class="n">urlopen</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/data/blob/main/Firm%20Year%20Datasets%20(Compustat)/CCM_cleaned_for_class.zip?raw=true&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://github.com/LeDataSciFi/data/blob/main/Firm%20Year%20Datasets%20(Compustat)/CCM_cleaned_for_class.zip?raw=true'</span>
 
 <span class="c1">#firms = pd.read_stata(url)   </span>
 <span class="c1"># &lt;-- that code would work, but GH said it was too big and</span>
@@ -1015,8 +1015,8 @@ const thebe_selector_output = ".output, .cell_output"
     <span class="c1"># you can stop here and report this...</span>
     <span class="c1"># but I wanted to format it a bit...</span>
     <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">13</span><span class="p">]</span>
-    <span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;% missing&#39;</span><span class="p">)</span> <span class="c1"># the next line only works on a frame, and because pandas sees only 1 variable at this pt</span>
-    <span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{:.1f}</span><span class="s2">&quot;</span><span class="p">)</span>     <span class="c1"># in the code, it calls this a &quot;series&quot; type object, so convert it to dataframe type object</span>
+    <span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'% missing'</span><span class="p">)</span> <span class="c1"># the next line only works on a frame, and because pandas sees only 1 variable at this pt</span>
+    <span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">"</span><span class="si">{:.1f}</span><span class="s2">"</span><span class="p">)</span>     <span class="c1"># in the code, it calls this a "series" type object, so convert it to dataframe type object</span>
 <span class="p">)</span>
 <span class="c1">#</span>
 </pre></div>
@@ -1096,12 +1096,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
 <span class="n">ccm</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;fyear&#39;</span><span class="p">)</span>
-    <span class="p">[[</span><span class="s1">&#39;privdelaycon&#39;</span><span class="p">,</span><span class="s1">&#39;debtdelaycon&#39;</span><span class="p">,</span><span class="s1">&#39;equitydelaycon&#39;</span><span class="p">,</span><span class="s1">&#39;delaycon&#39;</span><span class="p">,</span>
-     <span class="s1">&#39;prodmktfluid&#39;</span><span class="p">,</span><span class="s1">&#39;tnic3tsimm&#39;</span><span class="p">,</span><span class="s1">&#39;tnic3hhi&#39;</span><span class="p">]]</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'fyear'</span><span class="p">)</span>
+    <span class="p">[[</span><span class="s1">'privdelaycon'</span><span class="p">,</span><span class="s1">'debtdelaycon'</span><span class="p">,</span><span class="s1">'equitydelaycon'</span><span class="p">,</span><span class="s1">'delaycon'</span><span class="p">,</span>
+     <span class="s1">'prodmktfluid'</span><span class="p">,</span><span class="s1">'tnic3tsimm'</span><span class="p">,</span><span class="s1">'tnic3hhi'</span><span class="p">]]</span>
     <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span> 
-    <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;These variables didn&#39;t exist before 1997!&quot;</span><span class="p">,</span>
-               <span class="n">ylabel</span><span class="o">=</span><span class="s2">&quot;Fraction of missing observations&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">"These variables didn't exist before 1997!"</span><span class="p">,</span>
+               <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Fraction of missing observations"</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1147,8 +1147,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="p">,</span>
-            <span class="n">x</span><span class="o">=</span><span class="s1">&#39;td_a&#39;</span><span class="p">,</span>
-            <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;A density (kind=&quot;kde&quot;) graph&#39;</span><span class="p">)</span>
+            <span class="n">x</span><span class="o">=</span><span class="s1">'td_a'</span><span class="p">,</span>
+            <span class="n">kind</span><span class="o">=</span><span class="s1">'kde'</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'A density (kind="kde") graph'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1160,9 +1160,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>This time, let’s query the dataset to eliminate outliers that distort the graph:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;td_a &lt; 1 &amp; td_a &gt; 0&#39;</span><span class="p">),</span>
-            <span class="n">x</span><span class="o">=</span><span class="s1">&#39;td_a&#39;</span><span class="p">,</span>
-            <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Used .query() to filter outliers&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'td_a &lt; 1 &amp; td_a &gt; 0'</span><span class="p">),</span>
+            <span class="n">x</span><span class="o">=</span><span class="s1">'td_a'</span><span class="p">,</span>
+            <span class="n">kind</span><span class="o">=</span><span class="s1">'kde'</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Used .query() to filter outliers'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1174,10 +1174,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>And now I’ll add a histogram on top:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;td_a &lt; 1 &amp; td_a &gt; 0&#39;</span><span class="p">),</span>
-            <span class="n">x</span><span class="o">=</span><span class="s1">&#39;td_a&#39;</span><span class="p">,</span> 
-            <span class="c1"># kind=hist is the default, so I&#39;m not even typing it</span>
-            <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;kind=&quot;hist&quot;, kde=True --&gt; histogram + kde&#39;</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'td_a &lt; 1 &amp; td_a &gt; 0'</span><span class="p">),</span>
+            <span class="n">x</span><span class="o">=</span><span class="s1">'td_a'</span><span class="p">,</span> 
+            <span class="c1"># kind=hist is the default, so I'm not even typing it</span>
+            <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'kind="hist", kde=True --&gt; histogram + kde'</span> <span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1190,7 +1190,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="p">,</span> 
-            <span class="n">x</span><span class="o">=</span><span class="s1">&#39;td_a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Outliers can distort graph until useless&#39;</span><span class="p">)</span>
+            <span class="n">x</span><span class="o">=</span><span class="s1">'td_a'</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'Outliers can distort graph until useless'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1202,8 +1202,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Again, let’s query the dataset to eliminate outliers that distort the graph:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;td_a &lt; 1 &amp; td_a &gt; 0&#39;</span><span class="p">),</span> 
-            <span class="n">x</span><span class="o">=</span><span class="s1">&#39;td_a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;With query, outliers are filtered, main patterns visible&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'td_a &lt; 1 &amp; td_a &gt; 0'</span><span class="p">),</span> 
+            <span class="n">x</span><span class="o">=</span><span class="s1">'td_a'</span><span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'With query, outliers are filtered, main patterns visible'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1215,8 +1215,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">ccm</span><span class="p">,</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;div_d&#39;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span>
-           <span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;div_d is a binary variable: Does the firm pay dividends?&#39;</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="s1">'div_d'</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span>
+           <span class="p">)</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">'div_d is a binary variable: Does the firm pay dividends?'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1234,7 +1234,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pandas built in plot </span>
-<span class="n">ccm</span><span class="p">[</span><span class="s1">&#39;gsector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
+<span class="n">ccm</span><span class="p">[</span><span class="s1">'gsector'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'barh'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1245,16 +1245,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sns.catplot is powerful, but it&#39;s overkill for a categorical count</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># sns.catplot is powerful, but it's overkill for a categorical count</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="p">,</span>
-            <span class="n">y</span><span class="o">=</span><span class="s1">&#39;gsector&#39;</span><span class="p">,</span>
-            <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="s1">'gsector'</span><span class="p">,</span>
+            <span class="n">kind</span><span class="o">=</span><span class="s1">'count'</span><span class="p">,</span>
             <span class="c1"># sns wants to use all diff colors, which is distracting  </span>
             <span class="c1"># on this particular graph with no value. </span>
             <span class="c1"># so I force all colors to grey by adding this:</span>
-            <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">,</span> 
+            <span class="n">color</span> <span class="o">=</span> <span class="s1">'grey'</span><span class="p">,</span> 
             <span class="c1"># to sort the categories, need to tell sns the order to sort:</span>
-            <span class="n">order</span> <span class="o">=</span> <span class="n">ccm</span><span class="p">[</span><span class="s1">&#39;gsector&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+            <span class="n">order</span> <span class="o">=</span> <span class="n">ccm</span><span class="p">[</span><span class="s1">'gsector'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1282,9 +1282,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>(We should deal with these outliers later.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># every time you run this, you&#39;ll get diff figures... why?!</span>
-<span class="n">f1</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">ccm</span><span class="p">[[</span><span class="s1">&#39;capx_a&#39;</span><span class="p">,</span> <span class="s1">&#39;xrd_a&#39;</span><span class="p">,</span> <span class="s1">&#39;cash_a&#39;</span><span class="p">,</span><span class="s1">&#39;td_a&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span>
-                <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># every time you run this, you'll get diff figures... why?!</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">ccm</span><span class="p">[[</span><span class="s1">'capx_a'</span><span class="p">,</span> <span class="s1">'xrd_a'</span><span class="p">,</span> <span class="s1">'cash_a'</span><span class="p">,</span><span class="s1">'td_a'</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span>
+                <span class="n">kind</span><span class="o">=</span><span class="s1">'reg'</span><span class="p">,</span>
                  <span class="n">corner</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1296,8 +1296,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>This time the “kind” is a histogram. In 2D, a histogram is squares with colors corresponding to frequency at that spot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">ccm</span><span class="p">[[</span><span class="s1">&#39;capx_a&#39;</span><span class="p">,</span> <span class="s1">&#39;xrd_a&#39;</span><span class="p">,</span> <span class="s1">&#39;cash_a&#39;</span><span class="p">,</span><span class="s1">&#39;td_a&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span>
-                <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">ccm</span><span class="p">[[</span><span class="s1">'capx_a'</span><span class="p">,</span> <span class="s1">'xrd_a'</span><span class="p">,</span> <span class="s1">'cash_a'</span><span class="p">,</span><span class="s1">'td_a'</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span>
+                <span class="n">kind</span><span class="o">=</span><span class="s1">'hist'</span><span class="p">,</span>
                  <span class="n">corner</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># hist handles a lot of datapoints well</span>
 </pre></div>
 </div>
@@ -2328,7 +2328,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dont plot identifying type info or categorical vars</span>
-<span class="n">corr</span> <span class="o">=</span> <span class="n">ccm</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gvkey&#39;</span><span class="p">,</span><span class="s1">&#39;lpermno&#39;</span><span class="p">,</span><span class="s1">&#39;sic3&#39;</span><span class="p">,</span><span class="s1">&#39;fyear&#39;</span><span class="p">,</span><span class="s1">&#39;sic&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">ccm</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'gvkey'</span><span class="p">,</span><span class="s1">'lpermno'</span><span class="p">,</span><span class="s1">'sic3'</span><span class="p">,</span><span class="s1">'fyear'</span><span class="p">,</span><span class="s1">'sic'</span><span class="p">])</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span> <span class="c1"># make a big space for the figure</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span>
@@ -2338,8 +2338,8 @@ const thebe_selector_output = ".output, .cell_output"
                  <span class="c1"># mask to hide the upper diag (redundant)</span>
                  <span class="n">mask</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)),</span>
                  <span class="c1"># shrink the heat legend</span>
-                 <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">.5</span><span class="p">},</span>
-                 <span class="c1">#optional: vmax and vmin will &quot;cap&quot; the color range</span>
+                 <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">"shrink"</span><span class="p">:</span> <span class="mf">.5</span><span class="p">},</span>
+                 <span class="c1">#optional: vmax and vmin will "cap" the color range</span>
                 <span class="p">)</span>
 </pre></div>
 </div>
@@ -2366,11 +2366,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;xrd_a&lt;.4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
-                  <span class="n">x</span><span class="o">=</span><span class="s2">&quot;prodmktfluid&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;xrd_a&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'xrd_a&lt;.4'</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+                  <span class="n">x</span><span class="o">=</span><span class="s2">"prodmktfluid"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"xrd_a"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'reg'</span><span class="p">)</span> 
 <span class="c1"># notice: most firms have 0 R&amp;D!</span>
-<span class="c1"># set_title doesn&#39;t work with jointplots</span>
-<span class="n">f1</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Strongly positive, even with zero R&amp;D firms in sample&#39;</span><span class="p">)</span>
+<span class="c1"># set_title doesn't work with jointplots</span>
+<span class="n">f1</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">'Strongly positive, even with zero R&amp;D firms in sample'</span><span class="p">)</span>
 <span class="n">f1</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="c1"># Reduce plot to make room </span>
 </pre></div>
 </div>
@@ -2381,10 +2381,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;xrd_a&lt;.4 &amp; xrd_a &gt; 0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
-                  <span class="n">x</span><span class="o">=</span><span class="s2">&quot;prodmktfluid&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;xrd_a&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;reg&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f2</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'xrd_a&lt;.4 &amp; xrd_a &gt; 0'</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+                  <span class="n">x</span><span class="o">=</span><span class="s2">"prodmktfluid"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"xrd_a"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">'reg'</span><span class="p">)</span>
 
-<span class="n">f2</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Among R&amp;D firms, even stronger relationship&#39;</span><span class="p">)</span>
+<span class="n">f2</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">'Among R&amp;D firms, even stronger relationship'</span><span class="p">)</span>
 <span class="n">f2</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="c1"># Reduce plot to make room </span>
 </pre></div>
 </div>
@@ -2397,8 +2397,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p><code class="docutils literal notranslate"><span class="pre">lmplot</span></code> will plot regressions as well, but it makes it easy add <a class="reference internal" href="04d-whichplot.html"><span class="doc std std-doc">facets</span></a> to see if the relationship depends on a third (categorical) variable with the <code class="docutils literal notranslate"><span class="pre">hue</span></code>, <code class="docutils literal notranslate"><span class="pre">col</span></code>, and <code class="docutils literal notranslate"><span class="pre">row</span></code> parameters. (And you can combine <code class="docutils literal notranslate"><span class="pre">hue</span></code>, <code class="docutils literal notranslate"><span class="pre">col</span></code>, and <code class="docutils literal notranslate"><span class="pre">row</span></code> to see several cuts!)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f3</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;xrd_a&lt;.4 &amp; xrd_a &gt; 0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
-                  <span class="n">x</span><span class="o">=</span><span class="s2">&quot;prodmktfluid&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;xrd_a&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;div_d&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f3</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'xrd_a&lt;.4 &amp; xrd_a &gt; 0'</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+                  <span class="n">x</span><span class="o">=</span><span class="s2">"prodmktfluid"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"xrd_a"</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">'div_d'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2409,8 +2409,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Using <code class="docutils literal notranslate"><span class="pre">col</span></code> instead of <code class="docutils literal notranslate"><span class="pre">hue</span></code> “works”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f4</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;xrd_a&lt;.4 &amp; xrd_a &gt; 0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
-                  <span class="n">x</span><span class="o">=</span><span class="s2">&quot;prodmktfluid&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;xrd_a&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;div_d&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f4</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">ccm</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'xrd_a&lt;.4 &amp; xrd_a &gt; 0'</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span>
+                  <span class="n">x</span><span class="o">=</span><span class="s2">"prodmktfluid"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"xrd_a"</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">'div_d'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

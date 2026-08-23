@@ -963,12 +963,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;abcdef&quot;</span><span class="p">)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"c"</span><span class="p">,</span> <span class="s2">"abcdef"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(2, 3), match=&#39;c&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;re.Match object; span=(2, 3), match='c'&gt;
 </pre></div>
 </div>
 </div>
@@ -978,20 +978,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;He was carefully disguised but captured quickly by police.&quot;</span>
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"He was carefully disguised but captured quickly by police."</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\w+ly"</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;carefully&#39;, &#39;quickly&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['carefully', 'quickly']
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\w+ly"</span><span class="p">,</span> <span class="n">text</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1007,9 +1007,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># i want to find all of the adverbs AND THEIR POSITIONS in some text</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;He was carefully disguised but captured quickly by police.&quot;</span>
-<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\w+ly&quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%02d</span><span class="s1">-</span><span class="si">%02d</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"He was carefully disguised but captured quickly by police."</span>
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\w+ly"</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%02d</span><span class="s1">-</span><span class="si">%02d</span><span class="s1">: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -1028,13 +1028,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w+) (\w+)&quot;</span><span class="p">,</span> <span class="s2">&quot;Isaac Newton, physicist&quot;</span><span class="p">)</span>  
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"(\w+) (\w+)"</span><span class="p">,</span> <span class="s2">"Isaac Newton, physicist"</span><span class="p">)</span>  
 <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>       <span class="c1"># The entire match</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Isaac Newton&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'Isaac Newton'
 </pre></div>
 </div>
 </div>
@@ -1046,7 +1046,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Isaac&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'Isaac'
 </pre></div>
 </div>
 </div>
@@ -1058,7 +1058,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Newton&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'Newton'
 </pre></div>
 </div>
 </div>
@@ -1070,7 +1070,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Isaac&#39;, &#39;Newton&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>('Isaac', 'Newton')
 </pre></div>
 </div>
 </div>
@@ -1151,16 +1151,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p><strong>Raw string notation (<code class="docutils literal notranslate"><span class="pre">r&quot;text&quot;</span></code>) keeps regular expressions sane. Without it, every backslash (‘’) in a regular expression would have to be prefixed with another one to escape it.</strong></p>
 <div class="highlight-PYTHON notranslate"><div class="highlight"><pre><span></span><span class="c1"># These lines are functionally identical</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\W(.)\1\W&quot;</span><span class="p">,</span> <span class="s2">&quot; ff &quot;</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">&#39; ff &#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">W(.)</span><span class="se">\\</span><span class="s2">1</span><span class="se">\\</span><span class="s2">W&quot;</span><span class="p">,</span> <span class="s2">&quot; ff &quot;</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">&#39; ff &#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\W(.)\1\W"</span><span class="p">,</span> <span class="s2">" ff "</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">' ff '</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"</span><span class="se">\\</span><span class="s2">W(.)</span><span class="se">\\</span><span class="s2">1</span><span class="se">\\</span><span class="s2">W"</span><span class="p">,</span> <span class="s2">" ff "</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">' ff '</span><span class="o">&gt;</span>
 
 <span class="c1"># so are these:</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\\\</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">'</span><span class="se">\\</span><span class="s1">'</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s2">"</span><span class="se">\\\\</span><span class="s2">"</span><span class="p">,</span> <span class="sa">r</span><span class="s2">"</span><span class="se">\\</span><span class="s2">"</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">re</span><span class="o">.</span><span class="n">Match</span> <span class="nb">object</span><span class="p">;</span> <span class="n">span</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">match</span><span class="o">=</span><span class="s1">'</span><span class="se">\\</span><span class="s1">'</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 </div>

@@ -935,14 +935,14 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols</span> <span class="k">as</span> <span class="n">sm_ols</span> <span class="c1"># need this</span>
 
-<span class="n">diamonds</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;diamonds&#39;</span><span class="p">)</span>
+<span class="n">diamonds</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">'diamonds'</span><span class="p">)</span>
 
 <span class="c1"># this alteration is not strictly necessary to practice a regression</span>
 <span class="c1"># but we use this in livecoding</span>
-<span class="n">diamonds2</span> <span class="o">=</span> <span class="p">(</span><span class="n">diamonds</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;carat &lt; 2.5&#39;</span><span class="p">)</span>               <span class="c1"># censor/remove outliers</span>
-            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lprice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]))</span>  <span class="c1"># log transform price</span>
-            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lcarat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">]))</span>  <span class="c1"># log transform carats</span>
-            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ideal</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Ideal&#39;</span><span class="p">)</span> 
+<span class="n">diamonds2</span> <span class="o">=</span> <span class="p">(</span><span class="n">diamonds</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'carat &lt; 2.5'</span><span class="p">)</span>               <span class="c1"># censor/remove outliers</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lprice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">'price'</span><span class="p">]))</span>  <span class="c1"># log transform price</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lcarat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">'carat'</span><span class="p">]))</span>  <span class="c1"># log transform carats</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ideal</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">[</span><span class="s1">'cut'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Ideal'</span><span class="p">)</span> 
              
              <span class="c1"># some regression packages want you to explicitly provide </span>
              <span class="c1"># a variable for the constant</span>
@@ -950,8 +950,8 @@ const thebe_selector_output = ".output, .cell_output"
             <span class="p">)</span>  
 
 <span class="p">(</span>
-<span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat + ideal + lcarat*ideal&#39;</span><span class="p">,</span> 
-       <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cut in [&quot;Fair&quot;,&quot;Ideal&quot;]&#39;</span><span class="p">))</span>
+<span class="n">sm_ols</span><span class="p">(</span><span class="s1">'lprice ~ lcarat + ideal + lcarat*ideal'</span><span class="p">,</span> 
+       <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'cut in ["Fair","Ideal"]'</span><span class="p">))</span>
 <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># the summary() is multiple tables stitched together. I only care to print the params here.</span>
 </pre></div>
 </div>

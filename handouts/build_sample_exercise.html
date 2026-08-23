@@ -982,7 +982,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1">#</span>
 <span class="c1"># if that fails, you can disable it</span>
 
-<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">&quot;output&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s2">"output"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -994,7 +994,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Q1 - load the ML negative words into a list called BHR_negative</span>
 <span class="c1"># BHR is the author names on that paper</span>
-<span class="c1"># &quot;ML&quot; might be a better name, but having &quot;LM&quot; and &quot;ML&quot; in bound</span>
+<span class="c1"># "ML" might be a better name, but having "LM" and "ML" in bound</span>
 <span class="c1"># to cause transcription errors</span>
 </pre></div>
 </div>
@@ -1031,22 +1031,22 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># step 1 will load some database and prep it for the loopy parts</span>
 <span class="c1"># here, we will just use a toy dataset</span>
 
-<span class="n">toy_database</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;Security&quot;</span><span class="p">:[</span><span class="s1">&#39;3M&#39;</span><span class="p">,</span><span class="s1">&#39;TLSA&#39;</span><span class="p">,</span><span class="s1">&#39;APPL&#39;</span><span class="p">],</span>
-             <span class="s2">&quot;URL&quot;</span><span class="p">:[</span><span class="s1">&#39;blahblah.com&#39;</span><span class="p">,</span><span class="s1">&#39;wikisomething.com&#39;</span><span class="p">,</span><span class="s1">&#39;wiki.com&#39;</span><span class="p">]})</span>
+<span class="n">toy_database</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"Security"</span><span class="p">:[</span><span class="s1">'3M'</span><span class="p">,</span><span class="s1">'TLSA'</span><span class="p">,</span><span class="s1">'APPL'</span><span class="p">],</span>
+             <span class="s2">"URL"</span><span class="p">:[</span><span class="s1">'blahblah.com'</span><span class="p">,</span><span class="s1">'wikisomething.com'</span><span class="p">,</span><span class="s1">'wiki.com'</span><span class="p">]})</span>
 
 <span class="c1"># step 2: figure out how to loop through this dataframe </span>
 <span class="c1"># yes, an actual for loop on a dataframe (booooooo)</span>
 <span class="k">for</span> <span class="n">______________________________</span><span class="p">:</span> 
-    <span class="c1"># print the row&#39;s index, and the url from the row, this will confirm if we are looping right</span>
+    <span class="c1"># print the row's index, and the url from the row, this will confirm if we are looping right</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">_________________________</span><span class="p">)</span> 
 
     <span class="c1"># A. here, you would open the related 10k, but SKIP this for now</span>
 
-    <span class="c1"># B. You&#39;d measure the sentiment here. Let&#39;s just pretend that </span>
+    <span class="c1"># B. You'd measure the sentiment here. Let's just pretend that </span>
     <span class="c1"># you opened+cleaned+built a sentiment variable </span>
-    <span class="c1"># called &quot;sentiment_positive&quot; (a bad name, but this is just example code!)</span>
+    <span class="c1"># called "sentiment_positive" (a bad name, but this is just example code!)</span>
 
-    <span class="n">sentiment_positive</span><span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># this is a silly line to &quot;simulate&quot; that got a value for this variable</span>
+    <span class="n">sentiment_positive</span><span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># this is a silly line to "simulate" that got a value for this variable</span>
 
     <span class="n">__________________________</span> <span class="c1"># add sentiment_positive to your toy database</span>
 </pre></div>
@@ -1062,18 +1062,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Then, count how many times each word is in the document.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">happy_sentiment</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;happy&#39;</span><span class="p">,</span><span class="s1">&#39;smile&#39;</span><span class="p">,</span><span class="s1">&#39;hopeful&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">happy_sentiment</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'happy'</span><span class="p">,</span><span class="s1">'smile'</span><span class="p">,</span><span class="s1">'hopeful'</span><span class="p">]</span>
 
-<span class="n">sentence</span> <span class="o">=</span> <span class="s1">&#39;I am happy that you are here. I am all smiles. So hopeful!&#39;</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s1">'I am happy that you are here. I am all smiles. So hopeful!'</span>
 
-<span class="c1"># q0 count the number of &quot;words&quot; (the doc length)</span>
+<span class="c1"># q0 count the number of "words" (the doc length)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q1 count how many times &quot;happy&quot; is used in the doc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q1 count how many times "happy" is used in the doc</span>
 <span class="c1"># hint: https://ledatascifi.github.io/ledatascifi-2025/content/04/02b_regex.html</span>
 </pre></div>
 </div>
@@ -1081,14 +1081,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q2 count how many times &quot;smile&quot; is used in the doc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q2 count how many times "smile" is used in the doc</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q3 count how many times &quot;smile&quot; or &quot;happy&quot; is used in the doc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q3 count how many times "smile" or "happy" is used in the doc</span>
 <span class="c1"># hint: similar to q2 answer... </span>
 <span class="c1"># the answer is somewhere this page: https://regexone.com/</span>
 </pre></div>
@@ -1107,7 +1107,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q5 - using py&#39;s string functions, convert</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q5 - using py's string functions, convert</span>
 <span class="c1"># happy_sentiment into the format NEAR_regex() wants </span>
 <span class="c1"># hint: 4.4.1</span>
 </pre></div>
@@ -1116,7 +1116,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q6 - calculate the doc&#39;s happy_sentiment score</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q6 - calculate the doc's happy_sentiment score</span>
 </pre></div>
 </div>
 </div>
@@ -1126,13 +1126,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># q7: how many times is (happy or smile) near (face or head)? </span>
 
-<span class="n">body_parts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;face&#39;</span><span class="p">,</span><span class="s1">&#39;head&#39;</span><span class="p">]</span>
+<span class="n">body_parts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'face'</span><span class="p">,</span><span class="s1">'head'</span><span class="p">]</span>
 
-<span class="n">sentence1</span> <span class="o">=</span> <span class="s1">&#39;I see smile on your face. That is so awesome!&#39;</span>
-<span class="n">sentence2</span> <span class="o">=</span> <span class="s1">&#39;I see smile. That is so awesome!&#39;</span>
+<span class="n">sentence1</span> <span class="o">=</span> <span class="s1">'I see smile on your face. That is so awesome!'</span>
+<span class="n">sentence2</span> <span class="o">=</span> <span class="s1">'I see smile. That is so awesome!'</span>
 
 <span class="c1"># do on sentence1 - </span>
-<span class="c1"># using py&#39;s string functions, convert body_parts into the format NEAR_regex()</span>
+<span class="c1"># using py's string functions, convert body_parts into the format NEAR_regex()</span>
 <span class="c1"># then use near_regex()</span>
 
 <span class="c1"># do on sentence2</span>
@@ -1152,17 +1152,17 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open the zip file (do this before the for loop</span>
 <span class="c1"># so you only open it one time... faster)</span>
-<span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;10k_files/10k_files_practice.zip&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipfolder</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">ZipFile</span><span class="p">(</span><span class="s1">'10k_files/10k_files_practice.zip'</span><span class="p">,</span><span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">zipfolder</span><span class="p">:</span>
     
     <span class="c1"># before the loop, get list of files in zipped folder</span>
     <span class="n">file_list</span> <span class="o">=</span> <span class="n">zipfolder</span><span class="o">.</span><span class="n">namelist</span><span class="p">()</span>
         
-    <span class="c1"># replace this with how you&#39;d loop over the dataframe</span>
+    <span class="c1"># replace this with how you'd loop over the dataframe</span>
     <span class="c1"># which you already know...</span>
     <span class="k">for</span> <span class="n">firm</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1800</span><span class="p">]:</span> <span class="c1"># </span>
         
         <span class="c1"># get a list of possible files for this firm</span>
-        <span class="n">firm_folder</span>    <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;sec-edgar-filings/</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">firm</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">/10-K/*/*.html&quot;</span>
+        <span class="n">firm_folder</span>    <span class="o">=</span> <span class="sa">f</span><span class="s2">"sec-edgar-filings/</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">firm</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="si">}</span><span class="s2">/10-K/*/*.html"</span>
         <span class="n">possible_files</span> <span class="o">=</span> <span class="n">fnmatch</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">file_list</span><span class="p">,</span> <span class="n">firm_folder</span><span class="p">)</span> 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
             <span class="k">continue</span>
@@ -1171,7 +1171,7 @@ const thebe_selector_output = ".output, .cell_output"
 
         <span class="c1"># open the file (this is a little different!)</span>
         <span class="k">with</span> <span class="n">zipfolder</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span> <span class="k">as</span> <span class="n">report_file</span><span class="p">:</span>
-            <span class="n">html</span> <span class="o">=</span> <span class="n">report_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+            <span class="n">html</span> <span class="o">=</span> <span class="n">report_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
             
         <span class="c1"># do more stuff here...</span>
 </pre></div>
@@ -1193,7 +1193,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ol>
 <li><p>Use BeautifulSoup() with the <code class="docutils literal notranslate"><span class="pre">lxml-xml</span></code> parser. Call the output <code class="docutils literal notranslate"><span class="pre">soup</span></code>. Don’t use <code class="docutils literal notranslate"><span class="pre">get_text</span></code> yet.</p></li>
 <li><p>Delete the hidden XBRL</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;style&#39;</span><span class="p">:</span><span class="s1">&#39;display:none&#39;</span><span class="p">}):</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">div</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"div"</span><span class="p">,</span> <span class="p">{</span><span class="s1">'style'</span><span class="p">:</span><span class="s1">'display:none'</span><span class="p">}):</span> 
     <span class="n">div</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1239,11 +1239,11 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># inside your loop, get the cik and accession number for the filing</span>
 
 <span class="n">cik</span> <span class="o">=</span> <span class="mi">1122304</span>
-<span class="n">accession_number</span> <span class="o">=</span> <span class="s1">&#39;0001193125-15-118890&#39;</span>
+<span class="n">accession_number</span> <span class="o">=</span> <span class="s1">'0001193125-15-118890'</span>
 
 <span class="c1"># *one* way to get the filing date... </span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;https://www.sec.gov/Archives/edgar/data/</span><span class="si">{</span><span class="n">cik</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">accession_number</span><span class="si">}</span><span class="s1">-index.html&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'https://www.sec.gov/Archives/edgar/data/</span><span class="si">{</span><span class="n">cik</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">accession_number</span><span class="si">}</span><span class="s1">-index.html'</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># check it out...</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 </pre></div>
@@ -1252,7 +1252,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># EXERCISE: get the filing date out of this &quot;r&quot; object (one line of code will do)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># EXERCISE: get the filing date out of this "r" object (one line of code will do)</span>
 </pre></div>
 </div>
 </div>
@@ -1281,16 +1281,16 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;ticker&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;JJSF&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;TSLA&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span>
-    <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2021-12-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-03&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-06&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-07&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-08&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-09&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-10&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-13&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-14&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-15&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-16&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-17&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-20&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-21&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-22&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-23&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-27&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-28&#39;</span><span class="p">,</span> <span class="s1">&#39;2021-12-29&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;2022-12-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-05&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-06&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-07&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-08&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-09&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-12&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-13&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-14&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-15&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-16&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-19&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-20&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-21&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-22&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-23&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-27&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-28&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-29&#39;</span><span class="p">,</span> <span class="s1">&#39;2022-12-30&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;ret&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.011276</span><span class="p">,</span> <span class="mf">0.030954</span><span class="p">,</span> <span class="mf">0.000287</span><span class="p">,</span> <span class="mf">0.014362</span><span class="p">,</span> <span class="mf">0.012459</span><span class="p">,</span> <span class="mf">0.017200</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.010173</span><span class="p">,</span> <span class="mf">0.011875</span><span class="p">,</span> <span class="mf">0.012559</span><span class="p">,</span> <span class="mf">0.002508</span><span class="p">,</span> <span class="mf">0.022852</span><span class="p">,</span> <span class="mf">0.012360</span><span class="p">,</span> <span class="mf">0.017387</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.008957</span><span class="p">,</span> <span class="mf">0.016840</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.000256</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002558</span><span class="p">,</span> <span class="mf">0.009041</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002097</span><span class="p">,</span> <span class="mf">0.010189</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.000822</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.063687</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.014415</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.032143</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.003447</span><span class="p">,</span> <span class="mf">0.032345</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.062720</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.040937</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.025784</span><span class="p">,</span> <span class="mf">0.005548</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.047187</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002396</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.080536</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.001669</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.088828</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.017551</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.114089</span><span class="p">,</span> <span class="mf">0.033089</span><span class="p">,</span> <span class="mf">0.080827</span><span class="p">,</span> <span class="mf">0.011164</span><span class="p">]</span>
+    <span class="s1">'ticker'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'JJSF'</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span> <span class="o">+</span> <span class="p">[</span><span class="s1">'TSLA'</span><span class="p">]</span><span class="o">*</span><span class="mi">20</span><span class="p">,</span>
+    <span class="s1">'date'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'2021-12-01'</span><span class="p">,</span> <span class="s1">'2021-12-02'</span><span class="p">,</span> <span class="s1">'2021-12-03'</span><span class="p">,</span> <span class="s1">'2021-12-06'</span><span class="p">,</span> <span class="s1">'2021-12-07'</span><span class="p">,</span> <span class="s1">'2021-12-08'</span><span class="p">,</span> <span class="s1">'2021-12-09'</span><span class="p">,</span> <span class="s1">'2021-12-10'</span><span class="p">,</span> <span class="s1">'2021-12-13'</span><span class="p">,</span> <span class="s1">'2021-12-14'</span><span class="p">,</span> <span class="s1">'2021-12-15'</span><span class="p">,</span> <span class="s1">'2021-12-16'</span><span class="p">,</span> <span class="s1">'2021-12-17'</span><span class="p">,</span> <span class="s1">'2021-12-20'</span><span class="p">,</span> <span class="s1">'2021-12-21'</span><span class="p">,</span> <span class="s1">'2021-12-22'</span><span class="p">,</span> <span class="s1">'2021-12-23'</span><span class="p">,</span> <span class="s1">'2021-12-27'</span><span class="p">,</span> <span class="s1">'2021-12-28'</span><span class="p">,</span> <span class="s1">'2021-12-29'</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s1">'2022-12-02'</span><span class="p">,</span> <span class="s1">'2022-12-05'</span><span class="p">,</span> <span class="s1">'2022-12-06'</span><span class="p">,</span> <span class="s1">'2022-12-07'</span><span class="p">,</span> <span class="s1">'2022-12-08'</span><span class="p">,</span> <span class="s1">'2022-12-09'</span><span class="p">,</span> <span class="s1">'2022-12-12'</span><span class="p">,</span> <span class="s1">'2022-12-13'</span><span class="p">,</span> <span class="s1">'2022-12-14'</span><span class="p">,</span> <span class="s1">'2022-12-15'</span><span class="p">,</span> <span class="s1">'2022-12-16'</span><span class="p">,</span> <span class="s1">'2022-12-19'</span><span class="p">,</span> <span class="s1">'2022-12-20'</span><span class="p">,</span> <span class="s1">'2022-12-21'</span><span class="p">,</span> <span class="s1">'2022-12-22'</span><span class="p">,</span> <span class="s1">'2022-12-23'</span><span class="p">,</span> <span class="s1">'2022-12-27'</span><span class="p">,</span> <span class="s1">'2022-12-28'</span><span class="p">,</span> <span class="s1">'2022-12-29'</span><span class="p">,</span> <span class="s1">'2022-12-30'</span><span class="p">],</span>
+    <span class="s1">'ret'</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.011276</span><span class="p">,</span> <span class="mf">0.030954</span><span class="p">,</span> <span class="mf">0.000287</span><span class="p">,</span> <span class="mf">0.014362</span><span class="p">,</span> <span class="mf">0.012459</span><span class="p">,</span> <span class="mf">0.017200</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.010173</span><span class="p">,</span> <span class="mf">0.011875</span><span class="p">,</span> <span class="mf">0.012559</span><span class="p">,</span> <span class="mf">0.002508</span><span class="p">,</span> <span class="mf">0.022852</span><span class="p">,</span> <span class="mf">0.012360</span><span class="p">,</span> <span class="mf">0.017387</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.008957</span><span class="p">,</span> <span class="mf">0.016840</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.000256</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002558</span><span class="p">,</span> <span class="mf">0.009041</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002097</span><span class="p">,</span> <span class="mf">0.010189</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mf">0.000822</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.063687</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.014415</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.032143</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.003447</span><span class="p">,</span> <span class="mf">0.032345</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.062720</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.040937</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.025784</span><span class="p">,</span> <span class="mf">0.005548</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.047187</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.002396</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.080536</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.001669</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.088828</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.017551</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.114089</span><span class="p">,</span> <span class="mf">0.033089</span><span class="p">,</span> <span class="mf">0.080827</span><span class="p">,</span> <span class="mf">0.011164</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="n">crsp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">crsp</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">crsp</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+<span class="n">crsp</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">crsp</span><span class="p">[</span><span class="s1">'date'</span><span class="p">])</span>
 
-<span class="n">fake_filings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;ticker&#39;</span><span class="p">:[</span><span class="s1">&#39;JJSF&#39;</span><span class="p">,</span><span class="s1">&#39;TSLA&#39;</span><span class="p">],</span>
-                             <span class="s1">&#39;filing_date&#39;</span><span class="p">:[</span><span class="s1">&#39;2021-12-03&#39;</span><span class="p">,</span><span class="s1">&#39;2022-12-13&#39;</span><span class="p">]})</span>
+<span class="n">fake_filings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'ticker'</span><span class="p">:[</span><span class="s1">'JJSF'</span><span class="p">,</span><span class="s1">'TSLA'</span><span class="p">],</span>
+                             <span class="s1">'filing_date'</span><span class="p">:[</span><span class="s1">'2021-12-03'</span><span class="p">,</span><span class="s1">'2022-12-13'</span><span class="p">]})</span>
 </pre></div>
 </div>
 </div>
@@ -1299,7 +1299,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try here...</span>
 
-<span class="c1"># pseudocode first! imagine the structure of the dataset you want and work backwards, you&#39;ll struggle otherwise!</span>
+<span class="c1"># pseudocode first! imagine the structure of the dataset you want and work backwards, you'll struggle otherwise!</span>
 
 <span class="c1"># this really is a paper and pencil problem</span>
 </pre></div>

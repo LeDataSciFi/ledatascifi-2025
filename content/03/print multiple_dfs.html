@@ -908,23 +908,23 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_table</span><span class="p">(</span><span class="n">table_list</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&#39;&#39;&#39; Accepts DFs and prints them side-by-side, with some space in between.</span>
-<span class="sd">    &#39;&#39;&#39;</span>
+<span class="w">    </span><span class="sd">''' Accepts DFs and prints them side-by-side, with some space in between.</span>
+<span class="sd">    '''</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTML</span>
     
-    <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;table&gt;&lt;tr &gt;&#39;</span> <span class="o">+</span> 
-        <span class="s1">&#39;&lt;tr &gt; &#39;</span> <span class="o">+</span>        
-        <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;&lt;td rowspan=&quot;&#39;</span>                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span> 
-                 <span class="s1">&#39;&quot; style=&quot;text-align:center;&quot;&gt;&#39;</span><span class="o">+</span> <span class="n">table</span><span class="o">.</span><span class="n">name</span><span class="o">+</span> 
-                 <span class="s1">&#39;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/td&gt;&#39;</span>
+    <span class="k">return</span> <span class="n">HTML</span><span class="p">(</span><span class="s1">'&lt;table&gt;&lt;tr &gt;'</span> <span class="o">+</span> 
+        <span class="s1">'&lt;tr &gt; '</span> <span class="o">+</span>        
+        <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">'&lt;td rowspan="'</span>                <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span> 
+                 <span class="s1">'" style="text-align:center;"&gt;'</span><span class="o">+</span> <span class="n">table</span><span class="o">.</span><span class="n">name</span><span class="o">+</span> 
+                 <span class="s1">'&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/td&gt;'</span>
                  <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">table_list</span><span class="p">])</span> <span class="o">+</span>
-        <span class="s1">&#39;&lt;/tr &gt;&#39;</span> <span class="o">+</span>
-<span class="c1">#         &#39;&lt;tr&gt;&lt;td rowspan=&quot;3&quot; style=&quot;text-align:center;&quot;&gt;Left data&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/td&gt;&lt;td rowspan=&quot;4&quot; style=&quot;text-align:center;&quot;&gt;Right data&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/td&gt;&lt;/tr&gt;&#39; +        </span>
-        <span class="s1">&#39;&lt;tr &gt;&lt;/tr&gt;&lt;tr &gt;&lt;/tr&gt;&lt;tr &gt;&lt;/tr&gt;&lt;tr &gt;  &#39;</span> <span class="o">+</span>        
-        <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;&lt;td&gt;&#39;</span> <span class="o">+</span> <span class="n">table</span><span class="o">.</span><span class="n">_repr_html_</span><span class="p">()</span> <span class="o">+</span> 
-                 <span class="s1">&#39;&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/td&gt;&#39;</span> 
+        <span class="s1">'&lt;/tr &gt;'</span> <span class="o">+</span>
+<span class="c1">#         '&lt;tr&gt;&lt;td rowspan="3" style="text-align:center;"&gt;Left data&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/td&gt;&lt;td rowspan="4" style="text-align:center;"&gt;Right data&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/td&gt;&lt;/tr&gt;' +        </span>
+        <span class="s1">'&lt;tr &gt;&lt;/tr&gt;&lt;tr &gt;&lt;/tr&gt;&lt;tr &gt;&lt;/tr&gt;&lt;tr &gt;  '</span> <span class="o">+</span>        
+        <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">'&lt;td&gt;'</span> <span class="o">+</span> <span class="n">table</span><span class="o">.</span><span class="n">_repr_html_</span><span class="p">()</span> <span class="o">+</span> 
+                 <span class="s1">'&lt;td&gt;&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/td&gt;'</span> 
                  <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">table_list</span><span class="p">])</span> <span class="o">+</span>
-        <span class="s1">&#39;&lt;/tr&gt;&lt;/table&gt;&#39;</span>
+        <span class="s1">'&lt;/tr&gt;&lt;/table&gt;'</span>
     <span class="p">)</span>
 
 <span class="n">multi_table</span><span class="p">([</span><span class="n">left_df</span><span class="p">,</span><span class="n">right_df</span><span class="p">])</span>

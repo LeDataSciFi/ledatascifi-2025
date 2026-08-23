@@ -1124,14 +1124,14 @@ y = a+b_1*X_1+b_2*X_2+...+b_N*X_N+u
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols</span> <span class="k">as</span> <span class="n">sm_ols</span> <span class="c1"># need this</span>
 
-<span class="n">diamonds</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;diamonds&#39;</span><span class="p">)</span>
+<span class="n">diamonds</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">'diamonds'</span><span class="p">)</span>
 
 <span class="c1"># this alteration is not strictly necessary to practice a regression</span>
 <span class="c1"># but we use this in livecoding</span>
-<span class="n">diamonds2</span> <span class="o">=</span> <span class="p">(</span><span class="n">diamonds</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;carat &lt; 2.5&#39;</span><span class="p">)</span>               <span class="c1"># censor/remove outliers</span>
-            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lprice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]))</span>  <span class="c1"># log transform price</span>
-            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lcarat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">]))</span>  <span class="c1"># log transform carats</span>
-            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ideal</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">[</span><span class="s1">&#39;cut&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Ideal&#39;</span><span class="p">)</span> 
+<span class="n">diamonds2</span> <span class="o">=</span> <span class="p">(</span><span class="n">diamonds</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'carat &lt; 2.5'</span><span class="p">)</span>               <span class="c1"># censor/remove outliers</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lprice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">'price'</span><span class="p">]))</span>  <span class="c1"># log transform price</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lcarat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">diamonds</span><span class="p">[</span><span class="s1">'carat'</span><span class="p">]))</span>  <span class="c1"># log transform carats</span>
+            <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ideal</span> <span class="o">=</span> <span class="n">diamonds</span><span class="p">[</span><span class="s1">'cut'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Ideal'</span><span class="p">)</span> 
              
              <span class="c1"># some regression packages want you to explicitly provide </span>
              <span class="c1"># a variable for the constant</span>
@@ -1143,7 +1143,7 @@ y = a+b_1*X_1+b_2*X_2+...+b_N*X_N+u
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ C(cut)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">'lprice ~ C(cut)'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1164,7 +1164,7 @@ dtype: float64
 <p>Let’s check:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cut&#39;</span><span class="p">)[</span><span class="s1">&#39;lprice&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># avg lprice by cut</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diamonds2</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'cut'</span><span class="p">)[</span><span class="s1">'lprice'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># avg lprice by cut</span>
 </pre></div>
 </div>
 </div>
@@ -1282,7 +1282,7 @@ y = a +\hat{0.5} W + \hat{-0.1} H
 <p>By adding carat size back to our model, we get the sensible result, that going from an Ideal cut to a Fair cut diamond (a big downgrade), as long as we compare similarly sized diamonds (“control for diamond size”), is associated with a 31% decrease in price.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat + C(cut)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">'lprice ~ lcarat + C(cut)'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1348,20 +1348,20 @@ Notes:
 <p>Here is that solution in action:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standardize</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="c1"># normalize(df[&#39;x&#39;]) will divide all &#39;x&#39; by the std deviation of &#39;x&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standardize</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="n">x</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span> <span class="c1"># normalize(df['x']) will divide all 'x' by the std deviation of 'x'</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Divide lcarat by its std dev:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat + ideal&#39;</span><span class="p">,</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Divide lcarat by its std dev:</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">'lprice ~ lcarat + ideal'</span><span class="p">,</span> 
        <span class="c1"># for **just** this regression, divide </span>
-       <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lcarat</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span><span class="n">diamonds2</span><span class="p">[</span><span class="s1">&#39;lcarat&#39;</span><span class="p">]))</span> 
-       <span class="c1"># this doesn&#39;t change the diamonds2 data permanently, so the next time you call on</span>
+       <span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">lcarat</span> <span class="o">=</span> <span class="n">standardize</span><span class="p">(</span><span class="n">diamonds2</span><span class="p">[</span><span class="s1">'lcarat'</span><span class="p">]))</span> 
+       <span class="c1"># this doesn't change the diamonds2 data permanently, so the next time you call on</span>
        <span class="c1"># diamonds2, you can use lcarat as if nothing changed. if you want to repeat this</span>
-       <span class="c1"># a bunch, you might instead create and save a permanent variable called &quot;lcarat_std&quot;</span>
-       <span class="c1"># where &quot;_std&quot; indicates that you divided it by the std dev.</span>
+       <span class="c1"># a bunch, you might instead create and save a permanent variable called "lcarat_std"</span>
+       <span class="c1"># where "_std" indicates that you divided it by the std dev.</span>
       <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">The original reg:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">&#39;lprice ~ lcarat + ideal&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span> <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">The original reg:</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sm_ols</span><span class="p">(</span><span class="s1">'lprice ~ lcarat + ideal'</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">diamonds2</span> <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

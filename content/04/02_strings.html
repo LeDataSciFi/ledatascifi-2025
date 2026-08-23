@@ -921,13 +921,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li><p>Lower case everything. (Python string method: <code class="docutils literal notranslate"><span class="pre">.lower()</span></code>)</p></li>
 <li><p>Delete punctuation (I usually replace with a space).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># don&#39;t forget to import re</span>
-<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\W&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">your_string_variable_goes_here</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># don't forget to import re</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\W'</span><span class="p">,</span><span class="s1">' '</span><span class="p">,</span><span class="n">your_string_variable_goes_here</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p>Delete all excess whitespace.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">your_string_variable_goes_here</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'\s+'</span><span class="p">,</span><span class="s1">' '</span><span class="p">,</span><span class="n">your_string_variable_goes_here</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>

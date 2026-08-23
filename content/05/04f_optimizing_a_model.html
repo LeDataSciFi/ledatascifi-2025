@@ -944,26 +944,26 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">r2_score</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_config</span>
-<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>  <span class="c1"># display=&#39;text&#39; is the default</span>
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">"diagram"</span><span class="p">)</span>  <span class="c1"># display='text' is the default</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span>        <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true&#39;</span>
-<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span>        <span class="o">=</span> <span class="s1">'https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true'</span>
+<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">y</span>          <span class="o">=</span> <span class="n">fannie_mae</span><span class="o">.</span><span class="n">Original_Interest_Rate</span>
 
 <span class="c1"># reduce to a different set of vars than the prior pages the slow way</span>
-<span class="n">drop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Loan_Identifier&#39;</span><span class="p">,</span><span class="s1">&#39;Loan_purpose&#39;</span><span class="p">,</span><span class="s1">&#39;Origination_Channel&#39;</span><span class="p">,</span> <span class="s1">&#39;Seller_Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Property_type&#39;</span><span class="p">,</span> <span class="s1">&#39;Occupancy_type&#39;</span><span class="p">,</span>
-       <span class="s1">&#39;Zip_code_short&#39;</span><span class="p">,</span><span class="s1">&#39;Product_type&#39;</span><span class="p">,</span><span class="s1">&#39;Co-borrower_credit_score_at_origination&#39;</span><span class="p">,</span> <span class="s1">&#39;Mortgage_Insurance_type&#39;</span><span class="p">,</span>
-       <span class="s1">&#39;Origination_Date&#39;</span><span class="p">,</span> <span class="s1">&#39;First_payment_date&#39;</span><span class="p">,</span><span class="s1">&#39;Original_Interest_Rate&#39;</span><span class="p">,</span><span class="s1">&#39;UNRATE&#39;</span><span class="p">,</span> <span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">,</span> <span class="s1">&#39;Qdate&#39;</span><span class="p">,</span> <span class="s1">&#39;rGDP&#39;</span><span class="p">,</span> <span class="s1">&#39;TCMR&#39;</span><span class="p">,</span> <span class="s1">&#39;POILWTIUSDM&#39;</span><span class="p">,</span> <span class="s1">&#39;TTLCONS&#39;</span><span class="p">,</span>
-       <span class="s1">&#39;DEXUSEU&#39;</span><span class="p">,</span> <span class="s1">&#39;BOPGSTB&#39;</span><span class="p">,</span> <span class="s1">&#39;GOLDAMGBD228NLBM&#39;</span><span class="p">,</span> <span class="s1">&#39;CSUSHPISA&#39;</span><span class="p">,</span> <span class="s1">&#39;MSPUS&#39;</span><span class="p">,]</span>
+<span class="n">drop</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Loan_Identifier'</span><span class="p">,</span><span class="s1">'Loan_purpose'</span><span class="p">,</span><span class="s1">'Origination_Channel'</span><span class="p">,</span> <span class="s1">'Seller_Name'</span><span class="p">,</span> <span class="s1">'Property_type'</span><span class="p">,</span> <span class="s1">'Occupancy_type'</span><span class="p">,</span>
+       <span class="s1">'Zip_code_short'</span><span class="p">,</span><span class="s1">'Product_type'</span><span class="p">,</span><span class="s1">'Co-borrower_credit_score_at_origination'</span><span class="p">,</span> <span class="s1">'Mortgage_Insurance_type'</span><span class="p">,</span>
+       <span class="s1">'Origination_Date'</span><span class="p">,</span> <span class="s1">'First_payment_date'</span><span class="p">,</span><span class="s1">'Original_Interest_Rate'</span><span class="p">,</span><span class="s1">'UNRATE'</span><span class="p">,</span> <span class="s1">'CPIAUCSL'</span><span class="p">,</span> <span class="s1">'Qdate'</span><span class="p">,</span> <span class="s1">'rGDP'</span><span class="p">,</span> <span class="s1">'TCMR'</span><span class="p">,</span> <span class="s1">'POILWTIUSDM'</span><span class="p">,</span> <span class="s1">'TTLCONS'</span><span class="p">,</span>
+       <span class="s1">'DEXUSEU'</span><span class="p">,</span> <span class="s1">'BOPGSTB'</span><span class="p">,</span> <span class="s1">'GOLDAMGBD228NLBM'</span><span class="p">,</span> <span class="s1">'CSUSHPISA'</span><span class="p">,</span> <span class="s1">'MSPUS'</span><span class="p">,]</span>
 <span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">fannie_mae</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">drop</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">fannie_mae</span> <span class="o">=</span> <span class="p">(</span><span class="n">fannie_mae</span>
-              <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">]),</span>
-                      <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Original_LTV_(OLTV)&#39;</span><span class="p">]),</span>
+              <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">]),</span>
+                      <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Original_LTV_(OLTV)'</span><span class="p">]),</span>
                      <span class="p">)</span>
              <span class="p">)</span>
 
@@ -979,15 +979,15 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preproc_pipe</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>  
     <span class="p">[</span> <span class="c1"># new here: make_column_selector grabs all columns of a type</span>
-    <span class="p">(</span><span class="s2">&quot;num_impute&quot;</span><span class="p">,</span><span class="n">SimpleImputer</span><span class="p">(),</span> <span class="n">make_column_selector</span><span class="p">(</span><span class="n">dtype_include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)),</span>
-    <span class="p">(</span><span class="s2">&quot;cat_trans&quot;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;Property_state&#39;</span><span class="p">])</span>
+    <span class="p">(</span><span class="s2">"num_impute"</span><span class="p">,</span><span class="n">SimpleImputer</span><span class="p">(),</span> <span class="n">make_column_selector</span><span class="p">(</span><span class="n">dtype_include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">"cat_trans"</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">'first'</span><span class="p">),</span> <span class="p">[</span><span class="s1">'Property_state'</span><span class="p">])</span>
     <span class="p">]</span>
-    <span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="s1">&#39;drop&#39;</span> 
+    <span class="p">,</span> <span class="n">remainder</span> <span class="o">=</span> <span class="s1">'drop'</span> 
 <span class="p">)</span>
 
 <span class="n">ridge_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preproc_pipe</span><span class="p">,</span><span class="n">Ridge</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span>
                                               <span class="n">tol</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">))</span>
-<span class="c1"># A &quot;technical&quot; point on &quot;tol&quot; is hidden below</span>
+<span class="c1"># A "technical" point on "tol" is hidden below</span>
 </pre></div>
 </div>
 </div>
@@ -997,7 +997,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># it turns out that the tolerance setting matters a lot! </span>
 <span class="c1"># the default tolerance (1e-3) is not enough to allow the estimator to find improvements here</span>
 <span class="c1"># You can see this this way: run r2_score with tol 1e-3 and alpha 1, then alpha 100. </span>
-<span class="c1"># You&#39;ll get the same results indicating that alpha doesn&#39;t change the estimation when the </span>
+<span class="c1"># You'll get the same results indicating that alpha doesn't change the estimation when the </span>
 <span class="c1"># tolerance is weaker (1e-3 isnt as demanding as 1e-10)</span>
 </pre></div>
 </div>
@@ -1030,7 +1030,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge_pipe</span> <span class="c1"># Pipeline &quot;steps&quot; is a list of tuples: [(name,transformer),(name,transformer),...,(name,estimator)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ridge_pipe</span> <span class="c1"># Pipeline "steps" is a list of tuples: [(name,transformer),(name,transformer),...,(name,estimator)]</span>
 </pre></div>
 </div>
 </div>
@@ -1063,54 +1063,54 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;memory&#39;: None,
- &#39;steps&#39;: [(&#39;columntransformer&#39;,
-   ColumnTransformer(transformers=[(&#39;num_impute&#39;, SimpleImputer(),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'memory': None,
+ 'steps': [('columntransformer',
+   ColumnTransformer(transformers=[('num_impute', SimpleImputer(),
                                     &lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000024C8B6C7970&gt;),
-                                   (&#39;cat_trans&#39;, OneHotEncoder(drop=&#39;first&#39;),
-                                    [&#39;Property_state&#39;])])),
-  (&#39;ridge&#39;, Ridge(tol=1e-10))],
- &#39;verbose&#39;: False,
- &#39;columntransformer&#39;: ColumnTransformer(transformers=[(&#39;num_impute&#39;, SimpleImputer(),
+                                   ('cat_trans', OneHotEncoder(drop='first'),
+                                    ['Property_state'])])),
+  ('ridge', Ridge(tol=1e-10))],
+ 'verbose': False,
+ 'columntransformer': ColumnTransformer(transformers=[('num_impute', SimpleImputer(),
                                   &lt;sklearn.compose._column_transformer.make_column_selector object at 0x0000024C8B6C7970&gt;),
-                                 (&#39;cat_trans&#39;, OneHotEncoder(drop=&#39;first&#39;),
-                                  [&#39;Property_state&#39;])]),
- &#39;ridge&#39;: Ridge(tol=1e-10),
- &#39;columntransformer__n_jobs&#39;: None,
- &#39;columntransformer__remainder&#39;: &#39;drop&#39;,
- &#39;columntransformer__sparse_threshold&#39;: 0.3,
- &#39;columntransformer__transformer_weights&#39;: None,
- &#39;columntransformer__transformers&#39;: [(&#39;num_impute&#39;,
+                                 ('cat_trans', OneHotEncoder(drop='first'),
+                                  ['Property_state'])]),
+ 'ridge': Ridge(tol=1e-10),
+ 'columntransformer__n_jobs': None,
+ 'columntransformer__remainder': 'drop',
+ 'columntransformer__sparse_threshold': 0.3,
+ 'columntransformer__transformer_weights': None,
+ 'columntransformer__transformers': [('num_impute',
    SimpleImputer(),
    &lt;sklearn.compose._column_transformer.make_column_selector at 0x24c8b6c7970&gt;),
-  (&#39;cat_trans&#39;, OneHotEncoder(drop=&#39;first&#39;), [&#39;Property_state&#39;])],
- &#39;columntransformer__verbose&#39;: False,
- &#39;columntransformer__verbose_feature_names_out&#39;: True,
- &#39;columntransformer__num_impute&#39;: SimpleImputer(),
- &#39;columntransformer__cat_trans&#39;: OneHotEncoder(drop=&#39;first&#39;),
- &#39;columntransformer__num_impute__add_indicator&#39;: False,
- &#39;columntransformer__num_impute__copy&#39;: True,
- &#39;columntransformer__num_impute__fill_value&#39;: None,
- &#39;columntransformer__num_impute__keep_empty_features&#39;: False,
- &#39;columntransformer__num_impute__missing_values&#39;: nan,
- &#39;columntransformer__num_impute__strategy&#39;: &#39;mean&#39;,
- &#39;columntransformer__num_impute__verbose&#39;: &#39;deprecated&#39;,
- &#39;columntransformer__cat_trans__categories&#39;: &#39;auto&#39;,
- &#39;columntransformer__cat_trans__drop&#39;: &#39;first&#39;,
- &#39;columntransformer__cat_trans__dtype&#39;: numpy.float64,
- &#39;columntransformer__cat_trans__handle_unknown&#39;: &#39;error&#39;,
- &#39;columntransformer__cat_trans__max_categories&#39;: None,
- &#39;columntransformer__cat_trans__min_frequency&#39;: None,
- &#39;columntransformer__cat_trans__sparse&#39;: &#39;deprecated&#39;,
- &#39;columntransformer__cat_trans__sparse_output&#39;: True,
- &#39;ridge__alpha&#39;: 1.0,
- &#39;ridge__copy_X&#39;: True,
- &#39;ridge__fit_intercept&#39;: True,
- &#39;ridge__max_iter&#39;: None,
- &#39;ridge__positive&#39;: False,
- &#39;ridge__random_state&#39;: None,
- &#39;ridge__solver&#39;: &#39;auto&#39;,
- &#39;ridge__tol&#39;: 1e-10}
+  ('cat_trans', OneHotEncoder(drop='first'), ['Property_state'])],
+ 'columntransformer__verbose': False,
+ 'columntransformer__verbose_feature_names_out': True,
+ 'columntransformer__num_impute': SimpleImputer(),
+ 'columntransformer__cat_trans': OneHotEncoder(drop='first'),
+ 'columntransformer__num_impute__add_indicator': False,
+ 'columntransformer__num_impute__copy': True,
+ 'columntransformer__num_impute__fill_value': None,
+ 'columntransformer__num_impute__keep_empty_features': False,
+ 'columntransformer__num_impute__missing_values': nan,
+ 'columntransformer__num_impute__strategy': 'mean',
+ 'columntransformer__num_impute__verbose': 'deprecated',
+ 'columntransformer__cat_trans__categories': 'auto',
+ 'columntransformer__cat_trans__drop': 'first',
+ 'columntransformer__cat_trans__dtype': numpy.float64,
+ 'columntransformer__cat_trans__handle_unknown': 'error',
+ 'columntransformer__cat_trans__max_categories': None,
+ 'columntransformer__cat_trans__min_frequency': None,
+ 'columntransformer__cat_trans__sparse': 'deprecated',
+ 'columntransformer__cat_trans__sparse_output': True,
+ 'ridge__alpha': 1.0,
+ 'ridge__copy_X': True,
+ 'ridge__fit_intercept': True,
+ 'ridge__max_iter': None,
+ 'ridge__positive': False,
+ 'ridge__random_state': None,
+ 'ridge__solver': 'auto',
+ 'ridge__tol': 1e-10}
 </pre></div>
 </div>
 </div>
@@ -1160,9 +1160,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Set up your parameter grids (all of the parameters you would like to test). </span>
 
 <span class="n">alphas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">25</span><span class="p">))</span> <span class="c1"># cast net wide and sparse (only 25 points)</span>
-<span class="n">strats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;median&#39;</span><span class="p">]</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">:</span> <span class="n">alphas</span><span class="p">,</span>
-              <span class="s1">&#39;columntransformer__num_impute__strategy&#39;</span><span class="p">:</span><span class="n">strats</span>
+<span class="n">strats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'mean'</span><span class="p">,</span><span class="s1">'median'</span><span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'ridge__alpha'</span><span class="p">:</span> <span class="n">alphas</span><span class="p">,</span>
+              <span class="s1">'columntransformer__num_impute__strategy'</span><span class="p">:</span><span class="n">strats</span>
              <span class="p">}</span>
 
 <span class="c1"># 2. Set up GridSearchCV</span>
@@ -1177,22 +1177,22 @@ const thebe_selector_output = ".output, .cell_output"
                            
 <span class="c1"># 4. Examine the output</span>
 
-<span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;params&#39;</span><span class="p">)</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'params'</span><span class="p">)</span>
 <span class="c1"># extract alpha from the params variable</span>
-<span class="n">results_df</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">results_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-<span class="n">results_df</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
-<span class="n">results_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
-                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;CV score by alpha&#39;</span><span class="p">)</span>
+<span class="n">results_df</span><span class="p">[</span><span class="s1">'alpha'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">'ridge__alpha'</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">results_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'alpha'</span><span class="p">)</span>
+<span class="n">results_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'alpha'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'mean_test_score'</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">'line'</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">'CV score by alpha'</span><span class="p">)</span>
 
 <span class="c1"># 5. Save the best parameters</span>
 
-<span class="c1"># (It&#39;s not time - this graph below doesn&#39;t look optimized, go </span>
+<span class="c1"># (It's not time - this graph below doesn't look optimized, go </span>
 <span class="c1"># more to the left!)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: title={&#39;center&#39;: &#39;CV score by alpha&#39;}, xlabel=&#39;alpha&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: title={'center': 'CV score by alpha'}, xlabel='alpha'&gt;
 </pre></div>
 </div>
 <img alt="../../_images/04f_optimizing_a_model_15_1.png" src="../../_images/04f_optimizing_a_model_15_1.png" />
@@ -1210,9 +1210,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Set up your parameter grids (all of the parameters you would like to test). </span>
 
-<span class="n">strats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;median&#39;</span><span class="p">]</span>
-<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">:</span> <span class="n">alphas</span><span class="p">,</span>
-              <span class="s1">&#39;columntransformer__num_impute__strategy&#39;</span><span class="p">:</span><span class="n">strats</span>
+<span class="n">strats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'mean'</span><span class="p">,</span><span class="s1">'median'</span><span class="p">]</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'ridge__alpha'</span><span class="p">:</span> <span class="n">alphas</span><span class="p">,</span>
+              <span class="s1">'columntransformer__num_impute__strategy'</span><span class="p">:</span><span class="n">strats</span>
              <span class="p">}</span>
 
 <span class="c1"># 2. Set up GridSearchCV</span>
@@ -1227,13 +1227,13 @@ const thebe_selector_output = ".output, .cell_output"
                            
 <span class="c1"># 4. Save the best parameters</span>
 
-<span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;params&#39;</span><span class="p">)</span>
-<span class="n">results_df</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">results_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-<span class="n">results_df</span><span class="p">[</span><span class="s1">&#39;strat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;columntransformer__num_impute__strategy&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">results_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'params'</span><span class="p">)</span>
+<span class="n">results_df</span><span class="p">[</span><span class="s1">'alpha'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">'ridge__alpha'</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">results_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">results_df</span><span class="p">[</span><span class="s1">'strat'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="s1">'columntransformer__num_impute__strategy'</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">results_df</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
 
-<span class="n">results_df</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
-<span class="n">results_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;mean_test_score&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span>
-                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;CV score by alpha&#39;</span><span class="p">)</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">'alpha'</span><span class="p">)</span>
+<span class="n">results_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">'alpha'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'mean_test_score'</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">'line'</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">'CV score by alpha'</span><span class="p">)</span>
 
 <span class="c1"># 5. Save the best parameters</span>
 

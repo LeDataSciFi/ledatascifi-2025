@@ -1132,13 +1132,13 @@ Many variables - Examining correlations<div class="summary-down docutils">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">"iris"</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Faceting by repeating scatter plots for each pair of variables&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">'Faceting by repeating scatter plots for each pair of variables'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="c1"># Reduce plot to make room for the title</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1"># note: .set(title) doesn&#39;t work here - it tries to title the individual subfigures (axes)</span>
+<span class="c1"># note: .set(title) doesn't work here - it tries to title the individual subfigures (axes)</span>
 <span class="c1">#       to title the whole thing, I had to use suptitle. </span>
 </pre></div>
 </div>
@@ -1150,8 +1150,8 @@ Many variables - Examining correlations<div class="summary-down docutils">
 <p>This is the same, plus a <code class="docutils literal notranslate"><span class="pre">hue=&quot;species&quot;</span></code> parameter in the graph function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Faceting by overlaying figures by group&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">"species"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">'Faceting by overlaying figures by group'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span> <span class="c1"># Reduce plot to make room for the title </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1164,7 +1164,7 @@ Many variables - Examining correlations<div class="summary-down docutils">
 <p>Boxplot by group: Just use the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arguments together.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_width&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"species"</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">"petal_width"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1176,7 +1176,7 @@ Many variables - Examining correlations<div class="summary-down docutils">
 <p>An example of faceting via the <code class="docutils literal notranslate"><span class="pre">col</span></code> argument. Using <code class="docutils literal notranslate"><span class="pre">row</span></code> instead does what you’d think. Protip: You can use <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">col</span></code> together to make a grid of groups.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;petal_width&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'petal_width'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">"petal_length"</span><span class="p">,</span><span class="n">col</span><span class="o">=</span><span class="s2">"species"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1187,7 +1187,7 @@ Many variables - Examining correlations<div class="summary-down docutils">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;petal_width&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span><span class="n">row</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'petal_width'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">"petal_length"</span><span class="p">,</span><span class="n">row</span><span class="o">=</span><span class="s2">"species"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1198,7 +1198,7 @@ Many variables - Examining correlations<div class="summary-down docutils">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;petal_width&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;petal_length&quot;</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">iris</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'petal_width'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">"petal_length"</span><span class="p">,</span><span class="n">hue</span><span class="o">=</span><span class="s2">"species"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

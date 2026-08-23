@@ -1101,7 +1101,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>A <strong>very</strong> simplistic way<a class="headerlink" href="#a-very-simplistic-way" title="Permalink to this headline">¶</a></h3>
 <p>Build a <code class="docutils literal notranslate"><span class="pre">list</span></code> of models (each with its own optimized hyperparams). Then,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">...</span><span class="p">)[</span><span class="s1">&#39;test_score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">cross_validate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">...</span><span class="p">)[</span><span class="s1">'test_score'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>From this, you pick your favorite model!</p>

@@ -1013,9 +1013,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">cross_validate</span><span class="p">,</span> <span class="n">GridSearchCV</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_config</span>
-<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">&quot;diagram&quot;</span><span class="p">)</span>  <span class="c1"># display=&#39;text&#39; is the default</span>
+<span class="n">set_config</span><span class="p">(</span><span class="n">display</span><span class="o">=</span><span class="s2">"diagram"</span><span class="p">)</span>  <span class="c1"># display='text' is the default</span>
 
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">'display.max_colwidth'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="s1">'display.max_rows'</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'display.max_columns'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -1024,7 +1024,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h2>Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;inputs/2013_subsample.zip&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'inputs/2013_subsample.zip'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1048,12 +1048,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split to test and train (what we call the &quot;test&quot; subset here is the &quot;holdout&quot; data)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split to test and train (what we call the "test" subset here is the "holdout" data)</span>
 
-<span class="c1"># first let&#39;s separate y from X (as is typically done)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">loan_status</span> <span class="o">==</span> <span class="s1">&#39;Charged Off&#39;</span>
+<span class="c1"># first let's separate y from X (as is typically done)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">loan_status</span> <span class="o">==</span> <span class="s1">'Charged Off'</span>
 <span class="n">y</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-<span class="n">loans</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;loan_status&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">loans</span> <span class="o">=</span> <span class="n">loans</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'loan_status'</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># stratify will make sure that test/train both have equal fractions of outcome</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">loans</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1077,9 +1077,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from pandas_profiling import ProfileReport # now use ydata-profiling</span>
 <span class="c1"># </span>
 <span class="c1"># profile = ProfileReport(pd.concat([y_train, X_train], axis=1), </span>
-<span class="c1">#                         title=&#39;Lending Club Profiling Report&#39;,</span>
-<span class="c1">#                         html={&#39;style&#39;:{&#39;full_width&#39;:True}}) </span>
-<span class="c1"># profile.to_file(&quot;inputs/lending_club_EDA_training.html&quot;) # can take a minute or two with this dataset size. Let&#39;s look at the one I uploaded...</span>
+<span class="c1">#                         title='Lending Club Profiling Report',</span>
+<span class="c1">#                         html={'style':{'full_width':True}}) </span>
+<span class="c1"># profile.to_file("inputs/lending_club_EDA_training.html") # can take a minute or two with this dataset size. Let's look at the one I uploaded...</span>
 </pre></div>
 </div>
 </div>
@@ -1093,22 +1093,22 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up pipeline to clean each type of variable (1 pipe per var type)</span>
 
-<span class="n">numer_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+<span class="n">numer_pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">'mean'</span><span class="p">),</span>
                            <span class="n">StandardScaler</span><span class="p">())</span> 
 
-<span class="n">cat_pipe</span>   <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">))</span>
+<span class="n">cat_pipe</span>   <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s1">'first'</span><span class="p">))</span>
 
-<span class="c1"># combine those pipes into &quot;preprocess&quot; pipe</span>
+<span class="c1"># combine those pipes into "preprocess" pipe</span>
 
 <span class="n">preproc_pipe</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>  
     <span class="p">[</span> <span class="c1"># arg 1 of ColumnTransformer is a list, so this starts the list</span>
     <span class="c1"># a tuple for the numerical vars: name, pipe, which vars to apply to</span>
-    <span class="p">(</span><span class="s2">&quot;num_impute&quot;</span><span class="p">,</span> <span class="n">numer_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;annual_inc&#39;</span><span class="p">]),</span>
+    <span class="p">(</span><span class="s2">"num_impute"</span><span class="p">,</span> <span class="n">numer_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">'annual_inc'</span><span class="p">]),</span>
     <span class="c1"># a tuple for the categorical vars: name, pipe, which vars to apply to</span>
-    <span class="p">(</span><span class="s2">&quot;cat_trans&quot;</span><span class="p">,</span> <span class="n">cat_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;grade&#39;</span><span class="p">])</span>
+    <span class="p">(</span><span class="s2">"cat_trans"</span><span class="p">,</span> <span class="n">cat_pipe</span><span class="p">,</span> <span class="p">[</span><span class="s1">'grade'</span><span class="p">])</span>
     <span class="p">]</span>
-    <span class="p">,</span> <span class="c1"># ColumnTransformer can take other args, most important: &quot;remainder&quot;</span>
-    <span class="n">remainder</span> <span class="o">=</span> <span class="s1">&#39;drop&#39;</span> <span class="c1"># you either drop or passthrough any vars not modified above</span>
+    <span class="p">,</span> <span class="c1"># ColumnTransformer can take other args, most important: "remainder"</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="s1">'drop'</span> <span class="c1"># you either drop or passthrough any vars not modified above</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1124,7 +1124,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span><span class="w"> </span><span class="nn">df_after_transform</span><span class="w"> </span><span class="kn">import</span> <span class="n">df_after_transform</span>
 
 <span class="n">preproc_df</span> <span class="o">=</span> <span class="n">df_after_transform</span><span class="p">(</span><span class="n">preproc_pipe</span><span class="p">,</span><span class="n">X_train</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="n">preproc_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> columns in the preprocessed data.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'There are </span><span class="si">{</span><span class="n">preproc_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> columns in the preprocessed data.'</span><span class="p">)</span>
 <span class="n">preproc_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1154,14 +1154,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>To fit the model: <code class="docutils literal notranslate"><span class="pre">&lt;model&gt;.fit(X)</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create (&quot;instantiate&quot;) the estimator class with some hyperparameters,</span>
-<span class="c1"># note: the hypermeters are whatever is inside the &quot;()&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create ("instantiate") the estimator class with some hyperparameters,</span>
+<span class="c1"># note: the hypermeters are whatever is inside the "()"</span>
 <span class="c1"># assign this instance of the estimator to an object</span>
 <span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
 
 <span class="c1"># fit the model to the data: &lt;model&gt;.fit(X,y)</span>
-<span class="c1"># note: I&#39;m only using annual income here for illustration</span>
-<span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[[</span><span class="s1">&#39;annual_inc&#39;</span><span class="p">]],</span> 
+<span class="c1"># note: I'm only using annual income here for illustration</span>
+<span class="n">logit</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[[</span><span class="s1">'annual_inc'</span><span class="p">]],</span> 
           <span class="n">y_train</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -1171,12 +1171,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this creates predicted values </span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">[[</span><span class="s1">&#39;annual_inc&#39;</span><span class="p">]],)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">logit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">[[</span><span class="s1">'annual_inc'</span><span class="p">]],)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'''</span>
 <span class="s1">% predicted as charge offs: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y_pred</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span>
 <span class="s1">Accuracy:                   </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y_pred</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="s1">'''</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1219,10 +1219,10 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logit_pipe</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> 
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">logit_pipe</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'''</span>
 <span class="s1">% predicted as charge offs: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y_pred</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span>
 <span class="s1">Accuracy:                   </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">y_pred</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="s1">'''</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1233,7 +1233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">logit_pipe</span><span class="p">,</span>
                         <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>
-                        <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;recall&#39;</span><span class="p">)</span>
+                        <span class="n">scoring</span><span class="o">=</span><span class="s1">'recall'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1286,15 +1286,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>the <strong>values</strong> in the dict are the values for that hyperparameter you want to change</p></li>
 </ul>
 <p>For example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">'logisticregression__C'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]}</span>
 </pre></div>
 </div>
 <p>The reason I wrote the weird “<code class="docutils literal notranslate"><span class="pre">logisticregression__C</span></code>”, is because this will help <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> find the function and its parameter to change. This means that within the called “logisticregression” (followed by two underscores) there is a parameter called “C”.</p>
 <p>Similarly, within the “columntransformer” step, there is a “num_impute” step, which has a “simpleimputer” step, which is a function that has a parameter called “strategy”.</p>
 <p>Thus, if you want to try other strategies for filling blank numbers in, “<code class="docutils literal notranslate"><span class="pre">'columntransformer__num_impute__simpleimputer__strategy'</span></code>” is what you need.</p>
 <p>Thus:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
-              <span class="s1">&#39;columntransformer__num_impute__simpleimputer__strategy&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;median&#39;</span><span class="p">]}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">'logisticregression__C'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+              <span class="s1">'columntransformer__num_impute__simpleimputer__strategy'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'mean'</span><span class="p">,</span><span class="s1">'median'</span><span class="p">]}</span>
 </pre></div>
 </div>
 </div>
@@ -1311,8 +1311,8 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># a dictionary. keys are things to change in pipeline, values are what to try for that param</span>
 <span class="c1"># key: &lt;stepname&gt;__&lt;parametername&gt;</span>
 
-<span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;logisticregression__C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> 
-              <span class="s1">&#39;columntransformer__num_impute__simpleimputer__strategy&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;median&#39;</span><span class="p">]}</span>
+<span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">'logisticregression__C'</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> 
+              <span class="s1">'columntransformer__num_impute__simpleimputer__strategy'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'mean'</span><span class="p">,</span><span class="s1">'median'</span><span class="p">]}</span>
 
 <span class="c1">#     find optimal hyper params (gridsearchcv)</span>
 

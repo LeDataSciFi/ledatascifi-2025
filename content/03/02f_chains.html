@@ -979,7 +979,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1">#1. create account at data.world</span>
 <span class="c1">#2. in terminal/powershell: pip install datadotworld</span>
 <span class="c1">#</span>
-<span class="c1">#   IF THIS DOESN&#39;T WORK BC YOU GET AN ERROR ABOUT &quot;CCHARDET&quot;, RUN:</span>
+<span class="c1">#   IF THIS DOESN'T WORK BC YOU GET AN ERROR ABOUT "CCHARDET", RUN:</span>
 <span class="c1">#    conda install -c conda-forge cchardet</span>
 <span class="c1">#   THEN RERUN: pip install datadotworld[pandas] </span>
 <span class="c1">#</span>
@@ -992,8 +992,8 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
-<span class="n">baby_names</span> <span class="o">=</span> <span class="n">dw</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">&#39;nkrishnaswami/us-ssa-baby-names-national&#39;</span><span class="p">,</span><span class="n">auto_update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">baby_names</span> <span class="o">=</span> <span class="n">baby_names</span><span class="o">.</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">&#39;names_ranks_counts&#39;</span><span class="p">]</span>
+<span class="n">baby_names</span> <span class="o">=</span> <span class="n">dw</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s1">'nkrishnaswami/us-ssa-baby-names-national'</span><span class="p">,</span><span class="n">auto_update</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">baby_names</span> <span class="o">=</span> <span class="n">baby_names</span><span class="o">.</span><span class="n">dataframes</span><span class="p">[</span><span class="s1">'names_ranks_counts'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1012,40 +1012,40 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>save the dataset and then call a plot function</p></li>
 </ol>
 <div class="tabbed-set docutils">
-<input checked="checked" id="1f2a1b40-7cf8-466c-87e1-e44824f85ca7" name="e2a2c215-2612-4381-9a2a-9db0eb5174af" type="radio">
-</input><label class="tabbed-label" for="1f2a1b40-7cf8-466c-87e1-e44824f85ca7">
+<input checked="checked" id="4f833133-0ea8-475b-8441-054936c1d658" name="adc909d0-1777-47b6-a615-a591d26d9b11" type="radio">
+</input><label class="tabbed-label" for="4f833133-0ea8-475b-8441-054936c1d658">
 v0.1 Without chains</label><div class="tabbed-content docutils">
 <p>On one hand, this is only “4” lines of code. On the other hand, this is as readable as I could make it!</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># STEP 1: restrict by name and only keep years after 2000</span>
 
 <span class="n">somenames</span> <span class="o">=</span> <span class="n">baby_names</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span> <span class="c1"># formating inside this () is just to make it clearer to a reader</span>
-    <span class="p">(</span> <span class="c1"># condition 1: one of these names, | means &quot;or&quot;</span>
-        <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Sansa&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Daenerys&quot;</span><span class="p">)</span> <span class="o">|</span> 
-        <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Brienne&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Cersei&quot;</span><span class="p">)</span> <span class="o">|</span>
-        <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Tyrion&quot;</span><span class="p">)</span> 
+    <span class="p">(</span> <span class="c1"># condition 1: one of these names, | means "or"</span>
+        <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Sansa"</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Daenerys"</span><span class="p">)</span> <span class="o">|</span> 
+        <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Brienne"</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Cersei"</span><span class="p">)</span> <span class="o">|</span>
+        <span class="p">(</span><span class="n">baby_names</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"Tyrion"</span><span class="p">)</span> 
     <span class="p">)</span> <span class="c1"># end condition 1</span>
-    <span class="o">&amp;</span> <span class="c1"># &amp; means &quot;and&quot;</span>
+    <span class="o">&amp;</span> <span class="c1"># &amp; means "and"</span>
     <span class="p">(</span> <span class="c1"># condition 2: these years</span>
-        <span class="n">baby_names</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">2000</span><span class="p">)</span> <span class="c1"># end condition 2</span>
+        <span class="n">baby_names</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">2000</span><span class="p">)</span> <span class="c1"># end condition 2</span>
     <span class="p">)]</span>
 
 <span class="c1"># STEP 2: if a name is used by F and M in a given year, combine the count variable</span>
-    <span class="c1"># Q: why is there a &quot;reset_index&quot;? </span>
+    <span class="c1"># Q: why is there a "reset_index"? </span>
     <span class="c1"># A: groupby automatically turns the groups (here name and year) into the index</span>
     <span class="c1">#    reset_index makes the index simple integers 0, 1, 2 and also</span>
     <span class="c1">#    turns the the grouping variables back into normal columns</span>
     <span class="c1"># A2: instead of reset_index, you can include `as_index=False` inside groupby!</span>
     <span class="c1">#     (I just learned that myself!)</span>
-<span class="n">somenames_agg</span> <span class="o">=</span> <span class="n">somenames</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+<span class="n">somenames_agg</span> <span class="o">=</span> <span class="n">somenames</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])</span>
 
 <span class="c1"># STEP 3: plot</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">somenames_agg</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">somenames_agg</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">'name'</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
 </pre></div>
 </div>
 </div>
-<input id="6f561da0-360b-4805-bc6d-06c57b024f96" name="e2a2c215-2612-4381-9a2a-9db0eb5174af" type="radio">
-</input><label class="tabbed-label" for="6f561da0-360b-4805-bc6d-06c57b024f96">
+<input id="c906793b-9744-4da6-9750-e9c52c9bbc60" name="adc909d0-1777-47b6-a615-a591d26d9b11" type="radio">
+</input><label class="tabbed-label" for="c906793b-9744-4da6-9750-e9c52c9bbc60">
 v0.2 No chains but better</label><div class="tabbed-content docutils">
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1053,17 +1053,17 @@ v0.2 No chains but better</label><div class="tabbed-content docutils">
 </div>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># use query to filter, and the rest is the same</span>
 
-<span class="n">somenames</span> <span class="o">=</span> <span class="n">baby_names</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name in [&quot;Sansa&quot;,&quot;Daenerys&quot;,&quot;Brienne&quot;,&quot;Cersei&quot;,&quot;Tyrion&quot;] &amp; </span><span class="se">\</span>
-<span class="s1">         year &gt;= 2000&#39;</span><span class="p">)</span> <span class="c1"># this is one string with &#39; as the string start/end symbol. Inside, I can use </span>
+<span class="n">somenames</span> <span class="o">=</span> <span class="n">baby_names</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'name in ["Sansa","Daenerys","Brienne","Cersei","Tyrion"] &amp; </span><span class="se">\</span>
+<span class="s1">         year &gt;= 2000'</span><span class="p">)</span> <span class="c1"># this is one string with ' as the string start/end symbol. Inside, I can use </span>
                         <span class="c1"># normal quote marks for strings. Also, I can break it into multiple lines with \</span>
-<span class="n">somenames_agg</span> <span class="o">=</span> <span class="n">somenames</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">somenames_agg</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
+<span class="n">somenames_agg</span> <span class="o">=</span> <span class="n">somenames</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">somenames_agg</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">'name'</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
 </pre></div>
 </div>
 </div>
-<input id="a2d47c68-b64c-4649-b05c-64eb952e27f2" name="e2a2c215-2612-4381-9a2a-9db0eb5174af" type="radio">
-</input><label class="tabbed-label" for="a2d47c68-b64c-4649-b05c-64eb952e27f2">
+<input id="f8a5c2cc-9aa9-4280-85b9-c36ad01d65eb" name="adc909d0-1777-47b6-a615-a591d26d9b11" type="radio">
+</input><label class="tabbed-label" for="f8a5c2cc-9aa9-4280-85b9-c36ad01d65eb">
 v1.0 - Using chains instead</label><div class="tabbed-content docutils">
 <p><strong>Method chaining:</strong> Call the object (<code class="docutils literal notranslate"><span class="pre">baby_names</span></code>) and then keep calling one method on it after another.</p>
 <ul class="simple">
@@ -1087,13 +1087,13 @@ v1.0 - Using chains instead</label><div class="tabbed-content docutils">
 <p>YUCK!
 The code below is only 2 lines, and it produces a plot identical to V1 and V2, <strong>but it is unreadable. Don’t try - I’m about to make this readable!</strong> Just <em>one more</em> iteration…</p>
 </div>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">baby_names</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name in [&quot;Sansa&quot;,&quot;Daenerys&quot;,&quot;Brienne&quot;,&quot;Cersei&quot;,&quot;Tyrion&quot;] &amp; year &gt;= 2000&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="n">baby_names</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'name in ["Sansa","Daenerys","Brienne","Cersei","Tyrion"] &amp; year &gt;= 2000'</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="s1">'name'</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
 </pre></div>
 </div>
 </div>
-<input id="dcce269d-2925-4d50-ab71-b333fb4fb6a7" name="e2a2c215-2612-4381-9a2a-9db0eb5174af" type="radio">
-</input><label class="tabbed-label" for="dcce269d-2925-4d50-ab71-b333fb4fb6a7">
+<input id="41e84474-501e-4381-9fb4-4e782ea57cea" name="adc909d0-1777-47b6-a615-a591d26d9b11" type="radio">
+</input><label class="tabbed-label" for="41e84474-501e-4381-9fb4-4e782ea57cea">
 v1.1 Pretty Chains</label><div class="tabbed-content docutils">
 <p>To make this readable, we write a parentheses over multiple lines</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
@@ -1103,14 +1103,14 @@ v1.1 Pretty Chains</label><div class="tabbed-content docutils">
 </div>
 <p>And as a result, we can write a long series of methods that is comprehensible, and if we want we can even comment on each line:</p>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">baby_names</span>
-    <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name in [&quot;Sansa&quot;,&quot;Daenerys&quot;,&quot;Brienne&quot;,&quot;Cersei&quot;,&quot;Tyrion&quot;] &amp; </span><span class="se">\</span>
-<span class="s1">         year &gt;= 2000&#39;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># for each name-year, combine M and F counts</span>
+    <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'name in ["Sansa","Daenerys","Brienne","Cersei","Tyrion"] &amp; </span><span class="se">\</span>
+<span class="s1">         year &gt;= 2000'</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># for each name-year, combine M and F counts</span>
     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> <span class="c1"># give us the column names back as they were (makes the plot call easy)</span>
-    <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="s1">'name'</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">)</span>
 <span class="p">)</span>    
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;WOW THAT WAS EASY TO WRITE AND SHARE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"WOW THAT WAS EASY TO WRITE AND SHARE"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1135,14 +1135,14 @@ v1.1 Pretty Chains</label><div class="tabbed-content docutils">
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">baby_names</span>
-      <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name in [&quot;Khaleesi&quot;,&quot;Ramsay&quot;,&quot;Lyanna&quot;,&quot;Ellaria&quot;,&quot;Meera&quot;] &amp; </span><span class="se">\</span>
-<span class="s1">         year &gt;= 2000&#39;</span><span class="p">)</span>
-      <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># for each name-year, combine M and F counts</span>
+      <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'name in ["Khaleesi","Ramsay","Lyanna","Ellaria","Meera"] &amp; </span><span class="se">\</span>
+<span class="s1">         year &gt;= 2000'</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># for each name-year, combine M and F counts</span>
       <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> <span class="c1"># give use the column names back as they were (makes the plot call easy)</span>
-      <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="s1">'name'</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">)</span>
 <span class="p">)</span>    
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;PEOPLE NAMED THEIR KID KHALEESI&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">2011</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span> <span class="c1"># add a line for when the show debuted</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"PEOPLE NAMED THEIR KID KHALEESI"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1155,12 +1155,12 @@ v1.1 Pretty Chains</label><div class="tabbed-content docutils">
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">baby_names</span>
-      <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;name in [&quot;Krymson&quot;] &amp; year &gt;= 1950&#39;</span><span class="p">)</span>
-      <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">])[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># for each name-year, combine M and F counts</span>
+      <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'name in ["Krymson"] &amp; year &gt;= 1950'</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'name'</span><span class="p">,</span><span class="s1">'year'</span><span class="p">])[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="c1"># for each name-year, combine M and F counts</span>
       <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> <span class="c1"># give use the column names back as they were (makes the plot call easy)</span>
-      <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+      <span class="o">.</span><span class="n">pipe</span><span class="p">((</span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">),</span><span class="n">hue</span><span class="o">=</span><span class="s1">'name'</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'year'</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'count'</span><span class="p">)</span>
 <span class="p">)</span>    
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Alabama, wow...Krymson, really?&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Alabama, wow...Krymson, really?"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>

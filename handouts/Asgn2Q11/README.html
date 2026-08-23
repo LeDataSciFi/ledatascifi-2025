@@ -881,7 +881,7 @@ There are two fixes.</p>
 <li><p>Put <code class="docutils literal notranslate"><span class="pre">stock_prices_AFTERWRANGLING.csv</span></code> (in this folder) into your assignment repository folder. (Don’t gitignore it!)</p></li>
 <li><p>Then replace the 3 blocks of code I gave you in the assignment with this:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">backup_plan</span> <span class="o">=</span> <span class="s1">&#39;stock_prices_AFTERWRANGLING.csv&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">backup_plan</span> <span class="o">=</span> <span class="s1">'stock_prices_AFTERWRANGLING.csv'</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span> 
 
@@ -894,7 +894,7 @@ There are two fixes.</p>
     <span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">yfinance</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">yf</span>
 
-    <span class="n">stocks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;subsample_tickers.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;tic&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">stocks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'subsample_tickers.csv'</span><span class="p">)[</span><span class="s1">'tic'</span><span class="p">]</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
     <span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 
@@ -903,22 +903,22 @@ There are two fixes.</p>
 
 
     <span class="c1"># stock_prices.index = stock_prices.index.tz_localize(None)        # change yf date format to match pdr</span>
-    <span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">)</span>               <span class="c1"># reduce to just columns with this in the name</span>
+    <span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">like</span><span class="o">=</span><span class="s1">'Adj Close'</span><span class="p">)</span>               <span class="c1"># reduce to just columns with this in the name</span>
     <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># tickers as col names, works no matter order of tics</span>
 
     <span class="n">stock_prices</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Firm&#39;</span><span class="p">,</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span>
+    <span class="n">stock_prices</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Firm'</span><span class="p">,</span><span class="s1">'Date'</span><span class="p">,</span><span class="s1">'Adj Close'</span><span class="p">]</span>
 
     <span class="n">stock_prices</span>
     
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Downloaded returns for&#39;</span><span class="p">,</span> <span class="n">stock_prices</span><span class="p">[</span><span class="s1">&#39;Firm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span><span class="s1">&#39;firms&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Downloaded returns for'</span><span class="p">,</span> <span class="n">stock_prices</span><span class="p">[</span><span class="s1">'Firm'</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span><span class="s1">'firms'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'---'</span><span class="p">)</span>
 
-    <span class="n">stock_prices</span><span class="p">[</span><span class="s1">&#39;ret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Firm&#39;</span><span class="p">)[</span><span class="s1">&#39;Adj Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
+    <span class="n">stock_prices</span><span class="p">[</span><span class="s1">'ret'</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock_prices</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Firm'</span><span class="p">)[</span><span class="s1">'Adj Close'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">()</span>
     <span class="n">stock_prices</span>    
     
     <span class="c1"># prof made one version for all students:</span>
-    <span class="c1">#stock_prices.to_csv(&#39;stock_prices_AFTERWRANGLING.csv&#39;, index=False)</span>
+    <span class="c1">#stock_prices.to_csv('stock_prices_AFTERWRANGLING.csv', index=False)</span>
     
 <span class="n">display</span><span class="p">(</span><span class="n">stock_prices</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 <span class="n">stock_prices</span>    

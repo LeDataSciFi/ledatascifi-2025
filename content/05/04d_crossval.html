@@ -966,12 +966,12 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ridge</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
-<span class="n">url</span>        <span class="o">=</span> <span class="s1">&#39;https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true&#39;</span>
-<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">&#39;gzip&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">url</span>        <span class="o">=</span> <span class="s1">'https://github.com/LeDataSciFi/data/blob/main/Fannie%20Mae/Fannie_Mae_Plus_Data.gzip?raw=true'</span>
+<span class="n">fannie_mae</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">compression</span><span class="o">=</span><span class="s1">'gzip'</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">y</span>          <span class="o">=</span> <span class="n">fannie_mae</span><span class="o">.</span><span class="n">Original_Interest_Rate</span>
 <span class="n">fannie_mae</span> <span class="o">=</span> <span class="p">(</span><span class="n">fannie_mae</span>
-                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Borrower_Credit_Score_at_Origination&#39;</span><span class="p">]),</span>
-                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">&#39;Original_LTV_(OLTV)&#39;</span><span class="p">]),</span>
+                  <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">l_credscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Borrower_Credit_Score_at_Origination'</span><span class="p">]),</span>
+                          <span class="n">l_LTV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">fannie_mae</span><span class="p">[</span><span class="s1">'Original_LTV_(OLTV)'</span><span class="p">]),</span>
                          <span class="p">)</span>
               <span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">11</span><span class="p">:]</span> <span class="c1"># limit to these vars for the sake of this example</span>
              <span class="p">)</span>
@@ -1008,7 +1008,7 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 <p class="card-text">A question to ponder, in class perhaps…</p>
 </div>
 </details><p class="card-text">If you want to use any other CV iterators to divide up your sample, you can. Here is one:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace &quot;GroupShuffleSplit&quot; with your CV of choice,</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace "GroupShuffleSplit" with your CV of choice,</span>
 <span class="c1"># and update the contents of split() as needed.</span>
 
 <span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
@@ -1020,8 +1020,8 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 <p class="card-text">You don’t even need to use a built-in CV method to create your holdout data. Here is a simple approach that works in many settings:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># test on the last year of data</span>
 
-<span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> 
-                      <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+<span class="n">train_idx</span><span class="p">,</span> <span class="n">test_idx</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">&lt;</span><span class="n">X</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> 
+                      <span class="n">X</span><span class="p">[</span><span class="n">X</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_idx</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_idx</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -1063,14 +1063,14 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 <span class="n">ridge</span> <span class="o">=</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>               <span class="c1"># set up model/estimator</span>
 <span class="n">cross_validate</span><span class="p">(</span><span class="n">ridge</span><span class="p">,</span>
                <span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> 
-               <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>           <span class="c1"># tell it the scoring method here</span>
+               <span class="n">scoring</span><span class="o">=</span><span class="s1">'r2'</span><span class="p">)</span>           <span class="c1"># tell it the scoring method here</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.0181005, 0.       , 0.       , 0.       , 0.       ]),
- &#39;score_time&#39;: array([0.        , 0.01563931, 0.        , 0.        , 0.        ]),
- &#39;test_score&#39;: array([0.90789446, 0.89926394, 0.900032  , 0.90479828, 0.90327986])}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'fit_time': array([0.0181005, 0.       , 0.       , 0.       , 0.       ]),
+ 'score_time': array([0.        , 0.01563931, 0.        , 0.        , 0.        ]),
+ 'test_score': array([0.90789446, 0.89926394, 0.900032  , 0.90479828, 0.90327986])}
 </pre></div>
 </div>
 </div>
@@ -1082,9 +1082,9 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 <p>And we can output test score statistics like:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">ridge</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;r2&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s2">&quot;test_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>  <span class="c1"># scores is just a dictionary</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s2">&quot;test_score&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="n">cross_validate</span><span class="p">(</span><span class="n">ridge</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">"r2"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s2">"test_score"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>  <span class="c1"># scores is just a dictionary</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="s2">"test_score"</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1136,7 +1136,7 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 
 <span class="n">cross_validate</span><span class="p">(</span><span class="n">ridge</span><span class="p">,</span>
                <span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">cv_custom</span><span class="p">,</span> 
-               <span class="n">scoring</span><span class="o">=</span><span class="s1">&#39;r2&#39;</span><span class="p">)</span>  
+               <span class="n">scoring</span><span class="o">=</span><span class="s1">'r2'</span><span class="p">)</span>  
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">cv_custom</span></code> is a list (lists are an “iterable” object) with 3 elements, so our cross validation will have 3 folds.</p>
@@ -1165,13 +1165,13 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 </div>
 <p>One procedure to do rolling OOS testing was introduced <a class="reference internal" href="03c1_OOS.html"><span class="doc std std-doc">on this page</span></a>, and I copied it here in the sidebar. It’s a common choice that works well in many settings. It works when you have many firms or units (whether each unit has one or multiple observations per year), or even with a single time series!<a class="footnote-reference brackets" href="#oneseries" id="id1">1</a> And it can be adjusted to other units of time (monthly, weekly, decades), or only every few units of time.</p>
 <p>The code below implements it and can be used with appropriate adjustments for your setting.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># adjust the inside of &quot;groupby()&quot; to your df/problem, pick other parameters</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># adjust the inside of "groupby()" to your df/problem, pick other parameters</span>
 
-<span class="n">time_groups</span>               <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span> 
+<span class="n">time_groups</span>               <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s1">'DATE'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span> 
 <span class="n">min_periods_in_train</span>      <span class="o">=</span> <span class="mi">5</span>
 <span class="n">training_expanding_window</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="c1"># shouldn&#39;t need to adjust this code: </span>
+<span class="c1"># shouldn't need to adjust this code: </span>
 
 <span class="n">sorted_groups</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">time_groups</span><span class="o">.</span><span class="n">items</span><span class="p">())]</span>
 
@@ -1212,10 +1212,10 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;year&#39;</span><span class="p">:[</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2003</span><span class="p">,</span><span class="mi">2004</span><span class="p">,</span><span class="mi">2004</span><span class="p">,</span><span class="mi">2006</span><span class="p">],</span>
-                   <span class="s1">&#39;firm&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
-                   <span class="s1">&#39;X&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
-                   <span class="s1">&#39;y&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'year'</span><span class="p">:[</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2001</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2002</span><span class="p">,</span><span class="mi">2003</span><span class="p">,</span><span class="mi">2004</span><span class="p">,</span><span class="mi">2004</span><span class="p">,</span><span class="mi">2006</span><span class="p">],</span>
+                   <span class="s1">'firm'</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span>
+                   <span class="s1">'X'</span><span class="p">:</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
+                   <span class="s1">'y'</span><span class="p">:</span>   <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
                   <span class="p">})</span>
 <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
@@ -1328,7 +1328,7 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mlxtend.evaluate.time_series</span><span class="w"> </span><span class="kn">import</span> <span class="n">GroupTimeSeriesSplit</span><span class="p">,</span> <span class="n">plot_splits</span>
-<span class="n">cv_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;test_size&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;n_splits&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;window_type&#39;</span><span class="p">:</span><span class="s1">&#39;expanding&#39;</span><span class="p">}</span>
+<span class="n">cv_args</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'test_size'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'n_splits'</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">'window_type'</span><span class="p">:</span><span class="s1">'expanding'</span><span class="p">}</span>
 <span class="n">plot_splits</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="o">**</span><span class="n">cv_args</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1350,14 +1350,14 @@ Q: Does this Fannie Mae data need special attention to how we divide it up?<div 
 
 <span class="n">cv</span>      <span class="o">=</span> <span class="n">GroupTimeSeriesSplit</span><span class="p">(</span><span class="n">test_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
                                <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
-                               <span class="n">window_type</span><span class="o">=</span><span class="s1">&#39;expanding&#39;</span><span class="p">)</span> <span class="c1"># set up fold method</span>
-<span class="n">clf</span>     <span class="o">=</span> <span class="n">DummyClassifier</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;most_frequent&quot;</span><span class="p">)</span>     <span class="c1"># set up model/estimator</span>
+                               <span class="n">window_type</span><span class="o">=</span><span class="s1">'expanding'</span><span class="p">)</span> <span class="c1"># set up fold method</span>
+<span class="n">clf</span>     <span class="o">=</span> <span class="n">DummyClassifier</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">"most_frequent"</span><span class="p">)</span>     <span class="c1"># set up model/estimator</span>
 
 <span class="n">cross_validate</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span>
                <span class="n">df</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="p">,</span>
                <span class="n">cv</span><span class="o">=</span><span class="n">cv</span><span class="p">,</span>
                <span class="n">groups</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> 
-               <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;accuracy&quot;</span><span class="p">)[</span><span class="s2">&quot;test_score&quot;</span><span class="p">]</span>        <span class="c1"># for this page, just print results</span>
+               <span class="n">scoring</span><span class="o">=</span><span class="s2">"accuracy"</span><span class="p">)[</span><span class="s2">"test_score"</span><span class="p">]</span>        <span class="c1"># for this page, just print results</span>
 </pre></div>
 </div>
 </div>
